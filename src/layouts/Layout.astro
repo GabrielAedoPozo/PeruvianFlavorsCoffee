@@ -1,22 +1,57 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import '@fontsource/quicksand/300.css';
+import '@fontsource/quicksand/400.css';
+import '@fontsource/quicksand/500.css';
+import '@fontsource/quicksand/600.css';
+---
 
-<style>
-	html,
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Peruvian Flavors Coffee</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <Header />
+
+      <main>
+		<slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+
+  <style>
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Quicksand', sans-serif;
+		min-height: 100vh;
+		background-color: #180f0f;  /* Cambiado para coincidir con el tema oscuro */
 	}
-</style>
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		/* height: 200vh; <- Eliminado para permitir que el contenido fluya naturalmente */
+		background-color: #180f0f;  /* Cambiado para coincidir con el tema oscuro */
+	}
+
+	main {
+		flex: 1;
+		position: relative;
+	}
+  </style>
+</html>
+
+

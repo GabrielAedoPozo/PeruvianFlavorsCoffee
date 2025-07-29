@@ -1,0 +1,32 @@
+---
+import "../styles/header.css";
+---
+
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="/">
+                <img src="/logo.png" alt="Peruvian Flavors" />
+            </a>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" class="nav-link">Inicio</a>
+            <a href="/productos" class="nav-link">Productos</a>
+            <a href="/nosotros" class="nav-link">Nosotros</a>
+            <a href="/contacto" class="nav-link">Contacto</a>
+        </div>
+
+
+    </nav>
+</header>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle?.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks?.classList.toggle('active');
+    });
+</script>

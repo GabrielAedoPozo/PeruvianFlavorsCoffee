@@ -22,50 +22,132 @@ import '../styles/hero.css';
     <h1 class="section-title">Nuestros Productos</h1>
     <div class="productos">
         <div class="producto-card">
-            <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco">
+            <div class="producto-image">
+                <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco">
+                <span class="badge">Premium</span>
+            </div>
             <div class="producto-info">
                 <h3>Café Cusco Premium</h3>
-                <p>Notas de chocolate negro y caramelo</p>
-                <span class="badge">Edición Especial</span>
+                <p class="description">Notas de chocolate negro y caramelo, cultivado a más de 2,000 metros de altura.</p>
+                <div class="producto-details">
+                    <div class="origen">
+                        <span class="label">Origen:</span>
+                        <span>Valle Sagrado, Cusco</span>
+                    </div>
+                    <div class="intensidad">
+                        <span class="label">Intensidad:</span>
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">
+                        <span class="monto">S/. 45.00</span>
+                        <span class="peso">250g</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="producto-card">
-            <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca">
-            <div class="producto-info">
-                <h3>Café Cajamarca</h3>
-                <p>Aroma frutal con toques cítricos</p>
+            <div class="producto-image">
+                <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca">
                 <span class="badge">Orgánico</span>
             </div>
-        </div>
-        <div class="producto-card">
-            <img src="/PeruvianFlavorsCoffee/oxapampa.png" alt="Café Oxapampa">
             <div class="producto-info">
-                <h3>Café Oxapampa</h3>
-                <p>Suave con notas florales</p>
-                <span class="badge">Origen Único</span>
+                <h3>Café Cajamarca</h3>
+                <p class="description">Aroma frutal con toques cítricos, cultivado en las tierras altas de Cajamarca.</p>
+                <div class="producto-details">
+                    <div class="origen">
+                        <span class="label">Origen:</span>
+                        <span>Cajamarca</span>
+                    </div>
+                    <div class="intensidad">
+                        <span class="label">Intensidad:</span>
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">
+                        <span class="monto">S/. 40.00</span>
+                        <span class="peso">250g</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="productos-info">
-        <div class="info-card">
-            <i class="fas fa-medal"></i>
-            <h4>Calidad Premium</h4>
-            <p>Granos seleccionados de altura</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-leaf"></i>
-            <h4>100% Orgánico</h4>
-            <p>Cultivo sostenible y responsable</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-truck"></i>
-            <h4>Envío Nacional</h4>
-            <p>A todo el Perú</p>
+        <div class="producto-card">
+            <div class="producto-image">
+                <img src="/PeruvianFlavorsCoffee/oxapampa.png" alt="Café Oxapampa">
+                <span class="badge">Origen Único</span>
+            </div>
+            <div class="producto-info">
+                <h3>Café Oxapampa</h3>
+                <p class="description">Suave con notas florales, proveniente de la selva alta peruana.</p>
+                <div class="producto-details">
+                    <div class="origen">
+                        <span class="label">Origen:</span>
+                        <span>Oxapampa</span>
+                    </div>
+                    <div class="intensidad">
+                        <span class="label">Intensidad:</span>
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">
+                        <span class="monto">S/. 50.00</span>
+                        <span class="peso">250g</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <section class="about-section">
-    <h1 class="section-title">Sobre Nosotros</h1>
-
+    <div class="about-content">
+        <div class="about-text">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="about-description">
+                En Peruvian Flavors Coffee, llevamos más de una década seleccionando los mejores granos de café de las alturas de los Andes peruanos. Trabajamos directamente con agricultores locales que han perfeccionado el arte del cultivo de café durante generaciones.
+            </p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">2,100+</span>
+                    <span class="stat-label">Metros sobre el nivel del mar</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Años de experiencia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Orgánico</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <div class="image-grid">
+                <img src="" alt="Agricultor de café" class="main-img">
+                <img src="" alt="Proceso de café" class="secondary-img">
+                <div class="pattern-overlay"></div>
+            </div>
+        </div>
+    </div>
 </section>

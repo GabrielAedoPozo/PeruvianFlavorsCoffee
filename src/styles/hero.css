@@ -108,10 +108,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.productos img:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(240, 192, 64, 0.2);
-}
+
 
 .section-title {
     font-size: 3.5rem;  /* Aumentado de 3.5rem a 4.5rem */
@@ -130,6 +127,10 @@
     position: relative;
 }
 
+.producto-card:hover{
+    transform: scale(1.05);
+}
+
 .producto-image {
     position: relative;
     overflow: hidden;
@@ -141,9 +142,6 @@
     transition: transform 0.3s ease;
 }
 
-.producto-card:hover .producto-image img {
-    transform: scale(1.05);
-}
 
 .badge {
     position: absolute;
@@ -237,12 +235,17 @@
     font-size: 0.8rem;
 }
 
+.a-buy a{
+    color: #8d6a0a;
+}
+
 .about-section {
     min-height: auto;
-    background: linear-gradient(to bottom, #180f0f, #1d1109);
+    background: linear-gradient(to bottom, #180f0f 0%, #1d1109 100%);
     padding: 6rem 2rem;
     position: relative;
     overflow: hidden;
+    margin-bottom: -1px; /* Elimina el espacio entre secciones */
 }
 
 .about-content {
@@ -336,6 +339,99 @@
     z-index: 0;
 }
 
+.blog-section {
+    min-height: 60vh;
+    background: linear-gradient(to bottom, #1d1109 0%, #1d1109 100%);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: -1px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-section img{
+    border-radius: 10px;
+}
+
+
+.contact-section {
+    min-height: 60vh;
+    background: #1d1109;
+    
+    margin-top: -1px;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-info span:hover {
+    transform: translateY(-5px);
+    background: rgba(240, 192, 64, 0.1);
+}
+
+.contact-info i {
+    color: #f0c040;
+    font-size: 1.5rem;
+}
+
+.contact-info span{
+    color: wheat;
+}
+
+.social-media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-media a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-media i {
+    color: #f0c040;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover {
+    background: rgba(240, 192, 64, 0.1);
+    transform: translateY(-5px);
+}
+
+.social-media a:hover i {
+    transform: scale(1.1);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -399,6 +495,28 @@
     .producto-card {
         margin: 0 auto;
         max-width: 100%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-info span {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .social-media {
+        gap: 1.5rem;
+    }
+
+    .social-media a {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-media i {
+        font-size: 1.5rem;
     }
 }
 

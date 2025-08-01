@@ -18,9 +18,10 @@
 }
 
 .nav-brand img {
-    height: 60px;
-    width: auto;
+    height: 67px;
 }
+
+
 
 .nav-links {
     display: flex;
@@ -78,9 +79,6 @@
 }
 
 @media (max-width: 768px) {
-    .nav-brand img {
-        height: 50px;
-    }
 
     .nav-links {
         width: 100%;
@@ -99,25 +97,22 @@
         padding: 0.6rem 1rem;
     }
 
-    .nav-brand img {
-        height: 40px;
-    }
+
 
     .nav-link {
         font-size: 1rem;
         padding: 0.6rem 0;
     }
-}
+
     .navbar {
         padding: 1rem;
     }
 
-    .nav-brand img {
-        height: 30px;
-    }
+
 
     .btn-login {
         padding: 0.4rem 1rem;
         font-size: 0.9rem;
     }
 
+}

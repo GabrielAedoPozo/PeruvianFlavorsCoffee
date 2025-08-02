@@ -2,14 +2,14 @@
 import '../styles/hero.css';
 ---
 
-<section class="hero">
+<section id="hero">
     <div class="content">
         <div class="hero-text">
             <h1>Peruvian Flavors Coffee,<br> El mejor café artesanal <br>del Perú.</h1>
             <p class="subtitle">Descubre el auténtico sabor de los Andes en cada taza</p>
 
             <div class="cta-buttons">
-                <button class="btn-primary">Explorar Productos</button>
+                <a href="#products"><button class="btn-primary">Explorar Productos</button></a>
                 <button class="btn-secondary">Nuestra Historia</button>
             </div>
         </div>
@@ -18,7 +18,7 @@ import '../styles/hero.css';
 
 </section>
 
-<section class="products-section">
+<section id="products" class="products-section">
     <h1 class="section-title">Nuestros Productos</h1>
     <div class="productos">
         <div class="producto-card">
@@ -132,7 +132,7 @@ import '../styles/hero.css';
     </div>
 </section>
 
-<section class="about-section">
+<section id="about" class="about-section">
     <div class="about-content">
         <div class="about-text">
             <h2 class="section-title">Sobre Nosotros</h2>
@@ -164,25 +164,40 @@ import '../styles/hero.css';
     </div>
 </section>
 
-<section class="blog-section">
+<section id="blog" class="blog-section">
     <h1 class="section-title">Nuestro Blog</h1>
-    <div class="img-blog">
-        <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1">
+    <div class="blog-slider">
+        <button class="slider-arrow prev">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="img-blog">
+            <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1">
+        </div>
+        <button class="slider-arrow next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 </section>
 
-<section class="contact-section">
+<section id="contact" class="contact-section">
     <h1 class="section-title">Contacto</h1>
+    
+    <div class="contact-container">
+        <div class="contact-content">
+            <p class="about-description">Estamos aquí para atenderte y resolver todas tus dudas sobre nuestros productos.</p>
+            
+            <div class="contact-info">
+                <span><i class="fa-solid fa-envelope"></i> contacto@peruvianflavors.com</span>
+                <span><i class="fa-solid fa-phone"></i> +51 123 456 789</span>
+                <span><i class="fa-solid fa-clock"></i> Lun - Sáb: 9:00 - 18:00</span>
+                <span><i class="fa-solid fa-location-dot"></i> Lima, Perú</span>
+            </div>
 
-    <p class="about-description">Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto con nosotros.</p>
-
-    <div class="contact-info">
-        <span><i class="fa-solid fa-envelope"></i> contacto@peruvianflavors.com</span>
-        <span><i class="fa-solid fa-phone"></i> +51 123 456 789</span>
-    </div>
-
-    <div class="social-media">
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <div class="social-media">
+                <a href="https://www.facebook.com/PeruvianFlavorsCoffee/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/peruvian_flavors_coffee/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
     </div>
 </section>

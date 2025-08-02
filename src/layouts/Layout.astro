@@ -29,15 +29,34 @@ import '@fontsource/quicksand/600.css';
     </div>
   </body>
 
-  <style>
+  <style is:global>
     :root {
       --max-width: 1200px;
       --padding-x: 2rem;
+      --padding-y: 4rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     @media (max-width: 768px) {
       :root {
+        --padding-x: 1.5rem;
+        --padding-y: 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
         --padding-x: 1rem;
+        --padding-y: 2rem;
       }
     }
 

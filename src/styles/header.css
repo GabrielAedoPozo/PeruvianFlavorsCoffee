@@ -79,40 +79,38 @@
 }
 
 @media (max-width: 768px) {
-
     .nav-links {
-        width: 100%;
-        text-align: center;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(24, 15, 15, 0.98);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
-    .nav-link {
-        font-size: 1.1rem;
-        padding: 0.8rem 0;
-        width: 100%;
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-brand img {
+        height: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    .navbar {
-        padding: 0.6rem 1rem;
-    }
-
-
-
-    .nav-link {
-        font-size: 1rem;
-        padding: 0.6rem 0;
+    .nav-brand img {
+        height: 45px;
     }
 
     .navbar {
-        padding: 1rem;
+        padding: 0.8rem var(--padding-x);
     }
-
-
-
-    .btn-login {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
-    }
-
 }

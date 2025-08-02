@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <div class="producto-detalle">
+        <div class="producto-contenido">
+            <div class="producto-imagenes">
+                <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco" class="imagen-principal">
+                <div class="producto-galeria">
+                    <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Detalle 1">
+                    <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Detalle 2">
+                    <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Detalle 3">
+                </div>
+            </div>
+            <div class="producto-info">
+                <span class="badge">Premium</span>
+                <h1>Café Cusco Premium</h1>
+                <p class="descripcion">
+                    Notas de chocolate negro y caramelo, cultivado a más de 2,000 metros de altura en el Valle Sagrado.
+                    Este café premium representa la excelencia de los Andes peruanos.
+                </p>
+                <div class="detalles">
+                    <div class="origen">
+                        <span class="label">Origen:</span>
+                        <span>Valle Sagrado, Cusco</span>
+                    </div>
+                    <div class="intensidad">
+                        <span class="label">Intensidad:</span>
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="precio">
+                    <span class="monto">S/. 45.00</span>
+                    <span class="peso">250g</span>
+                </div>
+                <div class="acciones">
+                    <div class="cantidad">
+                        <button class="btn-qty">-</button>
+                        <input type="number" value="1" min="1">
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-comprar">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .producto-detalle {
+        padding: 120px 2rem 4rem;
+        background: #180f0f;
+        min-height: 100vh;
+    }
+
+    .producto-contenido {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        color: #fff;
+    }
+
+    .producto-imagenes {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .imagen-principal {
+        width: 100%;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.03);
+        padding: 2rem;
+    }
+
+    .producto-galeria {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .producto-galeria img {
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .badge {
+        background: #f0c040;
+        color: #180f0f;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 1rem 0;
+        background: linear-gradient(to right, #3b1205, #ff7e5f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .descripcion {
+        color: #d4d4d4;
+        line-height: 1.6;
+        margin: 1.5rem 0;
+    }
+
+    .detalles {
+        background: rgba(0,0,0,0.2);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+    }
+
+    .dots {
+        display: flex;
+        gap: 4px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(240,192,64,0.2);
+    }
+
+    .dot.active {
+        background: #f0c040;
+    }
+
+    .acciones {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .cantidad {
+        display: flex;
+        align-items: center;
+        background: rgba(255,255,255,0.1);
+        border-radius: 30px;
+        padding: 0.5rem;
+    }
+
+    .btn-qty {
+        background: none;
+        border: none;
+        color: #f0c040;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0 1rem;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        text-align: center;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.1rem;
+    }
+
+    .btn-comprar {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border: none;
+        color: #180f0f;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .producto-contenido {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .producto-detalle {
+            padding: 100px 1rem 2rem;
+        }
+
+        .acciones {
+            flex-direction: column;
+        }
+
+        .cantidad {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-comprar {
+            width: 100%;
+        }
+    }
+</style>
+    
+
+</style>

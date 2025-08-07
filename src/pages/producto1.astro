@@ -40,6 +40,23 @@ import Layout from '../layouts/Layout.astro';
                     <span class="monto">S/. 45.00</span>
                     <span class="peso">250g</span>
                 </div>
+                <div class="opciones-peso">
+                    <h3>Selecciona el peso:</h3>
+                    <div class="peso-buttons">
+                        <button class="peso-option active" data-price="32.00" data-weight="250g">
+                            <span class="weight">250g</span>
+                            <span class="price">S/. 32.00</span>
+                        </button>
+                        <button class="peso-option" data-price="60.00" data-weight="500g">
+                            <span class="weight">500g</span>
+                            <span class="price">S/. 60.00</span>
+                        </button>
+                        <button class="peso-option" data-price="90.00" data-weight="1kg">
+                            <span class="weight">1 Kilo</span>
+                            <span class="price">S/. 90.00</span>
+                        </button>
+                    </div>
+                </div>
                 <div class="acciones">
                     <div class="cantidad">
                         <button class="btn-qty">-</button>
@@ -183,6 +200,58 @@ import Layout from '../layouts/Layout.astro';
         transition: transform 0.3s ease;
     }
 
+    .opciones-peso {
+        margin: 2rem 0;
+    }
+
+    .opciones-peso h3 {
+        color: #d4d4d4;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .peso-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .peso-option {
+        flex: 1;
+        min-width: 120px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(240, 192, 64, 0.3);
+        border-radius: 10px;
+        padding: 1rem;
+        color: #d4d4d4;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .peso-option:hover {
+        background: rgba(240, 192, 64, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .peso-option.active {
+        background: rgba(240, 192, 64, 0.2);
+        border-color: #f0c040;
+    }
+
+    .peso-option .weight {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+    }
+
+    .peso-option .price {
+        color: #f0c040;
+        font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
         .producto-contenido {
             grid-template-columns: 1fr;
@@ -207,8 +276,35 @@ import Layout from '../layouts/Layout.astro';
         .btn-comprar {
             width: 100%;
         }
+
+        .peso-buttons {
+            flex-direction: column;
+        }
+
+        .peso-option {
+            width: 100%;
+        }
     }
 </style>
-    
 
-</style>
+<script>
+    const pesoOptions = document.querySelectorAll('.peso-option');
+    const precioElement = document.querySelector('.monto');
+
+    pesoOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            pesoOptions.forEach(btn => btn.classList.remove('active'));
+            option.classList.add('active');
+            
+            const precio = option.getAttribute('data-price');
+            const peso = option.getAttribute('data-weight');
+            
+            if (precioElement) {
+                precioElement.textContent = `S/. ${precio}`;
+            }
+        });
+    });
+</script>
+        });
+    });
+</script>

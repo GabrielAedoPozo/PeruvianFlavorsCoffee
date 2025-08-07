@@ -36,9 +36,22 @@ import Layout from '../layouts/Layout.astro';
                         </div>
                     </div>
                 </div>
-                <div class="precio">
-                    <span class="monto">S/. 50.00</span>
-                    <span class="peso">250g</span>
+                <div class="opciones-peso">
+                    <h3>Selecciona el peso:</h3>
+                    <div class="peso-buttons">
+                        <button class="peso-option active" data-price="32.00" data-weight="250g">
+                            <span class="weight">250g</span>
+                            <span class="price">S/. 32.00</span>
+                        </button>
+                        <button class="peso-option" data-price="60.00" data-weight="500g">
+                            <span class="weight">500g</span>
+                            <span class="price">S/. 60.00</span>
+                        </button>
+                        <button class="peso-option" data-price="90.00" data-weight="1kg">
+                            <span class="weight">1 Kilo</span>
+                            <span class="price">S/. 90.00</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="acciones">
                     <div class="cantidad">
@@ -138,6 +151,33 @@ import Layout from '../layouts/Layout.astro';
 
     .dot.active {
         background: #f0c040;
+    }
+
+    .opciones-peso {
+        margin: 2rem 0;
+    }
+
+    .peso-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .peso-option {
+        background: rgba(255,255,255,0.1);
+        border: none;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .peso-option.active {
+        background: #f0c040;
+        color: #180f0f;
     }
 
     .acciones {

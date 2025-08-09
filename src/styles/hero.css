@@ -5,6 +5,7 @@
     overflow: hidden;
     padding-top: 100px; /* Aumentado de 70px a 100px */
     margin-bottom: 0; 
+    isolation: isolate; /* asegura que las capas ::before/::after no afecten otros contextos */
 }
 
 #hero::before {
@@ -15,6 +16,27 @@
     width: 100%;
     height: 100%;
     opacity: 0.1;
+    /* Capa decorativa con movimiento sutil */
+    background:
+      radial-gradient(800px 400px at 10% 20%, rgba(240,192,64,0.06), transparent 60%),
+      radial-gradient(600px 300px at 90% 10%, rgba(255,126,95,0.06), transparent 60%),
+      radial-gradient(700px 350px at 80% 80%, rgba(255,180,123,0.05), transparent 60%);
+    filter: blur(0.5px);
+    animation: heroBgFloat 18s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#hero::after {
+    /* Patrón tenue para textura */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .content{
@@ -26,6 +48,7 @@
     margin: 0 auto;
     position: relative;
     padding-top: 60px; /* Aumentado de 40px a 60px */
+    z-index: 1; /* sobre las capas decorativas */
 }
 
 .hero-text {
@@ -37,22 +60,30 @@
     font-size: 4rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, #3b1205, #ff7e5f);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: slideIn 1s ease-out;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #f0c040, #ff7e5f);
+    background-size: 200% 100%;
+    animation:
+      slideIn 1s ease-out,
+      gradientShift 10s linear infinite 0.2s;
+    text-shadow: 0 6px 22px rgba(0,0,0,0.35);
+    -webkit-background-clip: text;      /* Necesario para Safari/Chrome */
+    background-clip: text;               /* Soporte adicional */
+    -webkit-text-fill-color: transparent;/* Evita el “cuadro” del degradado */
+    color: transparent;                  /* Fallback */
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #d4d4d4;
+    color: #e8e8e8;
     margin-bottom: 2.5rem;
     animation: slideIn 1s ease-out 0.2s backwards;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     animation: slideIn 1s ease-out 0.4s backwards;
 }
 
@@ -75,6 +106,21 @@
     background: transparent;
     border: 2px solid #ff7e5f;
     color: #ff7e5f;
+    border-color: rgba(255,126,95,0.75);
+    box-shadow:
+      0 10px 22px rgba(255,126,95,0.18),
+      inset 0 0 0 1px rgba(255,255,255,0.06);
+    backdrop-filter: blur(2px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
+    position: relative;
+}
+
+.btn-secondary::after {
+    content: '›';
+    display: inline-block;
+    margin-left: 8px;
+    transform: translateY(-1px);
+    font-weight: 700;
 }
 
 .btn-primary:hover, .btn-secondary:hover {
@@ -235,8 +281,56 @@
     font-size: 0.8rem;
 }
 
-.a-buy a{
-    color: #8d6a0a;
+.a-buy {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.a-buy a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
+    color: #180f0f;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.a-buy a::after {
+    content: '›';
+    font-size: 1.2rem;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.a-buy a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(255, 126, 95, 0.32);
+    filter: brightness(1.05);
+}
+
+.a-buy a:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(255, 126, 95, 0.22);
+}
+
+.a-buy a:focus-visible {
+    outline: 2px solid rgba(255, 180, 123, 0.8);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(255, 180, 123, 0.15), 0 10px 22px rgba(255, 126, 95, 0.28);
+}
+
+/* Opcional: mejora de separación dentro de la tarjeta */
+.producto-info {
+    gap: 0.6rem;
 }
 
 #about {
@@ -451,44 +545,43 @@
     width: 100%;
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 80px;
+    overflow: hidden;
 }
 
 .img-blog {
     width: 100%;
     display: flex;
-    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .img-blog img {
     width: 100%;
-    height: auto;
     border-radius: 10px;
-    object-fit: cover;
-}
-
-.slider-arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(240, 192, 64, 0.1);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    transform: translateX(100%); /* Todas las imágenes empiezan fuera a la derecha */
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
 }
 
-.slider-arrow.prev {
-    left: 20px; /* Ajustado para quedar más cerca de la imagen */
+.img-blog img.active {
+    transform: translateX(0); /* La imagen activa está en el centro */
+    opacity: 1;
+    position: relative;
 }
 
-.slider-arrow.next {
-    right: 20px; /* Ajustado para quedar más cerca de la imagen */
+.img-blog img.exit-left {
+    transform: translateX(-100%); /* La imagen sale hacia la izquierda */
+    opacity: 0;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 #testimonials {
@@ -643,6 +736,118 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejora estética sección Contacto (scoped) */
+#contact .contact-container {
+    max-width: 960px; /* mejora de legibilidad en desktop */
+}
+
+#contact .contact-content {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    padding: 2.2rem; /* sutil incremento para aire interno */
+}
+
+#contact .about-description {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    color: #e6e6e6;
+}
+
+/* Tarjetas de contacto (email/teléfono) más “card-like” */
+#contact .contact-info {
+    gap: 1.2rem; /* ligera compresión visual */
+}
+
+#contact .contact-info span {
+    border: 1px solid rgba(255,255,255,0.10);
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    cursor: default;
+}
+
+#contact .contact-info span:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, rgba(240,192,64,0.10), rgba(240,192,64,0.06));
+    border-color: rgba(240,192,64,0.35);
+    box-shadow: 0 14px 30px rgba(240,192,64,0.15);
+}
+
+/* Iconos más visibles */
+#contact .contact-info i {
+    color: #f0c040;
+    font-size: 1.25rem;
+    filter: drop-shadow(0 2px 6px rgba(240,192,64,0.25));
+}
+
+/* Redes sociales solo dentro de Contacto */
+#contact .social-media {
+    gap: 1.2rem;
+}
+
+#contact .social-media a {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 24px rgba(0,0,0,0.20);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+#contact .social-media a:hover {
+    transform: translateY(-6px);
+    border-color: rgba(240,192,64,0.45);
+    background: radial-gradient(120% 120% at 50% 0%, rgba(240,192,64,0.18), rgba(255,255,255,0.03));
+    box-shadow: 0 16px 36px rgba(240,192,64,0.20);
+}
+
+#contact .social-media i {
+    color: #f0c040;
+    font-size: 1.9rem;
+    transition: transform 0.25s ease;
+}
+
+#contact .social-media a:hover i {
+    transform: scale(1.06);
+}
+
+/* Responsive específico de Contacto */
+@media (max-width: 768px) {
+    #contact .contact-container {
+        max-width: 600px;
+    }
+    #contact .contact-content {
+        padding: 1.6rem;
+    }
+    #contact .social-media a {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact .contact-container {
+        max-width: 100%;
+    }
+    #contact .about-description {
+        font-size: 0.98rem;
+    }
+    #contact .contact-info {
+        grid-template-columns: 1fr; /* refuerza single column en móviles */
+        gap: 1rem;
+    }
+    #contact .social-media {
+        gap: 1rem;
+    }
+    #contact .social-media a {
+        width: 54px;
+        height: 54px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -810,4 +1015,124 @@
     .contact-info span {
         padding: 0.8rem;
     }
+}
+
+/* Keyframes faltantes para que las animaciones existentes funcionen */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Movimiento sutil del fondo del hero */
+@keyframes heroBgFloat {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, -12px, 0); }
+}
+
+/* Degradado animado del título */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Ajustes sutiles en móviles solo para el hero */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    text-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  }
+  .btn-secondary {
+    padding: 0.9rem 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+  }
+}
+
+/* Chips de highlights en el hero */
+#hero .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 1.2rem 0;
+    animation: fadeIn 0.8s ease-out 0.25s both;
+}
+
+#hero .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.10);
+    color: #eaeaea;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+}
+
+#hero .chip i {
+    color: #f0c040;
+    filter: drop-shadow(0 2px 6px rgba(240,192,64,0.25));
+}
+
+/* Indicador de scroll al final del hero */
+#hero .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 44px;
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.55);
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+}
+
+#hero .scroll-cue:hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+#hero .scroll-cue span {
+    display: block;
+    width: 4px;
+    height: 10px;
+    border-radius: 2px;
+    background: #f0c040;
+    margin-top: 6px;
+    animation: scrollDot 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+    0%   { transform: translateY(0); opacity: 1; }
+    70%  { transform: translateY(18px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+
+/* Ajustes responsivos del hero */
+@media (max-width: 768px) {
+    #hero .hero-highlights { gap: 0.5rem; }
+    #hero .chip { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
+    #hero .scroll-cue { bottom: 18px; }
+}
+
+@media (max-width: 480px) {
+    #hero .chip { font-size: 0.86rem; }
 }

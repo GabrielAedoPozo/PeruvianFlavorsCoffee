@@ -55,11 +55,16 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div class="acciones">
                     <div class="cantidad">
-                        <button class="btn-qty">-</button>
-                        <input type="number" value="1" min="1">
-                        <button class="btn-qty">+</button>
+                        <button class="btn-qty" id="decrease">-</button>
+                        <input type="number" value="1" min="1" id="quantity">
+                        <button class="btn-qty" id="increase">+</button>
                     </div>
-                    <button class="btn-comprar">Agregar al Carrito</button>
+                    <div class="total-price">
+                        <span>Total: S/. <span id="total">32.00</span></span>
+                    </div>
+                    <a href="#" class="btn-whatsapp" id="whatsappButton">
+                        <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
@@ -69,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
 <style>
     .producto-detalle {
         padding: 120px 2rem 4rem;
-        background: #180f0f;
+        background: radial-gradient(1200px 600px at 10% -10%, rgba(240,192,64,.06), transparent 50%) #180f0f;
         min-height: 100vh;
     }
 
@@ -93,6 +98,8 @@ import Layout from '../layouts/Layout.astro';
         border-radius: 20px;
         background: rgba(255,255,255,0.03);
         padding: 2rem;
+        border: 1px solid rgba(255,255,255,0.06);
+        box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
     .producto-galeria {
@@ -106,6 +113,11 @@ import Layout from '../layouts/Layout.astro';
         border-radius: 10px;
         cursor: pointer;
         transition: transform 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .producto-galeria img:hover {
+        transform: translateY(-2px) scale(1.02);
     }
 
     .badge {
@@ -135,6 +147,8 @@ import Layout from '../layouts/Layout.astro';
         padding: 1.5rem;
         border-radius: 15px;
         margin: 2rem 0;
+        border: 1px solid rgba(255,255,255,0.06);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
     .dots {
@@ -159,39 +173,58 @@ import Layout from '../layouts/Layout.astro';
 
     .peso-buttons {
         display: flex;
-        gap: 1rem;
+        gap: .8rem;
+        flex-wrap: wrap;
     }
 
     .peso-option {
-        background: rgba(255,255,255,0.1);
-        border: none;
-        color: #fff;
-        padding: 1rem;
-        border-radius: 10px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(240,192,64,0.25);
+        border-radius: 12px;
+        padding: .9rem .9rem;
+        color: #ddd;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all .25s ease;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    .peso-option:hover {
+        background: rgba(240,192,64,0.08);
+        transform: translateY(-2px);
+    }
+
     .peso-option.active {
-        background: #f0c040;
-        color: #180f0f;
+        background: rgba(240,192,64,0.18);
+        border-color: #f0c040;
+        box-shadow: 0 6px 18px rgba(240,192,64,0.15);
+        color: #fff;
+    }
+
+    .peso-option .weight {
+        font-weight: 700;
+    }
+
+    .peso-option .price  {
+        color: #f0c040;
     }
 
     .acciones {
-        display: flex;
+        display: grid;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
 
     .cantidad {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        background: rgba(255,255,255,0.1);
-        border-radius: 30px;
-        padding: 0.5rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 999px;
+        padding: .35rem;
+        gap: .25rem;
+        width: fit-content;
     }
 
     .btn-qty {
@@ -200,27 +233,59 @@ import Layout from '../layouts/Layout.astro';
         color: #f0c040;
         font-size: 1.2rem;
         cursor: pointer;
-        padding: 0 1rem;
+        padding: .3rem .8rem;
+        border-radius: 999px;
+    }
+
+    .btn-qty:hover {
+        background: rgba(240,192,64,0.12);
     }
 
     input[type="number"] {
-        width: 50px;
+        width: 58px;
         text-align: center;
-        background: none;
+        background: transparent;
         border: none;
         color: #fff;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
-    .btn-comprar {
-        background: linear-gradient(to right, #ff7e5f, #feb47b);
-        border: none;
-        color: #180f0f;
-        padding: 1rem 2rem;
-        border-radius: 30px;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: transform 0.3s ease;
+    .total-price {
+        font-size: 1.15rem;
+        color: #f0c040;
+        font-weight: 700;
+        background: rgba(240,192,64,0.08);
+        border: 1px solid rgba(240,192,64,0.18);
+        width: fit-content;
+        padding: .6rem .9rem;
+        border-radius: 10px;
+    }
+
+    .btn-whatsapp {
+        background: linear-gradient(135deg, #25d366, #1ebe5d);
+        color: white;
+        padding: 1rem 1.3rem;
+        border-radius: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        box-shadow: 0 10px 22px rgba(37,211,102,0.22);
+        transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .btn-whatsapp:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+    }
+
+    .btn-whatsapp i {
+        font-size: 1.2rem;
     }
 
     @media (max-width: 768px) {
@@ -249,3 +314,75 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        /** @type {HTMLImageElement|null} */
+        const mainImg = document.querySelector('.imagen-principal');
+        document.querySelectorAll('.producto-galeria img').forEach(img => {
+            img.addEventListener('click', () => { if (mainImg) mainImg.src = img.src; });
+        });
+
+        /** @type {NodeListOf<HTMLButtonElement>} */
+        const pesoButtons = document.querySelectorAll('.peso-option');
+        /** @type {HTMLInputElement|null} */
+        const quantity = document.getElementById('quantity');
+        /** @type {HTMLElement|null} */
+        const totalSpan = document.getElementById('total');
+        /** @type {HTMLAnchorElement|null} */
+        const whatsappButton = document.getElementById('whatsappButton');
+
+        let currentPrice = parseFloat(document.querySelector('.peso-option.active')?.dataset.price || '32');
+        let currentWeight = document.querySelector('.peso-option.active')?.dataset.weight || '250g';
+        const productName = 'Café Oxapampa';
+
+        function updateTotal() {
+            const qty = Math.max(1, parseInt(quantity?.value || '1', 10));
+            if (quantity) quantity.value = String(qty);
+            const total = (currentPrice * qty).toFixed(2);
+            if (totalSpan) totalSpan.textContent = total;
+
+            const message = encodeURIComponent(
+                `¡Hola! Me interesa comprar:\n` +
+                `- ${qty} unidad(es) de ${productName}\n` +
+                `- Peso por unidad: ${currentWeight}\n` +
+                `- Total: S/. ${total}`
+            );
+            if (whatsappButton) {
+                whatsappButton.href = `https://wa.me/51987800910?text=${message}`;
+            }
+        }
+
+        pesoButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                pesoButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentPrice = parseFloat(button.dataset.price || String(currentPrice));
+                currentWeight = button.dataset.weight || currentWeight;
+                updateTotal();
+            });
+        });
+
+        /** @type {HTMLButtonElement|null} */
+        const dec = document.getElementById('decrease');
+        /** @type {HTMLButtonElement|null} */
+        const inc = document.getElementById('increase');
+
+        dec?.addEventListener('click', () => {
+            if (!quantity) return;
+            const val = Math.max(1, parseInt(quantity.value || '1', 10) - 1);
+            quantity.value = String(val);
+            updateTotal();
+        });
+
+        inc?.addEventListener('click', () => {
+            if (!quantity) return;
+            const val = Math.max(1, parseInt(quantity.value || '1', 10) + 1);
+            quantity.value = String(val);
+            updateTotal();
+        });
+
+        quantity?.addEventListener('change', updateTotal);
+        updateTotal();
+    });
+</script>

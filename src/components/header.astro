@@ -19,7 +19,12 @@ import "../styles/header.css";
             <a href="#testimonials" class="nav-link">Testimonios</a>
         </div>
 
-
+        <!-- Botón hamburguesa para móvil -->
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 </header>
 
@@ -28,7 +33,8 @@ import "../styles/header.css";
     const navLinks = document.querySelector('.nav-links');
 
     menuToggle?.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
+        const isActive = menuToggle.classList.toggle('active');
         navLinks?.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', String(isActive));
     });
 </script>

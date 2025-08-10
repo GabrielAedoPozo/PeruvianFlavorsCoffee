@@ -21,7 +21,7 @@ La web está optimizada para ofrecer una experiencia fluida, moderna y responsiv
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Stack
 
 | Tecnología       | Uso principal |
 |------------------|--------------|

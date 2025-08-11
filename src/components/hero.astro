@@ -6,14 +6,15 @@ import '../styles/hero.css';
     <div class="content">
         <div class="hero-text">
             <h1>Peruvian Flavors Coffee,<br> La mejor experiencia <br>del cafe peruano.</h1>
-            <p class="subtitle">Descubre el auténtico sabor de los Andes en cada taza</p>
 
-            <!-- Highlights -->
+            <!-- Highlights (movidos arriba del subtítulo) -->
             <div class="hero-highlights">
                 <span class="chip"><i class="fa-solid fa-seedling"></i> 100% Orgánico</span>
                 <span class="chip"><i class="fa-solid fa-mug-saucer"></i> Tueste fresco</span>
                 <span class="chip"><i class="fa-solid fa-mountain-sun"></i> Origen andino</span>
             </div>
+
+            <p class="subtitle">Descubre el auténtico sabor de los Andes en cada taza</p>
 
             <div class="cta-buttons">
                 <a href="https://wa.me/51987800910?text=Hola!%20Quiero%20saber%20m%C3%A1s%20del%20caf%C3%A9%20Peruvian%20Flavors" aria-label="Comprar por WhatsApp">
@@ -215,13 +216,24 @@ import '../styles/hero.css';
 </section>
 
 <section id="blog" class="blog-section">
-    <h1 class="section-title">Nuestro Blog</h1>
-    <div class="blog-slider">
-        <div class="img-blog">
-            <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1" class="slide active">
-            <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Blog Post 2" class="slide">
-        </div>
+  <h1 class="section-title">Nuestro Blog</h1>
+  <div class="blog-slider fader" aria-live="polite">
+    <div class="slides-track" data-fade-track>
+      <div class="slide">
+        <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1">
+      </div>
+      <div class="slide">
+        <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Blog Post 2">
+      </div>
+      <!-- Puedes añadir más slides aquí -->
     </div>
+    <div class="blog-dots" role="tablist" aria-label="Paginación del slider"></div>
+  </div>
+  <noscript>
+    <div style="margin-top:1.5rem;max-width:1200px;">
+      <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1" style="width:100%;border-radius:16px;">
+    </div>
+  </noscript>
 </section>
 
 <section class="banner banner-second">
@@ -230,60 +242,87 @@ import '../styles/hero.css';
     </div>
 </section>
 
-<section id="contact" class="contact-section">
-    <h1 class="section-title">Contacto</h1>
-    
-    <div class="contact-container">
-        <div class="contact-content">
-            <p class="about-description">Estamos aquí para atenderte y resolver todas tus dudas sobre nuestros productos.</p>
-            
-            <div class="contact-info">
-                <span><i class="fa-solid fa-envelope"></i> peruvianflavorscoffee@gmail.com</span>
-                <span><i class="fa-solid fa-phone"></i> +51 987 800 910</span>
+<section id="contact" class="contact-section in-view">
+  <div class="contact-wrapper">
+    <div class="contact-left contact-panel">
+      <h1 class="section-title contact-title">Contacto</h1>
+      <h2 class="contact-subtitle">Conversemos</h2>
+      <p class="contact-intro">
+        Estamos aquí para acompañarte en tu aventura cafetalera
+      </p>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+          <div class="ci-text">
+            <strong>Correo</strong>
+            <a href="mailto:peruvianflavorscoffee@gmail.com">peruvianflavorscoffee@gmail.com</a>
+          </div>
+        </li>
+        <li class="contact-item">
+          <span class="icon"><i class="fa-solid fa-phone"></i></span>
+            <div class="ci-text">
+              <strong>Teléfono / WhatsApp</strong>
+              <a href="https://wa.me/51987800910?text=Hola!%20Quiero%20información">+51 987 800 910</a>
             </div>
-
-            <div class="social-media">
-                <a href="https://www.facebook.com/PeruvianFlavorsCoffee/"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/peruvian_flavors_coffee/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/51987800910?text=Hola!%20estoy%20interesado%20en:"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
+        </li>
+        <li class="contact-item">
+          <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+          <div class="ci-text">
+            <strong>Ubicación</strong>
+            <span>Lima, Perú</span>
+          </div>
+        </li>
+      </ul>
+      <div class="contact-social">
+        <a href="https://www.facebook.com/PeruvianFlavorsCoffee/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/peruvian_flavors_coffee/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/51987800910?text=Hola!%20estoy%20interesado%20en:" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
+    <div class="contact-right contact-panel">
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="field">
+          <label for="cf-name">Nombre</label>
+          <input id="cf-name" name="name" type="text" required placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required placeholder="tu@email.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="cf-message">Mensaje</label>
+          <textarea id="cf-message" name="message" rows="6" required placeholder="Cuéntanos qué necesitas"></textarea>
+        </div>
+        <button type="submit" class="btn-send">Enviar</button>
+        <p class="form-status" hidden></p>
+      </form>
+      <p class="legal-hint">Al enviar aceptas nuestro manejo responsable de la información.</p>
+    </div>
+  </div>
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slide");
+    let currentIndex = 0;
+    const intervalTime = 4000; // tiempo entre cambios (ms)
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                if (i === currentSlide) {
-                    // La imagen actual sale por la izquierda
-                    slide.classList.remove('active');
-                    slide.classList.add('exit-left');
-                } else if (i === index) {
-                    // La nueva imagen entra por la derecha
-                    slide.classList.remove('exit-left');
-                    slide.classList.add('active');
-                } else {
-                    // Las demás imágenes esperan a la derecha
-                    slide.classList.remove('active', 'exit-left');
-                }
-            });
-            currentSlide = index;
-        }
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
 
-        function nextSlide() {
-            const next = (currentSlide + 1) % slides.length;
-            showSlide(next);
-        }
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
 
-        // Asegurarse de que la primera imagen esté activa
-        if (slides.length > 0) {
-            slides[0].classList.add('active');
-            // Iniciar el intervalo solo si hay slides
-            setInterval(nextSlide, 3000);
-        }
-    });
+    // Mostrar primera imagen
+    showSlide(currentIndex);
+
+    // Cambiar cada X segundos
+    setInterval(nextSlide, intervalTime);
+  });
 </script>
+

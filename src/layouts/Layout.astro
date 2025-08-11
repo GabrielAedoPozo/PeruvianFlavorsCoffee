@@ -41,6 +41,26 @@ import '@fontsource/quicksand/600.css';
       --max-width: 1200px;
       --padding-x: 2rem;
       --padding-y: 4rem;
+      /* Paleta café consistente */
+      --color-bg: #18100c;
+      --color-bg-alt: #211510;
+      --color-layer: #271a14;
+      --color-layer-soft: #2f1e17;
+      --color-surface: #3a241a;
+      --color-accent: #c58a4b;
+      --color-accent-alt: #a86b33;
+      --color-accent-soft: #e2ba87;
+      --color-accent-fade: rgba(197,138,75,0.18);
+      --color-highlight: #f0c040; /* para degradados existentes */
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-strong: rgba(255,255,255,0.14);
+      --color-text: #f5efe9;
+      --color-text-soft: #ded4cc;
+      --color-text-muted: #b79f91;
+      --shadow-soft: 0 6px 18px rgba(0,0,0,0.28);
+      --shadow-hover: 0 10px 26px rgba(0,0,0,0.34);
+      --grad-accent: linear-gradient(90deg,#86522b,#c58a4b 60%,#e2ba87);
+      --grad-accent-alt: linear-gradient(120deg,#3a241a,#53331f 55%,#694227);
     }
 
     * {
@@ -73,7 +93,8 @@ import '@fontsource/quicksand/600.css';
       box-sizing: border-box;
       font-family: 'Quicksand', sans-serif;
       min-height: 100vh;
-      background-color: #180f0f;
+      background-color: var(--color-bg);
+      color: var(--color-text);
       overflow-x: hidden;
     }
 
@@ -118,7 +139,7 @@ import '@fontsource/quicksand/600.css';
 
     .whatsapp-button:hover {
       transform: translateY(-5px);
-      background: #128C7E;
+      background: #25d365da;
     }
 
     @keyframes pulse {

@@ -36,7 +36,7 @@ import '../styles/hero.css';
     <div class="productos">
         <div class="producto-card">
             <div class="producto-image">
-                <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco">
+                <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco" loading="lazy" decoding="async" />
                 <span class="badge">Premium</span>
             </div>
             <div class="producto-info">
@@ -66,7 +66,7 @@ import '../styles/hero.css';
         </div>
         <div class="producto-card">
             <div class="producto-image">
-                <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca">
+                <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca" loading="lazy" decoding="async" />
                 <span class="badge">Orgánico</span>
             </div>
             <div class="producto-info">
@@ -96,7 +96,7 @@ import '../styles/hero.css';
         </div>
         <div class="producto-card">
             <div class="producto-image">
-                <img src="/PeruvianFlavorsCoffee/oxapampa.png" alt="Café Oxapampa">
+                <img src="/PeruvianFlavorsCoffee/oxapampa.png" alt="Café Oxapampa" loading="lazy" decoding="async" />
                 <span class="badge">Origen Único</span>
             </div>
             <div class="producto-info">
@@ -151,7 +151,7 @@ import '../styles/hero.css';
         </div>
         <div class="about-image">
             <div class="image-grid">
-                <img src="/PeruvianFlavorsCoffee/cafe1.jpg" alt="Agricultor de café" class="main-img">
+                <img src="/PeruvianFlavorsCoffee/cafe1.jpg" alt="Agricultor de café" class="main-img" loading="lazy" decoding="async">
                 <div class="pattern-overlay"></div>
             </div>
         </div>
@@ -220,10 +220,10 @@ import '../styles/hero.css';
   <div class="blog-slider fader" aria-live="polite">
     <div class="slides-track" data-fade-track>
       <div class="slide">
-        <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1">
+        <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1" loading="lazy" decoding="async">
       </div>
       <div class="slide">
-        <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Blog Post 2">
+        <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Blog Post 2" loading="lazy" decoding="async">
       </div>
       <!-- Puedes añadir más slides aquí -->
     </div>
@@ -305,7 +305,7 @@ import '../styles/hero.css';
   document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".slide");
     let currentIndex = 0;
-    const intervalTime = 4000; // tiempo entre cambios (ms)
+    const intervalTime = 3500; // tiempo entre cambios (ms)
 
     function showSlide(index) {
       slides.forEach((slide, i) => {

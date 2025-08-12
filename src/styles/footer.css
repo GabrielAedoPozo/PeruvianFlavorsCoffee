@@ -237,27 +237,40 @@ footer::before {
 
 @media (max-width: 480px) {
     .footer-content {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1rem;
+        gap: 2rem;
     }
-
+    
     .brand-logo {
-        width: 90px;
+        width: 100px;
+        margin: 0 auto;
     }
 
     .brand-description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        text-align: center;
     }
 
     .link-column h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 
-    .reclamaciones-link img {
-        height: 80px;
+    .footer-bottom {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
+}
 
-    .footer-bottom p {
-        font-size: 0.8rem;
+@media (max-width: 360px) {
+    .footer-links { gap: 1.5rem; }
+    .social-links { justify-content: center; }
+    .social-links a {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
     }
 }
 

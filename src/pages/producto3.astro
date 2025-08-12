@@ -130,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.9rem, 4.5vw, 2.5rem);
         margin: 1rem 0;
         background: var(--grad-accent);
         -webkit-background-clip: text;
@@ -143,6 +143,7 @@ import Layout from '../layouts/Layout.astro';
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 1.5rem 0;
+        font-size: .92rem;
     }
 
     .detalles {
@@ -298,6 +299,23 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
+    @media (max-width: 620px) {
+      .producto-galeria {
+        display:flex;
+        overflow-x:auto;
+        gap:.75rem;
+        scroll-snap-type:x mandatory;
+        padding-bottom:.4rem;
+      }
+      .producto-galeria img {
+        flex:0 0 110px;
+        scroll-snap-align:start;
+      }
+      .descripcion { font-size:.92rem; }
+      .peso-buttons { gap:.5rem; }
+      .peso-option { padding:.75rem .7rem; min-width:95px; }
+    }
+
     @media (max-width: 480px) {
         .producto-detalle {
             padding: 100px 1rem 2rem;
@@ -312,8 +330,8 @@ import Layout from '../layouts/Layout.astro';
             justify-content: center;
         }
 
-        .btn-comprar {
-            width: 100%;
+        .btn-whatsapp {
+            max-width: 100%;
         }
     }
 </style>

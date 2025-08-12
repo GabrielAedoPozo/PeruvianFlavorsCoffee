@@ -82,8 +82,27 @@ import '@fontsource/quicksand/600.css';
 
     @media (max-width: 480px) {
       :root {
-        --padding-x: 1rem;
-        --padding-y: 2rem;
+        --padding-x: .8rem;
+        --padding-y: 1.8rem;
+      }
+      
+      body {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --padding-x: .7rem;
+      }
+      
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
       }
     }
 
@@ -96,6 +115,17 @@ import '@fontsource/quicksand/600.css';
       background-color: var(--color-bg);
       color: var(--color-text);
       overflow-x: hidden;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        line-height: 1.5;
+      }
+
+      main {
+        padding-bottom: 2rem;
+      }
     }
 
     .wrapper {
@@ -161,6 +191,15 @@ import '@fontsource/quicksand/600.css';
         font-size: 1.8rem;
         bottom: 20px;
         right: 20px;
+      }
+    }
+
+    /* Preferencia reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
       }
     }
   </style>

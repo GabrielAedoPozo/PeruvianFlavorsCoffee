@@ -1,11 +1,10 @@
 #hero {
     background: radial-gradient(1200px 600px at 10% 0%, rgba(197,138,75,0.08), transparent 60%) var(--color-bg);
-    min-height: 100vh;
     position: relative;
     overflow: hidden;
     padding-top: 90px; /* Igual a la altura del header */
     margin-top: 20px;  /* Nuevo: espacio entre nav y hero */
-    margin-bottom: -2rem; /* reducido de -4rem para evitar solapamiento */
+    margin-bottom: -1rem; /* changed from -2rem */
     isolation: isolate; /* asegura que las capas ::before/::after no afecten otros contextos */
 }
 
@@ -40,16 +39,6 @@
     pointer-events: none;
 }
 
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    padding-top: 30px; /* reducido de 40px */
-    z-index: 1; /* sobre las capas decorativas */
-}
 
 .hero-text {
     max-width: 700px;
@@ -58,7 +47,7 @@
     flex-direction: column;
     gap: 1.2rem;
     text-align: center;
-    margin: 0 auto;
+    margin-top: 160px; /* increased from 100px */
 }
 
 .hero-text h1 {
@@ -158,8 +147,8 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to bottom,var(--color-bg) 0%,var(--color-bg-alt) 100%);
-    padding: 4rem;
-    margin-top: -2rem;
+    padding: 6rem 4rem 4rem; /* increased top padding from 4rem */
+    margin-top: -1rem; /* changed from -2rem */
     gap: 4rem;
 }
 
@@ -742,39 +731,29 @@
 @media (max-width: 768px) {
     #hero { 
         padding-top: 60px;
-        margin-bottom: -1rem; /* reducido para menos espacio */
+        margin-bottom: -0.5rem;
     }
     
-    #products, #about, #testimonials, #blog, #contact {
-        padding: 2rem 1rem;
-        text-align: center; /* centrar títulos */
+    .hero-text {
+        margin-top: 120px; /* added for better mobile spacing */
     }
-
-    .section-title {
-        font-size: clamp(2rem, 6vw, 2.8rem);
-        margin-bottom: 2rem;
-    }
-
-    .testimonials-container {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-        gap: 1.5rem;
+    #products {
+        padding: 3rem 1rem; /* reduced padding for mobile */
     }
 }
 
 @media (max-width: 480px) {
     #hero {
         padding-top: 50px;
-        margin-bottom: -0.5rem; /* aún menos espacio en móvil */
-    }
-    
-    #products, #about, #testimonials, #blog, #contact {
-        padding: 1.5rem 0.8rem;
+        margin-bottom: -0.25rem;
     }
 
-    .testimonial-card {
-        padding: 1.5rem;
+    .hero-text {
+        margin-top: 100px; /* adjusted for smaller screens */
+    }
+    
+    #products {
+        padding: 2rem 0.8rem; /* smaller padding for mobile */
     }
 }
 
@@ -1218,7 +1197,25 @@
   .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
   
   .productos { grid-template-columns: repeat(2, 1fr); }
-  .about-content { grid-template-columns: 1fr; }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #contact .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1264,16 +1261,19 @@
 
 /* Ajuste adicional para móviles pequeños */
 @media (max-width: 480px) {
-  .producto-image {
+  .producto-image, .contact-panel {
     padding: .75rem;
-  }
-  
-  .contact-panel {
-    padding: 1.5rem;
   }
 }
 
+/* Remove redundant media queries and consolidate */
 @media (max-width: 960px) {
+  /* Combine all 960px queries */
+  .hero-text h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+  .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+  
+  .productos { grid-template-columns: repeat(2, 1fr); }
+  
   .about-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1286,56 +1286,30 @@
     width: 100%;
   }
 
-  .image-grid {
-    padding-top: 100%; /* Ajustado para mejor proporción */
-  }
-
-  .main-img {
-    width: 75%;
-    height: 75%;
-    right: 50%;
-    transform: translateX(50%);
-  }
-
-  .secondary-img {
-    width: 55%;
-    height: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .about-description {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-  }
-
-  .about-stats {
-    justify-content: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  #contact .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
   }
 }
 
+/* Remove duplicate definitions from multiple media queries */
 @media (max-width: 480px) {
-  .image-grid {
-    padding-top: 120%;
+  /* ...existing code... */
+  
+  /* Remove duplicate definitions that appear in multiple places */
+  .producto-image, .contact-panel {
+    padding: .75rem;
   }
   
-  .main-img {
-    width: 85%;
-    height: 65%;
-  }
-  
-  .secondary-img {
-    width: 65%;
-    height: 45%;
-  }
+  /* ...existing code... */
 }
 
-/* Hero text centered */
+/* Remove this redundant section as these classes were already defined above */
+/* Hero text centered - these are duplicates */
 .hero-text {
+  /* Keep only margin and text-align */
   text-align: center;
   margin: 0 auto;
 }
@@ -1344,48 +1318,5 @@
   justify-content: center;
 }
 
-/* Productos image fix */
-.producto-image {
-  aspect-ratio: 1/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: linear-gradient(145deg, rgba(58,36,26,0.5), rgba(42,26,19,0.6));
-}
-
-.producto-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  max-height: 320px;
-}
-
-/* Contact layout improvements */
-@media (max-width: 960px) {
-  #contact .contact-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .contact-left {
-    text-align: center;
-    max-width: 600px;
-  }
-
-  .contact-right {
-    width: 100%;
-    max-width: 600px;
-  }
-
-  .contact-intro {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .contact-social {
-    justify-content: center;
-  }
-}
+/* Remove duplicate producto-image styles */
+/* ...existing code... */

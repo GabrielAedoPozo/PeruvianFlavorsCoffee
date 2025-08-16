@@ -301,28 +301,5 @@ import '../styles/hero.css';
   </div>
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelectorAll(".slide");
-    let currentIndex = 0;
-    const intervalTime = 3500; // tiempo entre cambios (ms)
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    // Mostrar primera imagen
-    showSlide(currentIndex);
-
-    // Cambiar cada X segundos
-    setInterval(nextSlide, intervalTime);
-  });
-</script>
 

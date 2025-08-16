@@ -27,14 +27,3 @@ import "../styles/header.css";
         </button>
     </nav>
 </header>
-
-<script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle?.addEventListener('click', () => {
-        const isActive = menuToggle.classList.toggle('active');
-        navLinks?.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', String(isActive));
-    });
-</script>

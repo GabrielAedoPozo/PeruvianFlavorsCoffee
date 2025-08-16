@@ -19,7 +19,7 @@
     opacity: .28;
     /* Capa decorativa con movimiento sutil */
     background:
-      radial-gradient(720px 340px at 12% 25%, rgba(197,138,75,0.08), transparent 65%),
+      radial-gradient(720px 340px at 12% 25%, #c58a4b14, transparent 65%),
       radial-gradient(640px 300px at 85% 18%, rgba(128,83,46,0.10), transparent 65%),
       radial-gradient(700px 360px at 80% 82%, rgba(64,38,23,0.55), transparent 70%);
     filter: none;
@@ -44,7 +44,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    min-height: 100vh;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;

@@ -148,6 +148,12 @@ import '@fontsource/quicksand/600.css';
       position: relative;
     }
 
+    /* Global responsive images and media */
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+
+    /* Prevent overflow from flex children on small screens */
+    main { min-width: 0; }
+
     .whatsapp-button {
       position: fixed;
       bottom: 30px;

@@ -334,4 +334,13 @@ import Layout from '../layouts/Layout.astro';
             max-width: 100%;
         }
     }
+
+    @media (max-width: 360px) {
+      .producto-detalle { padding: 90px .75rem 1.5rem; }
+      .imagen-principal { padding: 1rem; }
+      .peso-option { min-width: 90px; padding: .65rem .6rem; }
+      .cantidad input[type="number"] { width: 52px; }
+      .total-price { font-size: 1rem; padding: .5rem .7rem; }
+      .btn-whatsapp { font-size: .95rem; padding: .85rem 1rem; }
+    }
 </style>

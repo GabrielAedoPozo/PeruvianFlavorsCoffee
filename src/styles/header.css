@@ -116,15 +116,15 @@
     .nav-brand img {
         height: 48px;
     }
+
+    .menu-toggle { display: flex; padding: .75rem; } /* make toggle visible on mobile */
+    .menu-toggle span { height: 3px; }               /* slightly thicker for visibility */
 }
 
-@media (max-width: 640px) {
-  .nav-links { gap: 1.2rem; }
-  .nav-link { font-size: .95rem; }
-}
-
+/* Improve tap targets on small screens */
 @media (max-width: 480px) {
-    .nav-brand img {
+  .nav-link { padding: .65rem 0; }
+  .nav-brand img {
         height: 45px;
     }
 

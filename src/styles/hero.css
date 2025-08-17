@@ -51,7 +51,7 @@
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 6vw, 4rem);
     line-height: 1.2;
     margin-bottom: 1.5rem;
     background: var(--grad-accent);
@@ -65,7 +65,7 @@
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     color: var(--color-text-soft);
     margin-bottom: 2.5rem;
     animation: slideIn 1s ease-out 0.2s backwards;
@@ -171,13 +171,15 @@
 
 
 .section-title {
-    font-size: 3.5rem;  /* Aumentado de 3.5rem a 4.5rem */
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
     background: var(--grad-accent);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     text-align: center;
     animation: fadeIn 1s ease-out;
     font-weight:600;
+    background-clip: text; 
+    color: transparent;    
 }
 
 .producto-card {
@@ -669,6 +671,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background-clip: text; /* add for non-webkit browsers */
+    color: transparent;    /* ensure text shows gradient */
 }
 
 .banner-second {
@@ -714,15 +718,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background-clip: text; /* add for non-webkit browsers */
+    color: transparent;    /* ensure text shows gradient */
 }
 
-/* Eliminar clases ya no usadas */
-.subtle-section,
-.subtle-title,
-.subtle-banner,
-.subtle-banner-title {
-    /* Eliminadas: dejadas vacías para evitar errores si el HTML aún tuviera alguna referencia residual */
-}
+
 
 /* Ajustes responsivos restaurados para testimonios/blog */
 @media (max-width: 1024px) {
@@ -1260,10 +1260,11 @@
 }
 
 /* Ajuste adicional para móviles pequeños */
-@media (max-width: 480px) {
-  .producto-image, .contact-panel {
-    padding: .75rem;
-  }
+@media (max-width: 360px) {
+  .hero-text { margin-top: 90px; }
+  .cta-buttons { gap: .6rem; }
+  .btn-primary, .btn-secondary { padding: .75rem 1.1rem; font-size: .9rem; }
+  .productos { gap: 1.5rem; }
 }
 
 /* Remove redundant media queries and consolidate */

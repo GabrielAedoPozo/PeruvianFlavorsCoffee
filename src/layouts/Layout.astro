@@ -1,0 +1,224 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import '@fontsource/quicksand/300.css';
+import '@fontsource/quicksand/400.css';
+import '@fontsource/quicksand/500.css';
+import '@fontsource/quicksand/600.css';
+const ASSETS = import.meta.env.BASE_URL === '/' ? '/PeruvianFlavorsCoffee/' : import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/PeruvianFlavorsCoffee/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Peruvian Flavors Coffee</title>
+    <!-- Añadir Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <Header />
+
+      <main>
+		<slot />
+      </main>
+
+      <Footer />
+    </div>
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/51987800910?text=Hola!%20estoy%20interesado%20en:" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Script global -->
+    <script type="module">
+      import '/src/scripts/app.js';
+    </script>
+  </body>
+
+  <style is:global>
+    :root {
+      --max-width: 1200px;
+      --padding-x: 2rem;
+      --padding-y: 4rem;
+      /* Paleta café consistente */
+      --color-bg: #18100c;
+      --color-bg-alt: #211510;
+      --color-layer: #271a14;
+      --color-layer-soft: #2f1e17;
+      --color-surface: #3a241a;
+      /* Restaurar al gradiente blanco original */
+      --grad-accent: linear-gradient(90deg, #ffffff 0%, #ffffff 60%, #f7f7f7 100%);
+      --color-accent: #c58a4b;
+      --color-accent-alt: #a86b33;
+      --color-accent-soft: #e2ba87;
+      --color-accent-fade: rgba(197,138,75,0.18);
+      --color-highlight: #f0c040; /* para degradados existentes */
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-strong: rgba(255,255,255,0.14);
+      --color-text: #f5efe9;
+      --color-text-soft: #ded4cc;
+      --color-text-muted: #b79f91;
+      --shadow-soft: 0 6px 18px rgba(0,0,0,0.28);
+      --shadow-hover: 0 10px 26px rgba(0,0,0,0.34);
+      /* Blanco puro con leve variación y mejor consistencia */
+      --grad-accent: linear-gradient(90deg, #ffffff 0%, #ffffff93 60%, #f7f7f7 100%);
+      /* Sombra brillante reutilizable para textos en gradiente */
+      --text-glow: 0 0 10px rgba(255,255,255,0.22), 0 0 22px rgba(255,255,255,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --padding-x: 1.5rem;
+        --padding-y: 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --padding-x: .8rem;
+        --padding-y: 1.8rem;
+      }
+      
+      body {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --padding-x: .7rem;
+      }
+      
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      overflow-x: hidden;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        line-height: 1.5;
+      }
+
+      main {
+        padding-bottom: 2rem;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 100vw;
+      background-color: #180f0f;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Global responsive images and media */
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+
+    /* Prevent overflow from flex children on small screens */
+    main { min-width: 0; }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+
+    a.whatsapp-button {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-5px);
+      background: #25d365da;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    /* Preferencia reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</html>
+
+

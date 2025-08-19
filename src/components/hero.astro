@@ -3,33 +3,11 @@ import '../styles/hero.css';
 ---
 
 <section id="hero">
-    <div class="content">
-        <div class="hero-text">
-            <h1>Peruvian Flavors Coffee,<br> La mejor experiencia <br>del cafe peruano.</h1>
-
-            <!-- Highlights (movidos arriba del subtítulo) -->
-            <div class="hero-highlights">
-                <span class="chip"><i class="fa-solid fa-seedling"></i> 100% Orgánico</span>
-                <span class="chip"><i class="fa-solid fa-mug-saucer"></i> Tueste fresco</span>
-                <span class="chip"><i class="fa-solid fa-mountain-sun"></i>Sabor diferente</span>
-            </div>
-
-            <p class="subtitle">Descubre el auténtico sabor de los Andes en cada taza</p>
-
-            <div class="cta-buttons">
-                <a href="https://wa.me/51987800910?text=Hola!%20Quiero%20saber%20m%C3%A1s%20del%20caf%C3%A9%20Peruvian%20Flavors" aria-label="Comprar por WhatsApp">
-                    <button class="btn-primary">Comprar por WhatsApp</button>
-                </a>
-                <a href="#products" aria-label="Ver nuestros productos">
-                    <button class="btn-secondary">Nuestros Productos</button>
-                </a>
-            </div>
-        </div>
+    <div class="hero-image">
+        <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Peruvian Coffee" />
     </div>
-
-    <!-- Indicador de scroll -->
-    <a href="#products" class="scroll-cue" aria-label="Desplazarse a productos"><span></span></a>
 </section>
+
 
 <section id="products" class="products-section">
     <h1 class="section-title">Nuestros Productos</h1>
@@ -37,27 +15,11 @@ import '../styles/hero.css';
         <div class="producto-card">
             <div class="producto-image">
                 <img src="/PeruvianFlavorsCoffee/cusco.png" alt="Café Cusco" loading="lazy" decoding="async" />
-                <span class="badge">Premium</span>
             </div>
             <div class="producto-info">
                 <h3>Café Cusco Premium</h3>
                 <p class="description">Notas de chocolate negro y caramelo, cultivado a más de 2,000 metros de altura.</p>
-                <div class="producto-details">
-                    <div class="origen">
-                        <span class="label">Origen:</span>
-                        <span>Valle Sagrado, Cusco</span>
-                    </div>
-                    <div class="intensidad">
-                        <span class="label">Intensidad:</span>
-                        <div class="dots">
-                            <span class="dot active"></span>
-                            <span class="dot active"></span>
-                            <span class="dot active"></span>
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-                </div>
+            
 
                 <div class="a-buy">
                     <a href="/PeruvianFlavorsCoffee/producto1">Ver Perfil</a>
@@ -67,28 +29,11 @@ import '../styles/hero.css';
         <div class="producto-card">
             <div class="producto-image">
                 <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca" loading="lazy" decoding="async" />
-                <span class="badge">Orgánico</span>
             </div>
             <div class="producto-info">
                 <h3>Café Cajamarca</h3>
                 <p class="description">Aroma frutal con toques cítricos, cultivado en las tierras altas de Cajamarca.</p>
-                <div class="producto-details">
-                    <div class="origen">
-                        <span class="label">Origen:</span>
-                        <span>Cajamarca</span>
-                    </div>
-                    <div class="intensidad">
-                        <span class="label">Intensidad:</span>
-                        <div class="dots">
-                            <span class="dot active"></span>
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-                </div>
-
+            
                 <div class="a-buy">
                     <a href="/PeruvianFlavorsCoffee/producto2">Ver Perfil</a>
                 </div>
@@ -97,30 +42,26 @@ import '../styles/hero.css';
         <div class="producto-card">
             <div class="producto-image">
                 <img src="/PeruvianFlavorsCoffee/oxapampa.png" alt="Café Oxapampa" loading="lazy" decoding="async" />
-                <span class="badge">Origen Único</span>
             </div>
             <div class="producto-info">
                 <h3>Café Oxapampa</h3>
                 <p class="description">Suave con notas florales, proveniente de la selva alta peruana.</p>
-                <div class="producto-details">
-                    <div class="origen">
-                        <span class="label">Origen:</span>
-                        <span>Oxapampa</span>
-                    </div>
-                    <div class="intensidad">
-                        <span class="label">Intensidad:</span>
-                        <div class="dots">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <div class="a-buy">
                     <a href="/PeruvianFlavorsCoffee/producto3">Ver Perfil</a>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <div class="producto-image">
+                <img src="/PeruvianFlavorsCoffee/amazonas.png" alt="Café Amazonas" loading="lazy" decoding="async" />
+            </div>
+            <div class="producto-info">
+                <h3>Café Amazonas</h3>
+                <p class="description">Aromas a cacao y frutos secos, cultivado en las montañas de Amazonas.</p>
+                <div class="a-buy">
+                    <a href="/PeruvianFlavorsCoffee/producto4">Ver Perfil</a>
                 </div>
             </div>
         </div>
@@ -145,7 +86,7 @@ import '../styles/hero.css';
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">+</span>
-                    <span class="stat-label">De Calidad</span>
+                    <span class="stat-label">Tueste Fresco</span>
                 </div>
             </div>
         </div>
@@ -158,18 +99,19 @@ import '../styles/hero.css';
     </div>
 </section>
 
-<section class="banner">
+
+<section class="banner banner-second" style="--banner-img: url('/PeruvianFlavorsCoffee/cul2.jpg')">
     <div class="banner-overlay">
-        <h2>Productos Premium</h2>
+        <h2>La pasión por el café en cada grano</h2>
     </div>
 </section>
 
 <section id="testimonials" class="testimonials-section">
-    <h1 class="section-title">Testimonios</h1>
-    <div class="testimonials-container">
+  <h1 class="section-title">Testimonios</h1>
+  <div class="testimonials-container">
         <div class="testimonial-card">
             <div class="testimonial-content">
-                <i class="fa-solid fa-quote-left testimonial-icon"></i>
+
                 <p class="testimonial-quote">
                     "El café de Cusco Premium es excepcional. Los sabores a chocolate y caramelo son perfectamente balanceados. Mi café favorito de la mañana."
                 </p>
@@ -185,7 +127,6 @@ import '../styles/hero.css';
 
         <div class="testimonial-card">
             <div class="testimonial-content">
-                <i class="fa-solid fa-quote-left testimonial-icon"></i>
                 <p class="testimonial-quote">
                     "Como amante del café orgánico, el café de Cajamarca superó todas mis expectativas. Las notas cítricas son únicas."
                 </p>
@@ -200,7 +141,6 @@ import '../styles/hero.css';
 
         <div class="testimonial-card">
             <div class="testimonial-content">
-                <i class="fa-solid fa-quote-left testimonial-icon"></i>
                 <p class="testimonial-quote">
                     "La suavidad del café de Oxapampa es incomparable. Perfecto para cualquier momento del día. Excelente servicio."
                 </p>
@@ -216,14 +156,14 @@ import '../styles/hero.css';
 </section>
 
 <section id="blog" class="blog-section">
-  <h1 class="section-title">Nuestro Blog</h1>
+  <h1 class="section-title">Noticias</h1>
   <div class="blog-slider fader" aria-live="polite">
     <div class="slides-track" data-fade-track>
       <div class="slide">
-        <img src="/PeruvianFlavorsCoffee/blog.png" alt="Blog Post 1" loading="lazy" decoding="async">
+        <img src="/PeruvianFlavorsCoffee/evento2.png" alt="Blog Post 1" loading="lazy" decoding="async">
       </div>
       <div class="slide">
-        <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Blog Post 2" loading="lazy" decoding="async">
+        <img src="/PeruvianFlavorsCoffee/evento1.jpeg" alt="Blog Post 2" loading="lazy" decoding="async">
       </div>
       <!-- Puedes añadir más slides aquí -->
     </div>
@@ -236,67 +176,20 @@ import '../styles/hero.css';
   </noscript>
 </section>
 
-<section class="banner banner-second">
+<section class="banner banner-second" style="--banner-img: url('/PeruvianFlavorsCoffee/imgcul.jpg')">
     <div class="banner-overlay">
-        <h2>El mejor sabor en café</h2>
+        <h2>Sabor que se cultiva con amor</h2>
     </div>
 </section>
 
-<section id="contact" class="contact-section in-view">
-  <div class="contact-wrapper">
-    <div class="contact-left contact-panel">
-      <h1 class="section-title contact-title">Contacto</h1>
-      <h2 class="contact-subtitle">Conversemos</h2>
-      <p class="contact-intro">
-        Estamos aquí para acompañarte en tu aventura cafetalera
-      </p>
-      <ul class="contact-list">
-        <li class="contact-item">
-          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-          <div class="ci-text">
-            <strong>Correo</strong>
-            <a href="mailto:peruvianflavorscoffee@gmail.com">peruvianflavorscoffee@gmail.com</a>
-          </div>
-        </li>
-        <li class="contact-item">
-          <span class="icon"><i class="fa-solid fa-phone"></i></span>
-            <div class="ci-text">
-              <strong>Teléfono / WhatsApp</strong>
-              <a href="https://wa.me/51987800910?text=Hola!%20Quiero%20información">+51 987 800 910</a>
-            </div>
-        </li>
-        <li class="contact-item">
-          <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-          <div class="ci-text">
-            <strong>Ubicación</strong>
-            <span>Lima, Perú</span>
-          </div>
-        </li>
-      </ul>
-      <div class="contact-social">
-        <a href="https://www.facebook.com/PeruvianFlavorsCoffee/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/peruvian_flavors_coffee/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/51987800910?text=Hola!%20estoy%20interesado%20en:" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      </div>
-    </div>
-    <div class="contact-right contact-panel">
-      <form id="contactForm" class="contact-form" novalidate>
-        <div class="field">
-          <label for="cf-name">Nombre</label>
-          <input id="cf-name" name="name" type="text" required placeholder="Tu nombre" autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" required placeholder="tu@email.com" autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="cf-message">Mensaje</label>
-          <textarea id="cf-message" name="message" rows="6" required placeholder="Cuéntanos qué necesitas"></textarea>
-        </div>
-        <button type="submit" class="btn-send">Enviar</button>
-        <p class="form-status" hidden></p>
-      </form>
-      <p class="legal-hint">Al enviar aceptas nuestro manejo responsable de la información.</p>
+<section id="recipes" class="recipes-section">
+  <h1 class="section-title">Recetas</h1>
+  <div class="recipes-container">
+    <div class="recipes-video">
+      <video class="recipe-player" controls preload="metadata" playsinline>
+        <source src="/PeruvianFlavorsCoffee/receta1.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video HTML5.
+      </video>
     </div>
   </div>
 </section>

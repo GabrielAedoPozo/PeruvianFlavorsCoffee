@@ -1,41 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const ASSETS = import.meta.env.BASE_URL === '/' ? '/PeruvianFlavorsCoffee/' : import.meta.env.BASE_URL;
 ---
 
 <Layout>
     <div class="producto-detalle">
         <div class="producto-contenido">
             <div class="producto-imagenes">
-                <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Café Cajamarca" class="imagen-principal">
+                <img src={`${ASSETS}cajamarca.png`} alt="Café Cajamarca" class="imagen-principal">
                 <div class="producto-galeria">
-                    <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Detalle 1">
-                    <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Detalle 2">
-                    <img src="/PeruvianFlavorsCoffee/cajamarca.png" alt="Detalle 3">
+                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 1">
+                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 2">
+                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 3">
                 </div>
             </div>
             <div class="producto-info">
-                <span class="badge">Orgánico</span>
                 <h1>Café Cajamarca</h1>
                 <p class="descripcion">
                     Aroma frutal con toques cítricos, cultivado en las tierras altas de Cajamarca.
                     Un café orgánico que destaca por su sabor balanceado y notas cítricas.
                 </p>
-                <div class="detalles">
-                    <div class="origen">
-                        <span class="label">Origen:</span>
-                        <span>Cajamarca</span>
-                    </div>
-                    <div class="intensidad">
-                        <span class="label">Intensidad:</span>
-                        <div class="dots">
-                            <span class="dot active"></span>
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="opciones-peso">
                     <h3>Selecciona el peso:</h3>
                     <div class="peso-buttons">

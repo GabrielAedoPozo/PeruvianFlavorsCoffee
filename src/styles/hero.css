@@ -1,31 +1,32 @@
 #hero {
-    background: radial-gradient(1200px 600px at 10% 0%, rgba(197,138,75,0.08), transparent 60%) var(--color-bg);
     position: relative;
+    width: 100%;
+    height: calc(100vh - 90px); /* ocupa el alto visible bajo el header */
+    margin-top: 90px;           /* separa el hero del header fijo */
     overflow: hidden;
-    padding-top: 90px; /* Igual a la altura del header */
-    margin-top: 20px;  /* Nuevo: espacio entre nav y hero */
-    margin-bottom: -1rem; /* changed from -2rem */
-    isolation: isolate; /* asegura que las capas ::before/::after no afecten otros contextos */
 }
 
-#hero::before {
-    content: '';
+.hero-image {
     position: absolute;
-    top: 0;
-    right: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    opacity: .28;
-    /* Capa decorativa con movimiento sutil */
-    background:
-      radial-gradient(720px 340px at 12% 25%, #c58a4b14, transparent 65%),
-      radial-gradient(640px 300px at 85% 18%, rgba(128,83,46,0.10), transparent 65%),
-      radial-gradient(700px 360px at 80% 82%, rgba(64,38,23,0.55), transparent 70%);
-    filter: none;
-    animation: heroBgFloat 18s ease-in-out infinite alternate;
-    pointer-events: none;
-    z-index: 0;
+    z-index: 1;                 /* asegura que la imagen quede sobre decoraciones del hero */
+    background: #180f0f;        /* fondo para bandas laterales/superiores si sobran */
 }
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;        /* NO recorta la imagen */
+    object-position: center;    /* centra la imagen completa */
+    display: block;
+}
+
+
+/* Resto de los estilos... */
+
+
 
 #hero::after {
     /* Patrón tenue para textura */
@@ -56,7 +57,7 @@
     margin-bottom: 1.5rem;
     background: var(--grad-accent);
     background-size: 140% 100%;
-    text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    text-shadow: 0 4px 18px rgba(0,0,0,0.35), var(--text-glow); /* añade brillo */
     font-weight: 600;
     -webkit-background-clip: text;      /* Necesario para Safari/Chrome */
     background-clip: text;               /* Soporte adicional */
@@ -154,15 +155,15 @@
 
 .productos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* antes: repeat(3, 1fr) */
     gap: 3rem;
-    max-width: 1200px;
+    max-width: 1440px; /* aumentado (antes 1400px y antes limitado por var(--max-width)) */
     width: 100%;
 }
 
 .productos img {
     width: 100%;
-    max-width: 300px;
+    max-width: 360px; /* antes: 300px */
     height: auto;
     border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -180,6 +181,7 @@
     font-weight:600;
     background-clip: text; 
     color: transparent;    
+    text-shadow: var(--text-glow);
 }
 
 .producto-card {
@@ -194,6 +196,7 @@
 
 .producto-card:hover{
     box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
 }
 
 .producto-image {
@@ -211,7 +214,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    max-height: 320px;
+    max-height: 360px; /* antes: 320px */
     transition: transform 0.3s ease;
     filter: saturate(.92);
 }
@@ -465,7 +468,7 @@
 
 #blog {
   min-height: 60vh;
-  background: linear-gradient(to bottom, #1d1109 0%, #1d1109 100%);
+  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg) 100%);
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
@@ -571,7 +574,7 @@
 /* Restaurar estilos originales de Testimonios */
 #testimonials {
     min-height: 60vh;
-    background: linear-gradient(to bottom, #1d1109 0%, #1d1109 100%);
+    background: linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-bg-alt) 100%);
     padding: 2rem;
     margin-top: 0;
     position: relative;
@@ -644,7 +647,6 @@
     position: relative;
     width: 100%;
     height: 300px;
-    background-image: url('/PeruvianFlavorsCoffee/photo.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -656,73 +658,50 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(24, 15, 15, 0.7);
+    background: rgba(0, 0, 0, 0.349); /* aumentado de 0.7 a 0.85 */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .banner-overlay h2 {
     color: #fff;
     font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(to right, #f0c040, #feb47b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    background-clip: text; /* add for non-webkit browsers */
-    color: transparent;    /* ensure text shows gradient */
 }
 
 .banner-second {
     position: relative;
     width: 100%;
-    height: 300px;
-    background-color: #180f0f;
+    height: clamp(380px, 52vh, 600px); /* más alto para que la imagen se vea más grande */
+    isolation: isolate;       /* nuevo stacking context */
+    overflow: hidden;
+    transform: translateZ(0); /* fuerza nueva capa de composición */
+    will-change: transform;
 }
 
 .banner-second::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/PeruvianFlavorsCoffee/photo2.jpeg');
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: var(--banner-img); /* usa la variable inline */
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0.8;
+    background-position: center center;
+    background-attachment: scroll;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.banner-second .banner-overlay {
-    background: rgba(24, 15, 15, 0.6);
-    z-index: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.banner-second:first-of-type { 
+    margin-top: -1rem; 
+    background-image: none;    
 }
 
-.banner-second h2 {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(to right, #f0c040, #feb47b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    background-clip: text; /* add for non-webkit browsers */
-    color: transparent;    /* ensure text shows gradient */
+/* Evitar ghosting del banner superior en pantallas medianas/pequeñas */
+@media (max-width: 1024px) {
+  .banner { background-attachment: scroll; }
 }
-
-
 
 /* Ajustes responsivos restaurados para testimonios/blog */
 @media (max-width: 1024px) {
@@ -792,10 +771,12 @@
   z-index:1;
   max-width: 1180px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: clamp(2.2rem,4vw,3.5rem);
-  align-items:start;
+  /* grid-template-columns: repeat(2,minmax(0,1fr));  eliminado */
 }
 
 .contact-panel {
@@ -867,6 +848,23 @@
   display:flex;
   flex-direction:column;
   gap:1rem;
+  align-items: stretch;
+  width: 100%;
+  max-width: 820px;        /* mismo ancho para todos los items */
+  margin: 0 auto;          /* centrado */
+  align-items: stretch;     /* los items ocupan el ancho del contenedor */
+}
+
+/* Igualar anchos en pantallas medias y grandes */
+@media (min-width: 700px) {
+  .contact-list {
+    display: flex;         /* mantener vertical */
+    flex-direction: column;
+    gap: 1rem;
+    justify-items: initial;
+    align-items: stretch;
+  }
+  .contact-item { width: 100%; height: auto; }
 }
 
 .contact-item {
@@ -878,6 +876,22 @@
   border-radius:18px;
   background: linear-gradient(140deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
   transition: background .35s ease, border-color .35s ease, transform .35s ease;
+  width: 100%;             /* cada item toma el ancho completo del contenedor */
+}
+
+/* Más separación entre los elementos del contacto */
+#contact .contact-list {
+  gap: 1.4rem; /* antes 1rem */
+}
+
+/* Separar visualmente la lista de las redes sociales */
+#contact .contact-social {
+  margin-top: 1.25rem;
+}
+
+/* Un poco más de aire dentro de cada item */
+#contact .contact-item {
+  padding: 1.1rem 1.2rem; /* antes .95rem 1.05rem */
 }
 
 .contact-item:hover {
@@ -922,6 +936,7 @@
   display:flex;
   gap:.9rem;
   flex-wrap:wrap;
+  justify-content: center;
 }
 
 .contact-social a {
@@ -1307,17 +1322,205 @@
   /* ...existing code... */
 }
 
-/* Remove this redundant section as these classes were already defined above */
-/* Hero text centered - these are duplicates */
-.hero-text {
-  /* Keep only margin and text-align */
+/* Unify container sizing across sections */
+.content,
+.about-content,
+.testimonials-container,
+.blog-slider,
+#contact .contact-wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: var(--padding-x);
+}
+
+/* Asegurar el ancho del grid de productos */
+#products .productos {
+  max-width: 1440px;
+}
+
+/* Equal height product cards */
+.productos { align-items: stretch; }
+.productos .producto-card { height: 100%; display: flex; flex-direction: column; }
+.productos .producto-info { flex: 1; display: flex; flex-direction: column; }
+
+
+/* === Testimonios mejorados === */
+#testimonials {
+  /* mantiene colores, solo mejora padding y stacking */
+  position: relative;
+  isolation: isolate;
+  padding: clamp(2.5rem, 6vw, 4rem) var(--padding-x);
+}
+
+.testimonials-container {
+  /* grilla fluida que mantiene 3, baja a 2/1 automáticamente */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+@media (max-width: 1024px) {
+  .testimonials-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .testimonials-container { grid-template-columns: 1fr; }
+}
+
+.testimonial-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: clamp(1.4rem, 2.2vw, 2rem);
+  box-shadow:
+    0 12px 28px -10px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.02);
+  transform: translateY(0);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
+  overflow: hidden;
+}
+
+.testimonial-card:hover,
+.testimonial-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--color-accent-fade);
+  background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  box-shadow:
+    0 18px 40px -12px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(197,138,75,0.10) inset;
+}
+
+/* Acento lateral sutil */
+.testimonial-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(197,138,75,0.25), transparent 30%) left/3px 100% no-repeat;
+  opacity: .65;
+}
+
+/* Comilla decorativa grande */
+.testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: .5rem;
+  left: .95rem;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(240,192,64,0.12);
+  pointer-events: none;
+  transform: translateY(-10%);
+}
+
+/* contenido */
+.testimonial-content { padding-top: 0.5rem; }
+
+.testimonial-quote {
+  color: #e9e1da;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  font-style: italic;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-top: .25rem;
+}
+
+/* Badge de autor (emoji taza) sin cambiar HTML */
+.testimonial-author::before {
+  content: "☕";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(155deg,#3e281d,#2c1b13);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--color-accent);
+  box-shadow: 0 8px 18px -6px rgba(0,0,0,0.55);
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.author-info h4 {
+  color: var(--color-accent);
+  margin: 0 0 .1rem;
+  font-size: 1.05rem;
+  letter-spacing: .2px;
+}
+
+.author-info p {
+  color: var(--color-text-muted);
+  font-size: .9rem;
+  margin: 0;
+}
+
+/* Animación de entrada con delays */
+@keyframes tFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#testimonials .testimonial-card {
+  opacity: 0;
+  animation: tFadeUp .75s ease forwards;
+}
+#testimonials .testimonial-card:nth-child(1) { animation-delay: .0s; }
+#testimonials .testimonial-card:nth-child(2) { animation-delay: .08s; }
+#testimonials .testimonial-card:nth-child(3) { animation-delay: .16s; }
+
+/* Accesibilidad focus */
+#testimonials .testimonial-card:focus-within {
+  outline: 2px solid var(--color-accent-fade);
+  outline-offset: 3px;
+}
+
+#recipes {
+  padding: 6rem var(--padding-x);
+  background: linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-layer) 100%);
+  display: flex;
+  flex-direction: column;    /* apila título y video */
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;              /* espacio entre título y video */
+}
+
+#recipes .section-title {
+  margin-bottom: .5rem;      /* separa del video */
   text-align: center;
+}
+
+#recipes .recipes-container {
+  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
-.hero-highlights {
-  justify-content: center;
+.recipes-video {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #211510;
+  box-shadow: 0 18px 40px -10px rgba(0,0,0,.55), 0 4px 14px rgba(0,0,0,.4);
 }
 
-/* Remove duplicate producto-image styles */
-/* ...existing code... */
+.recipe-player {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9; /* mantiene proporción del video */
+  background: #000;   /* fondo mientras no haya src */
+  outline: none;
+}
+
+@media (max-width: 560px) {
+  .recipes-video { border-radius: 12px; }
+}

@@ -5,6 +5,7 @@ import '@fontsource/quicksand/300.css';
 import '@fontsource/quicksand/400.css';
 import '@fontsource/quicksand/500.css';
 import '@fontsource/quicksand/600.css';
+const ASSETS = import.meta.env.BASE_URL === '/' ? '/PeruvianFlavorsCoffee/' : import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -52,6 +53,8 @@ import '@fontsource/quicksand/600.css';
       --color-layer: #271a14;
       --color-layer-soft: #2f1e17;
       --color-surface: #3a241a;
+      /* Restaurar al gradiente blanco original */
+      --grad-accent: linear-gradient(90deg, #ffffff 0%, #ffffff 60%, #f7f7f7 100%);
       --color-accent: #c58a4b;
       --color-accent-alt: #a86b33;
       --color-accent-soft: #e2ba87;
@@ -64,8 +67,10 @@ import '@fontsource/quicksand/600.css';
       --color-text-muted: #b79f91;
       --shadow-soft: 0 6px 18px rgba(0,0,0,0.28);
       --shadow-hover: 0 10px 26px rgba(0,0,0,0.34);
-      --grad-accent: linear-gradient(90deg,#86522b,#c58a4b 60%,#e2ba87);
-      --grad-accent-alt: linear-gradient(120deg,#3a241a,#53331f 55%,#694227);
+      /* Blanco puro con leve variación y mejor consistencia */
+      --grad-accent: linear-gradient(90deg, #ffffff 0%, #ffffff93 60%, #f7f7f7 100%);
+      /* Sombra brillante reutilizable para textos en gradiente */
+      --text-glow: 0 0 10px rgba(255,255,255,0.22), 0 0 22px rgba(255,255,255,0.12);
     }
 
     * {

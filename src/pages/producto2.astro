@@ -1,17 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const ASSETS = import.meta.env.BASE_URL === '/' ? '/PeruvianFlavorsCoffee/' : import.meta.env.BASE_URL;
 ---
 
 <Layout>
     <div class="producto-detalle">
         <div class="producto-contenido">
             <div class="producto-imagenes">
-                <img src={`${ASSETS}cajamarca.png`} alt="Café Cajamarca" class="imagen-principal">
+                <img src={`/PeruvianFlavorsCoffee/cajamarca.png`} alt="Café Cajamarca" class="imagen-principal">
                 <div class="producto-galeria">
-                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 1">
-                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 2">
-                    <img src={`${ASSETS}cajamarca.png`} alt="Detalle 3">
+                    <img src={`/PeruvianFlavorsCoffee/cajamarca.png`} alt="Detalle 1">
+                    <img src={`/PeruvianFlavorsCoffee/cajamarca.png`} alt="Detalle 2">
+                    <img src={`/PeruvianFlavorsCoffee/cajamarca.png`} alt="Detalle 3">
                 </div>
             </div>
             <div class="producto-info">

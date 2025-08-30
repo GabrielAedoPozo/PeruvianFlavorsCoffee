@@ -12,7 +12,15 @@
     width: 100%;
     height: 100%;
     z-index: 1;                 /* asegura que la imagen quede sobre decoraciones del hero */
-    background: #180f0f;        /* fondo para bandas laterales/superiores si sobran */
+    background: #180f0f70;        /* fondo para bandas laterales/superiores si sobran */
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:rgba(0, 0, 0, 0.233);
+    z-index: 2;
 }
 
 .hero-image img {
@@ -21,6 +29,7 @@
     object-fit: contain;        /* NO recorta la imagen */
     object-position: center;    /* centra la imagen completa */
     display: block;
+    opacity: 0.85;
 }
 
 

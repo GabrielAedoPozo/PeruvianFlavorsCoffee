@@ -9,7 +9,7 @@
 ---
 
 ## 📜 Descripción
-**Peruvian Flavors Coffee** es una página web profesional desarrollada para transmitir la esencia del café peruano. El proyecto busca resaltar la historia, tradición y calidad de los granos, además de ofrecer un espacio digital moderno para la venta de productos artesanales.  
+**Peruvian Flavors Coffee** es una página web profesional desarrollada para Una empresa real. El proyecto busca resaltar la historia, tradición y calidad de los granos, además de ofrecer un espacio digital moderno para la venta de productos artesanales.  
 
 La web está optimizada para brindar una experiencia fluida, moderna y responsive, integrando herramientas que facilitan la compra y el contacto directo con la marca.
 

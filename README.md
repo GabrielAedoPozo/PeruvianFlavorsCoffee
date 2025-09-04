@@ -1,28 +1,31 @@
 # ☕ Peruvian Flavors Coffee 🇵🇪
-![Peruvian Flavors Coffee Logo](pfc.png)
-
 > **El sabor del café peruano, directo a tu taza**  
 > Página web oficial de *Peruvian Flavors Coffee*, donde tradición y calidad se encuentran en cada grano.
 
 ---
 
+![Peruvian Flavors Coffee](./public/peruvian-flavors.png)
+
+---
+
 ## 📜 Descripción
-**Peruvian Flavors Coffee** es una página web diseñada para una empresa real, su objetivo mostrar la esencia del café peruano, desde su historia y orígenes hasta la venta de productos artesanales.  
-La web está optimizada para ofrecer una experiencia fluida, moderna y responsive, integrando herramientas que facilitan la compra y el contacto directo con la marca.
+**Peruvian Flavors Coffee** es una página web profesional desarrollada para transmitir la esencia del café peruano. El proyecto busca resaltar la historia, tradición y calidad de los granos, además de ofrecer un espacio digital moderno para la venta de productos artesanales.  
+
+La web está optimizada para brindar una experiencia fluida, moderna y responsive, integrando herramientas que facilitan la compra y el contacto directo con la marca.
 
 ---
 
-## ✨ Características
-- 🎨 **Diseño moderno y responsive** compatible con móviles y escritorio  
-- 📖 Sección **Historia** con la trayectoria de la marca  
-- 📦 Catálogo digital de productos con imágenes de alta calidad  
-- 📲 **Integración con WhatsApp** para pedidos directos  
-- 🚀 Código optimizado para SEO y velocidad de carga
-- 👓 Dominio Incluido
+## ✨ Características principales
+- 🎨 **Diseño moderno y responsive**, adaptable a dispositivos móviles y de escritorio  
+- 📖 Sección de **Historia** con la trayectoria y orígenes de la marca  
+- 📦 **Catálogo digital** con productos de alta calidad y fotografías profesionales  
+- 📲 **Integración con WhatsApp** para pedidos y consultas directas  
+- 🚀 **Código optimizado** para SEO y velocidad de carga  
+- 🌐 **Dominio incluido** en la implementación  
 
 ---
 
-## 🛠️ Stack
+## 🛠️ Tecnologías utilizadas
 
 | Tecnología       | Uso principal |
 |------------------|--------------|
@@ -36,10 +39,12 @@ La web está optimizada para ofrecer una experiencia fluida, moderna y responsiv
 ---
 
 ## 📦 Instalación y uso
-Clona este repositorio y ejecuta el proyecto en tu entorno local:
+
+Clona este repositorio e inicia el proyecto en tu entorno local:
 
 ```bash
 git clone https://github.com/usuario/peruvian-flavors-coffee.git
 cd peruvian-flavors-coffee
 npm install
 npm run dev
+

@@ -4,7 +4,7 @@
 
 ---
 
-![Peruvian Flavors Coffee](./public/peruvian-flavors.png)
+![Peruvian Flavors Coffee](./peruvian-flavors.png)
 
 ---
 

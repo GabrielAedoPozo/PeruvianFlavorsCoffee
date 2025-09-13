@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section id="complaints" class="complaints-section">
+    <div class="complaints-container">
+      <div class="complaints-header">
+        <h1 class="section-title">Libro de Reclamaciones</h1>
+        <p class="complaints-description">
+          Tu opinión es importante para nosotros. Si tienes alguna queja o sugerencia, 
+          por favor completa el siguiente formulario y nos pondremos en contacto contigo.
+        </p>
+      </div>
+      
+      <div class="complaints-content">
+        <form class="complaints-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+            </div>
+            
+            <div class="form-group">
+              <label for="apellido">Apellido *</label>
+              <input type="text" id="apellido" name="apellido" required placeholder="Ingresa tu apellido">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Correo Electrónico *</label>
+            <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono (Opcional)</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+51 999 999 999">
+          </div>
+          
+        
+          
+          <div class="form-group">
+            <label for="problema">Describe tu problema o sugerencia *</label>
+            <textarea id="problema" name="problema" rows="6" required placeholder="Describe detalladamente tu problema, sugerencia o consulta..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="submit-btn">Enviar Reclamación</button>
+          </div>
+          
+          <div class="legal-notice">
+            <p>Al enviar este formulario, aceptas que procesemos tus datos personales para dar respuesta a tu consulta. 
+            Nos comprometemos a responder en un plazo máximo de 30 días hábiles.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .complaints-section {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg-alt) 50%, var(--color-layer) 100%);
+    padding: calc(90px + 4rem) var(--padding-x) 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .complaints-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .complaints-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .complaints-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .complaints-description {
+    color: var(--color-text-soft);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .complaints-content {
+    background: linear-gradient(155deg, rgba(58,36,26,0.4), rgba(42,26,19,0.6));
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+  }
+
+  .complaints-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-soft);
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: linear-gradient(140deg, rgba(58,36,26,0.6), rgba(42,26,19,0.8));
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.8;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: linear-gradient(140deg, rgba(58,36,26,0.8), rgba(42,26,19,0.9));
+    box-shadow: 0 0 0 3px rgba(197,138,75,0.2), inset 0 2px 4px rgba(0,0,0,0.4);
+  }
+
+  .form-group select {
+    cursor: pointer;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    background: linear-gradient(100deg, #8f5930, #c58a4b 65%, #d8b07d);
+    color: #27160c;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 12px 30px -6px rgba(0,0,0,0.4), 0 8px 20px -8px rgba(197,138,75,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    align-self: flex-start;
+    text-transform: uppercase;
+  }
+
+  .submit-btn::after {
+    content: '→';
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+    box-shadow: 0 16px 40px -8px rgba(0,0,0,0.5), 0 12px 28px -10px rgba(197,138,75,0.4);
+  }
+
+  .submit-btn:active {
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 4px;
+  }
+
+  .legal-notice {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+  }
+
+  .legal-notice p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .complaints-section {
+      padding: calc(90px + 2rem) var(--padding-x) 2rem;
+    }
+
+    .complaints-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .complaints-form {
+      gap: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .complaints-content {
+      padding: 1.5rem 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

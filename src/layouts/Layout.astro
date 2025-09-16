@@ -33,6 +33,10 @@ import '@fontsource/quicksand/600.css';
       <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div class="price-disclaimer">
+      <p>*Precios referenciales, pueden variar de acuerdo a temporada y/o stock.</p>
+    </div>
+
     <script>
       import '../scripts/app.js';
     </script>
@@ -153,7 +157,7 @@ import '@fontsource/quicksand/600.css';
 
     .whatsapp-button {
       position: fixed;
-      bottom: 30px;
+      bottom: 80px; /* moved up to leave space for disclaimer below */
       right: 30px;
       background: #25d366;
       color: white;
@@ -180,6 +184,28 @@ import '@fontsource/quicksand/600.css';
       background: #25d365da;
     }
 
+    .price-disclaimer {
+      position: fixed;
+      bottom: 5px; /* close to bottom, below WhatsApp button */
+      right: 30px;
+      background: rgba(24, 16, 12, 0.9);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      max-width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .price-disclaimer p {
+      margin: 0;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      text-align: center;
+    }
+
     @keyframes pulse {
       0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
@@ -197,8 +223,53 @@ import '@fontsource/quicksand/600.css';
         width: 50px;
         height: 50px;
         font-size: 1.8rem;
-        bottom: 20px;
+        bottom: 50px; /* adjusted for mobile */
         right: 20px;
+      }
+
+      .price-disclaimer {
+        bottom: 5px; /* close to bottom on mobile */
+        right: 20px;
+        max-width: 180px;
+        padding: 0.4rem 0.6rem;
+      }
+
+      .price-disclaimer p {
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .price-disclaimer {
+        bottom: 3px; /* very close to bottom on small mobile */
+        right: 15px;
+        max-width: 160px;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .price-disclaimer p {
+        font-size: 0.6rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 45px; /* adjusted for very small screens */
+        right: 15px;
+      }
+
+      .price-disclaimer {
+        bottom: 2px; /* minimal space from bottom */
+        right: 15px;
+        max-width: 140px;
+        padding: 0.25rem 0.4rem;
+      }
+
+      .price-disclaimer p {
+        font-size: 0.55rem;
       }
     }
 

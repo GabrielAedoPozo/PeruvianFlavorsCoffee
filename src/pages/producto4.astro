@@ -4,14 +4,15 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
     <div class="producto-detalle">
+        <div class="back-navigation">
+            <a href="/PeruvianFlavorsCoffee/" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al inicio</span>
+            </a>
+        </div>
         <div class="producto-contenido">
             <div class="producto-imagenes">
                 <img src="/PeruvianFlavorsCoffee/amazonas.png" alt="Café Amazonas" class="imagen-principal">
-                <div class="producto-galeria">
-                    <img src="/PeruvianFlavorsCoffee/amazonas.png" alt="Detalle 1">
-                    <img src="/PeruvianFlavorsCoffee/amazonas.png" alt="Detalle 2">
-                    <img src="/PeruvianFlavorsCoffee/amazonas.png" alt="Detalle 3">
-                </div>
             </div>
             <div class="producto-info">
                 <h1>Café Amazonas</h1>
@@ -67,6 +68,36 @@ import Layout from '../layouts/Layout.astro';
         padding: 120px 2rem 4rem;
         background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%) var(--color-bg);
         min-height: 100vh;
+    }
+
+    .back-navigation {
+        max-width: 1200px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-soft);
+        text-decoration: none;
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        color: var(--color-accent);
+        background: rgba(197,138,75,0.1);
+        border-color: var(--color-accent-fade);
+        transform: translateX(-3px);
+    }
+
+    .back-button i {
+        font-size: 1rem;
     }
 
     .producto-contenido {

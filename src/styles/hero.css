@@ -1553,6 +1553,7 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
     width: 450px;
     border: none;
+    border-radius: 20px;
 }
 
 .accesorio-buy a::after {

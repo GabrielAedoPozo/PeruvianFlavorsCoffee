@@ -54,7 +54,6 @@ footer::before {
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
 }
 
 .link-column h3 {
@@ -62,6 +61,7 @@ footer::before {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     position: relative;
+
 }
 
 .link-column h3::after {
@@ -94,7 +94,6 @@ footer::before {
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
 .link-column a:hover {

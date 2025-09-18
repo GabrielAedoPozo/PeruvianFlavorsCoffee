@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <div class="producto-detalle">
+        <div class="back-navigation">
+            <a href="/PeruvianFlavorsCoffee/" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al inicio</span>
+            </a>
+        </div>
+        <div class="producto-contenido">
+            <div class="producto-imagenes">
+                <img src="/PeruvianFlavorsCoffee/articulo5.png" alt="Cafetera con colador" class="imagen-principal">
+            </div>
+            <div class="producto-info">
+                <h1>Cafetera con colador</h1>
+                <p class="descripcion">
+                    Una cafetera elegante con filtro reutilizable que combina funcionalidad y estilo. Perfecta para preparar café de goteo con un sabor limpio y puro.
+
+                    <div class="detalles">
+                        Marca: Tramontina<br>
+                        Capacidad: 255ml<br>
+                        Material: Vidrio borosilicato y asa de silicona<br>
+                        Filtro: Café reutilizable de acero inoxidable y doble capa<br>
+                        Características: Ecológico, fácil limpieza, resistente al calor
+                    </div>
+                </p>
+                
+                <div class="opciones-peso">
+                    <h3>Precio:</h3>
+                    <div class="peso-buttons">
+                        <button class="peso-option active" data-price="155.00" data-weight="1 unidad">
+                            <span class="weight">1 Unidad</span>
+                            <span class="price">S/. 155.00</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="acciones">
+                    <div class="cantidad">
+                        <button class="btn-qty" id="decrease">-</button>
+                        <input type="number" value="1" min="1" id="quantity">
+                        <button class="btn-qty" id="increase">+</button>
+                    </div>
+                    <div class="total-price">
+                        <span>Total: S/. <span id="total">155.00</span></span>
+                    </div>
+                    <a href="#" class="btn-whatsapp" id="whatsappButton">
+                        <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .producto-detalle {
+        padding: 120px 2rem 4rem;
+        background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%) var(--color-bg);
+        min-height: 100vh;
+    }
+
+    .back-navigation {
+        max-width: 1200px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-soft);
+        text-decoration: none;
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        color: var(--color-accent);
+        background: rgba(197,138,75,0.1);
+        border-color: var(--color-accent-fade);
+        transform: translateX(-3px);
+    }
+
+    .back-button i {
+        font-size: 1rem;
+    }
+
+    .producto-contenido {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        color: #fff;
+    }
+
+    .producto-imagenes {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .imagen-principal {
+        width: 100%;
+        border-radius: 20px;
+        background: linear-gradient(150deg,#3b241a,#2b1a13);
+        border: 1px solid var(--color-border);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+        margin: 1rem 0;
+        background: var(--grad-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        font-weight: 600;
+    }
+
+    .descripcion {
+        color: var(--color-text-soft);
+        line-height: 1.6;
+        margin: 1.5rem 0;
+        font-size: .92rem;
+    }
+
+    .detalles {
+        background: linear-gradient(160deg,#20130d,#180e0a);
+        border: 1px solid var(--color-border);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .opciones-peso {
+        margin: 2rem 0;
+    }
+    
+    .opciones-peso h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .peso-buttons {
+        display: flex;
+        gap: .8rem;
+        flex-wrap: wrap;
+    }
+
+    .peso-option {
+        background: rgba(197,138,75,0.06);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: .9rem .9rem;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: all .25s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .peso-option:hover {
+        background: rgba(197,138,75,0.15);
+        transform: translateY(-2px);
+    }
+
+    .peso-option.active {
+        background: rgba(197,138,75,0.16);
+        border-color: var(--color-accent);
+        box-shadow: 0 6px 18px rgba(240,192,64,0.15);
+        color: var(--color-text);
+    }
+
+    .peso-option .weight {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .peso-option .price {
+        color: var(--color-accent);
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .acciones {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .cantidad {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        padding: .35rem;
+        gap: .25rem;
+        width: fit-content;
+    }
+
+    .btn-qty {
+        background: none;
+        border: none;
+        color: var(--color-accent);
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: .3rem .8rem;
+        border-radius: 999px;
+    }
+
+    .btn-qty:hover {
+        background: rgba(197,138,75,0.15);
+    }
+
+    input[type="number"] {
+        width: 58px;
+        text-align: center;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1.05rem;
+    }
+
+    .total-price {
+        font-size: 1.3rem;
+        color: var(--color-accent);
+        font-weight: 700;
+        background: rgba(197,138,75,0.12);
+        border: 1px solid rgba(197,138,75,0.35);
+        width: fit-content;
+        padding: .6rem .9rem;
+        border-radius: 10px;
+    }
+
+    .btn-whatsapp {
+        background: linear-gradient(135deg,#2f9b5b,#247947);
+        color: white;
+        padding: 1rem 1.3rem;
+        border-radius: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        box-shadow: 0 10px 24px rgba(34,115,63,0.35);
+        transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .btn-whatsapp:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+    }
+
+    .btn-whatsapp i {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .producto-contenido {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .producto-detalle {
+            padding: 100px 1rem 2rem;
+        }
+
+        .acciones {
+            flex-direction: column;
+        }
+
+        .cantidad {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-whatsapp {
+            max-width: 100%;
+        }
+    }
+</style>

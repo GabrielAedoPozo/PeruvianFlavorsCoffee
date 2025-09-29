@@ -1562,9 +1562,6 @@
     transition: color 0.3s ease;
 }
 
-.accesorio-card:hover .accesorio-info h3 {
-    color: var(--color-accent-soft);
-}
 
 .accesorio-precio {
     color: var(--color-accent);

@@ -58,6 +58,7 @@ import Layout from '../layouts/Layout.astro';
                     <a href="#" class="btn-whatsapp" id="whatsappButton">
                         <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
                     </a>
+                    <p class="price-disclaimer">*Precios referenciales, pueden variar de acuerdo a temporada y/o stock.</p>
                 </div>
             </div>
         </div>
@@ -321,6 +322,15 @@ import Layout from '../layouts/Layout.astro';
 
     .btn-whatsapp i {
         font-size: 1.2rem;
+    }
+
+    .price-disclaimer {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+        margin-top: 0.5rem;
+        text-align: left;
+        line-height: 1.3;
+        max-width: 380px;
     }
 
     @media (max-width: 768px) {

@@ -33,10 +33,6 @@ import '@fontsource/quicksand/600.css';
       <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div class="price-disclaimer">
-      <p>*Precios referenciales, pueden variar de acuerdo a temporada y/o stock.</p>
-    </div>
-
     <script>
       import '../scripts/app.js';
     </script>
@@ -157,7 +153,7 @@ import '@fontsource/quicksand/600.css';
 
     .whatsapp-button {
       position: fixed;
-      bottom: 80px; /* moved up to leave space for disclaimer below */
+      bottom: 30px;
       right: 30px;
       background: #25d366;
       color: white;
@@ -184,28 +180,6 @@ import '@fontsource/quicksand/600.css';
       background: #25d365da;
     }
 
-    .price-disclaimer {
-      position: fixed;
-      bottom: 5px; /* close to bottom, below WhatsApp button */
-      right: 30px;
-      background: rgba(24, 16, 12, 0.9);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 0.5rem 0.8rem;
-      backdrop-filter: blur(10px);
-      z-index: 999;
-      max-width: 200px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .price-disclaimer p {
-      margin: 0;
-      font-size: 0.7rem;
-      color: var(--color-text-muted);
-      line-height: 1.3;
-      text-align: center;
-    }
-
     @keyframes pulse {
       0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
@@ -223,6 +197,31 @@ import '@fontsource/quicksand/600.css';
         width: 50px;
         height: 50px;
         font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
+    /* Preferencia reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
+      }
+    }
+
+            font-size: 1.8rem;
         bottom: 50px; /* adjusted for mobile */
         right: 20px;
       }
@@ -283,5 +282,3 @@ import '@fontsource/quicksand/600.css';
     }
   </style>
 </html>
-
-

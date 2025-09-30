@@ -48,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="acciones">
                     <div class="cantidad">
                         <button class="btn-qty" id="decrease">-</button>
-                        <input type="number" value="1" min="1" id="quantity">
+                        <input type="number" value="1" min="1" max="10" id="quantity" readonly inputmode="none">
                         <button class="btn-qty" id="increase">+</button>
                     </div>
                     <div class="total-price">

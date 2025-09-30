@@ -56,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3) Productos: enlazar a todos los .producto-detalle de cualquier página
   document.querySelectorAll('.producto-detalle').forEach((root) => {
-    // Galería
+    // Galería de imágenes
     const mainImg = root.querySelector('.imagen-principal');
     root.querySelectorAll('.producto-galeria img').forEach((img) => {
-      img.addEventListener('click', () => { if (mainImg) mainImg.src = img.src; });
+      img.addEventListener('click', () => { 
+        if (mainImg) mainImg.src = img.src; 
+      });
     });
 
-    // Elementos (scoped por producto)
+    // Elementos del producto (scoped por producto)
     const pesoButtons = Array.from(root.querySelectorAll('.peso-option'));
     const quantity = root.querySelector('#quantity');
     const totalSpan = root.querySelector('#total');
@@ -70,128 +72,133 @@ document.addEventListener('DOMContentLoaded', () => {
     const productName =
       root.querySelector('.producto-info h1')?.textContent?.trim() ||
       document.querySelector('h1')?.textContent?.trim() ||
-      'Café';
+      'Producto';
 
-    // Estado inicial
+    // Estado inicial del producto
     const activeBtn = root.querySelector('.peso-option.active') || pesoButtons[0];
     let currentPrice = parseFloat(activeBtn?.getAttribute('data-price') || '32');
-    let currentWeight = activeBtn?.getAttribute('data-weight') || '250g';
+    let currentWeight = activeBtn?.getAttribute('data-weight') || '1 unidad';
 
+    // Límite máximo de unidades
+    const MAX_QTY = 10;
+
+    // Función para validar y normalizar cantidad
+    const validateQuantity = (value) => {
+      let qty = parseInt(value, 10);
+      if (isNaN(qty) || qty < 1) qty = 1;
+      if (qty > MAX_QTY) qty = MAX_QTY;
+      return qty;
+    };
+
+    // Función para actualizar total y enlace WhatsApp
     const updateTotal = () => {
-      const qty = Math.max(1, parseInt(quantity?.value || '1', 10) || 1);
-      if (quantity) quantity.value = String(qty);
-
+      if (!quantity) return;
+      const qty = validateQuantity(quantity.value);
+      quantity.value = String(qty);
       const total = (currentPrice * qty).toFixed(2);
       if (totalSpan) totalSpan.textContent = total;
-
       if (whatsappButton) {
         const message = encodeURIComponent(
           `¡Hola! Me interesa comprar:\n` +
           `- ${qty} unidad(es) de ${productName}\n` +
-          `- Peso por unidad: ${currentWeight}\n` +
-          `- Total: S/. ${total}`
+          `- Peso/Tamaño: ${currentWeight}\n` +
+          `- Total: S/. ${total}\n\n` +
+          `¿Podrías confirmar disponibilidad y método de pago?`
         );
         whatsappButton.href = `https://wa.me/51987800910?text=${message}`;
       }
     };
 
-    // Cambio de peso
+    // Cambio de peso/tamaño
     pesoButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        // Remover active de todos
         pesoButtons.forEach((btn) => btn.classList.remove('active'));
+        // Activar el seleccionado
         button.classList.add('active');
+        
+        // Actualizar precio y peso actuales
         const priceAttr = button.getAttribute('data-price');
         const weightAttr = button.getAttribute('data-weight');
         if (priceAttr) currentPrice = parseFloat(priceAttr);
         if (weightAttr) currentWeight = weightAttr;
+        
         updateTotal();
       });
     });
 
-    // Cantidad
-    const dec = root.querySelector('#decrease');
-    const inc = root.querySelector('#increase');
+    // Botones de cantidad
+    const decreaseBtn = root.querySelector('#decrease');
+    const increaseBtn = root.querySelector('#increase');
 
-    dec?.addEventListener('click', () => {
+    decreaseBtn?.addEventListener('click', () => {
       if (!quantity) return;
-      const val = Math.max(1, (parseInt(quantity.value || '1', 10) || 1) - 1);
-      quantity.value = String(val);
+      const currentQty = validateQuantity(quantity.value);
+      const newQty = Math.max(1, currentQty - 1);
+      quantity.value = String(newQty);
       updateTotal();
     });
 
-    inc?.addEventListener('click', () => {
+    increaseBtn?.addEventListener('click', () => {
       if (!quantity) return;
-      const val = Math.max(1, (parseInt(quantity.value || '1', 10) || 1) + 1);
-      quantity.value = String(val);
+      const currentQty = validateQuantity(quantity.value);
+      const newQty = Math.min(MAX_QTY, currentQty + 1);
+      quantity.value = String(newQty);
       updateTotal();
     });
 
-    quantity?.addEventListener('input', updateTotal);
-    quantity?.addEventListener('change', updateTotal);
+    // Bloquear tipeo y configurar atributos del input
+    if (quantity) {
+      quantity.setAttribute('min', '1');
+      quantity.setAttribute('max', String(MAX_QTY));
+      quantity.setAttribute('step', '1');
+      quantity.setAttribute('inputmode', 'none'); // móvil: no teclado
+      quantity.readOnly = true; // solo con botones +/- 
+    }
 
-    // Inicial
+    // Inicializar cálculos
     updateTotal();
   });
-});
-  const quantity = /** @type {HTMLInputElement|null} */ (page.querySelector('#quantity'));
-  const totalSpan = page.querySelector('#total');
-  const whatsappButton = /** @type {HTMLAnchorElement|null} */ (page.querySelector('#whatsappButton'));
-  const productName =
-    page.querySelector('.producto-info h1')?.textContent?.trim() ||
-    document.querySelector('h1')?.textContent?.trim() ||
-    'Café';
 
-  let currentPrice = parseFloat(page.querySelector('.peso-option.active')?.getAttribute('data-price') || '32');
-  let currentWeight = page.querySelector('.peso-option.active')?.getAttribute('data-weight') || '250g';
+  // 4) Smooth scroll para enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
-  function updateTotal() {
-    const qty = Math.max(1, parseInt(quantity?.value || '1', 10));
-    if (quantity) quantity.value = String(qty);
+  // 5) Animaciones on scroll (opcional)
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-in'); });
+  }, observerOptions);
+  document.querySelectorAll('.producto-card, .accesorio-card, .testimonial-card').forEach(el => observer.observe(el));
 
-    const total = (currentPrice * qty).toFixed(2);
-    if (totalSpan) totalSpan.textContent = total;
-
-    const message = encodeURIComponent(
-      `¡Hola! Me interesa comprar:\n` +
-      `- ${qty} unidad(es) de ${productName}\n` +
-      `- Peso por unidad: ${currentWeight}\n` +
-      `- Total: S/. ${total}`
-    );
-    if (whatsappButton) {
-      whatsappButton.href = `https://wa.me/51987800910?text=${message}`;
-    }
+  // 6) Lazy loading para imágenes (fallback)
+  if ('loading' in HTMLImageElement.prototype === false) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src || img.src;
+          img.classList.remove('lazy');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+    images.forEach(img => imageObserver.observe(img));
   }
 
-  pesoButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      pesoButtons.forEach((btn) => btn.classList.remove('active'));
-      button.classList.add('active');
-      currentPrice = parseFloat(button.getAttribute('data-price') || String(currentPrice));
-      currentWeight = button.getAttribute('data-weight') || currentWeight;
-      updateTotal();
+  // 7) Manejo de errores de imágenes
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      console.warn('Error loading image:', this.src);
     });
   });
-
-  const dec = page.querySelector('#decrease');
-  const inc = page.querySelector('#increase');
-
-  dec?.addEventListener('click', () => {
-    if (!quantity) return;
-    const val = Math.max(1, parseInt(quantity.value || '1', 10) - 1);
-    quantity.value = String(val);
-    updateTotal();
-  });
-
-  inc?.addEventListener('click', () => {
-    if (!quantity) return;
-    const val = Math.max(1, parseInt(quantity.value || '1', 10) + 1);
-    quantity.value = String(val);
-    updateTotal();
-  });
-
-  quantity?.addEventListener('change', updateTotal);
-  updateTotal();
-;
-  quantity?.addEventListener('change', updateTotal);
-  updateTotal();
-;
+});

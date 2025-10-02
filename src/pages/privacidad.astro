@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Política de Privacidad - Peruvian Flavors Coffee">
+    <div class="privacy-page">
+        <div class="back-navigation">
+            <a href="/PeruvianFlavorsCoffee/" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al inicio</span>
+            </a>
+        </div>
+        
+        <div class="privacy-content">
+            <h1>Política de Privacidad</h1>
+            
+            <div class="privacy-text">
+                <p>En Peruvian Flavors Coffee, valoramos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros. Esta política de privacidad describe cómo recopilamos, usamos, almacenamos y protegemos tu información. Al utilizar nuestro sitio web y servicios, aceptas los términos de esta política.</p>
+
+                <h2>Información que Recopilamos</h2>
+                <p>Recopilamos información personal cuando realizas un pedido, te suscribes a nuestro boletín, participas en promociones o interactúas con nuestro sitio web. Esto puede incluir tu nombre, dirección de correo electrónico, dirección de envío, número de teléfono y detalles de pago.</p>
+
+                <h2>Uso de la Información</h2>
+                <p>Utilizamos la información recopilada para procesar tus pedidos, mejorar tu experiencia de compra, enviarte actualizaciones sobre productos, ofertas y promociones, y para contactarte en caso de ser necesario con respecto a tu pedido.</p>
+
+                <h2>Protección de la Información</h2>
+                <p>Adoptamos medidas de seguridad para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Utilizamos tecnologías de encriptación para proteger los datos sensibles, como la información de tarjetas de crédito.</p>
+
+                <h2>Compartir Información con Terceros</h2>
+                <p>No compartimos tu información personal con terceros, excepto cuando sea necesario para procesar tu pedido (por ejemplo, con empresas de envío o proveedores de pago). También podemos compartir tu información si es requerido por la ley o para proteger nuestros derechos legales.</p>
+
+                <h2>Cookies y Tecnologías Similares</h2>
+                <p>Nuestro sitio utiliza cookies para mejorar tu experiencia y analizar el tráfico del sitio. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo. Puedes configurar tu navegador para rechazar cookies, aunque esto podría afectar la funcionalidad del sitio.</p>
+
+                <h2>Acceso y Actualización de Tu Información</h2>
+                <p>Tienes el derecho de acceder, corregir o eliminar la información personal que nos has proporcionado. Para hacerlo, puedes contactarnos directamente a través de nuestro sitio web.</p>
+
+                <h2>Conservación de la Información</h2>
+                <p>Conservamos tu información personal solo por el tiempo necesario para cumplir con los fines para los que fue recopilada, incluyendo el cumplimiento de cualquier obligación legal, contractual o de informes.</p>
+
+                <h2>Cambios a esta Política</h2>
+                <p>Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Las actualizaciones se publicarán en esta página y entrarán en vigencia de inmediato. Te recomendamos revisar esta política periódicamente.</p>
+
+                <h2>Contacto</h2>
+                <p>Si tienes preguntas o inquietudes sobre nuestra política de privacidad, no dudes en contactarnos a través de la sección de contacto en nuestro sitio web.</p>
+
+                <p class="last-updated"><strong>Fecha de última actualización:</strong> Octubre 2025</p>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .privacy-page {
+        padding: 120px 2rem 4rem;
+        background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%) var(--color-bg);
+        min-height: 100vh;
+    }
+
+    .back-navigation {
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-soft);
+        text-decoration: none;
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        color: var(--color-accent);
+        background: rgba(197,138,75,0.1);
+        border-color: var(--color-accent-fade);
+        transform: translateX(-3px);
+    }
+
+    .back-button i {
+        font-size: 1rem;
+    }
+
+    .privacy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: linear-gradient(155deg, rgba(58,36,26,0.85), rgba(42,26,19,0.9));
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 2rem;
+        background: var(--grad-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .privacy-text h2 {
+        font-size: 1.4rem;
+        color: var(--color-accent);
+        margin: 2rem 0 1rem 0;
+        font-weight: 600;
+    }
+
+    .privacy-text p {
+        color: var(--color-text-soft);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .last-updated {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--color-border);
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .privacy-page {
+            padding: 100px 1rem 2rem;
+        }
+
+        .privacy-content {
+            padding: 2rem;
+        }
+
+        .privacy-text h2 {
+            font-size: 1.2rem;
+        }
+
+        .privacy-text p {
+            font-size: 0.95rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .privacy-content {
+            padding: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .privacy-text h2 {
+            font-size: 1.1rem;
+        }
+
+        .privacy-text p {
+            font-size: 0.9rem;
+        }
+    }
+</style>

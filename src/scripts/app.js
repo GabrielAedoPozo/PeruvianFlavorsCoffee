@@ -10,7 +10,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2) Blog: slider con fade + dots (si existe)
+  // 2) Hero Slider
+  const heroSlider = document.querySelector('.hero-slider');
+  if (heroSlider) {
+    const slides = heroSlider.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const HERO_INTERVAL = 3000; // Changed from 4000 to 3000 (3 seconds)
+    let heroTimer;
+
+    const goToSlide = (index) => {
+      if (!slides.length) return;
+      // Ensure infinite loop with modulo operation
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+    };
+
+    const nextSlide = () => {
+      // Move to next slide, will loop back to 0 after last slide
+      goToSlide(currentSlide + 1);
+    };
+    
+    const startHeroSlider = () => { 
+      heroTimer = setInterval(nextSlide, HERO_INTERVAL); 
+    };
+    
+    const stopHeroSlider = () => { 
+      if (heroTimer) clearInterval(heroTimer); 
+    };
+
+    // Initialize - start with first slide
+    goToSlide(0);
+    
+    // Only start auto-play if there are multiple slides
+    if (slides.length > 1) {
+      startHeroSlider();
+      // Pause on hover, resume on leave
+      heroSlider.addEventListener('mouseenter', stopHeroSlider);
+      heroSlider.addEventListener('mouseleave', startHeroSlider);
+    }
+  }
+
+  // 3) Blog: slider con fade + dots (si existe)
   const slider = document.querySelector('.blog-slider.fader');
   if (slider) {
     const slides = slider.querySelectorAll('.slide');
@@ -54,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('mouseleave', start);
   }
 
-  // 3) Productos: enlazar a todos los .producto-detalle de cualquier página
+  // 4) Productos: enlazar a todos los .producto-detalle de cualquier página
   document.querySelectorAll('.producto-detalle').forEach((root) => {
     // Galería de imágenes
     const mainImg = root.querySelector('.imagen-principal');
@@ -98,13 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const total = (currentPrice * qty).toFixed(2);
       if (totalSpan) totalSpan.textContent = total;
       if (whatsappButton) {
-        const message = encodeURIComponent(
-          `¡Hola! Me interesa comprar:\n` +
-          `- ${qty} unidad(es) de ${productName}\n` +
-          `- Peso/Tamaño: ${currentWeight}\n` +
-          `- Total: S/. ${total}\n\n` +
-          `¿Podrías confirmar disponibilidad y método de pago?`
-        );
+        const message = encodeURIComponent(`estoy interesado en comprar: ${productName}`);
         whatsappButton.href = `https://wa.me/51987800910?text=${message}`;
       }
     };
@@ -160,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTotal();
   });
 
-  // 4) Smooth scroll para enlaces internos
+  // 5) Smooth scroll para enlaces internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -171,14 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5) Animaciones on scroll (opcional)
+  // 6) Animaciones on scroll (opcional)
   const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-in'); });
   }, observerOptions);
   document.querySelectorAll('.producto-card, .accesorio-card, .testimonial-card').forEach(el => observer.observe(el));
 
-  // 6) Lazy loading para imágenes (fallback)
+  // 7) Lazy loading para imágenes (fallback)
   if ('loading' in HTMLImageElement.prototype === false) {
     const images = document.querySelectorAll('img[loading="lazy"]');
     const imageObserver = new IntersectionObserver((entries) => {
@@ -194,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
     images.forEach(img => imageObserver.observe(img));
   }
 
-  // 7) Manejo de errores de imágenes
+  // 8) Manejo de errores de imágenes
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', function() {
       this.style.display = 'none';

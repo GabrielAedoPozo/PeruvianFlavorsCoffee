@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import '../styles/hero.css';
 ---
 
@@ -14,12 +13,6 @@ import '../styles/hero.css';
             </div>
             <div class="slide">
                 <img src="/PeruvianFlavorsCoffee/imgp2.jpg" alt="Coffee Image 2" />
-            </div>
-            <div class="slide">
-                <img src="/PeruvianFlavorsCoffee/blog.png" alt="Coffee Blog" />
-            </div>
-            <div class="slide">
-                <img src="/PeruvianFlavorsCoffee/img-blog2.png" alt="Coffee Blog 2" />
             </div>
         </div>
     </div>
@@ -336,13 +329,38 @@ import '../styles/hero.css';
 </section>
 
 <section id="recipes" class="recipes-section">
-  <h1 class="section-title">Recetas</h1>
+  <h2 class="section-title">Recetas</h2>
   <div class="recipes-container">
-    <div class="recipes-video">
-      <video class="recipe-player" controls preload="metadata" playsinline>
-        <source src="/PeruvianFlavorsCoffee/receta1.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de video HTML5.
-      </video>
+    <div class="recipes-slider" aria-live="polite">
+      <div class="recipe-slide active">
+        <img src="/PeruvianFlavorsCoffee/capuccino.png" alt="Capuccino">
+        <div class="recipe-overlay">
+          <h3>Capuccino</h3>
+          <a class="btn-recipe" href="/PeruvianFlavorsCoffee/capuccino">Ver video</a>
+        </div>
+      </div>
+      <div class="recipe-slide">
+        <img src="/PeruvianFlavorsCoffee/chemex.png" alt="Chemex">
+        <div class="recipe-overlay">
+          <h3>Chemex</h3>
+          <a class="btn-recipe" href="/PeruvianFlavorsCoffee/chemex">Ver video</a>
+        </div>
+      </div>
+      <div class="recipe-slide">
+        <img src="/PeruvianFlavorsCoffee/mango.png" alt="Café con Mango">
+        <div class="recipe-overlay">
+          <h3>Café con Mango</h3>
+          <a class="btn-recipe" href="/PeruvianFlavorsCoffee/mango">Ver video</a>
+        </div>
+      </div>
+      <div class="recipe-slide">
+        <img src="/PeruvianFlavorsCoffee/prensafrancesa.png" alt="Prensa Francesa">
+        <div class="recipe-overlay">
+          <h3>Prensa Francesa</h3>
+          <a class="btn-recipe" href="/PeruvianFlavorsCoffee/prensa">Ver video</a>
+        </div>
+      </div>
+      <div class="recipes-dots" role="tablist" aria-label="Paginación recetas"></div>
     </div>
   </div>
 </section>

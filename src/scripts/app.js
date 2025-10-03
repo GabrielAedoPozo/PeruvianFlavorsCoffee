@@ -236,3 +236,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.recipes-slider');
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.recipe-slide'));
+  const dotsContainer = slider.querySelector('.recipes-dots');
+  let current = 0;
+  const INTERVAL = 4000;
+  let timer;
+
+  const goTo = (idx) => {
+    if (!slides.length) return;
+    current = (idx + slides.length) % slides.length;
+    slides.forEach((s,i)=> s.classList.toggle('active', i === current));
+    if (dotsContainer) {
+      dotsContainer.querySelectorAll('button').forEach((d,i)=>{
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-pressed', i === current ? 'true':'false');
+      });
+    }
+  };
+
+  // dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = i===0 ? 'active' : '';
+      b.setAttribute('aria-label', `Ir a receta ${i+1}`);
+      b.setAttribute('aria-pressed', i===0 ? 'true':'false');
+      b.addEventListener('click', ()=>{
+        goTo(i);
+        stop(); start();
+      });
+      dotsContainer.appendChild(b);
+    });
+  }
+
+  const next = () => goTo(current + 1);
+  const start = () => { timer = setInterval(next, INTERVAL); };
+  const stop = () => { if (timer) clearInterval(timer); };
+
+  goTo(0);
+  if (slides.length > 1) {
+    start();
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', ()=> {
+      if (document.hidden) stop(); else start();
+    });
+  }
+});

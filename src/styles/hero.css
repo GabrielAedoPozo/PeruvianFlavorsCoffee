@@ -1856,6 +1856,7 @@
   letter-spacing: .5px;
   background: var(--grad-accent);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }

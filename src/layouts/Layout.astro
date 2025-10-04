@@ -10,12 +10,87 @@ import '@fontsource/quicksand/600.css';
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- Configuración general -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/PeruvianFlavorsCoffee/logo.png" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Básico -->
     <title>Peruvian Flavors Coffee</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta
+      name="description"
+      content="Peruvian Flavors Coffee ofrece café peruano de especialidad, 100% arábica y cultivado en los Andes del Perú. Café de exportación, ético, sostenible y recién tostado."
+    />
+    <meta
+      name="keywords"
+      content="café peruano, café de especialidad del Perú, café arábica peruano, café andino, café peruano de exportación, mejor café del Perú, café sostenible, café ético, café de los Andes, café peruano tostado, café premium peruano"
+    />
+    <meta name="author" content="Peruvian Flavors Coffee" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.peruvianflavorscoffee.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Peruvian Flavors Coffee | Café Peruano de Especialidad 100% Arábica" />
+    <meta
+      property="og:description"
+      content="Descubre el auténtico sabor del Perú. Café arábica de los Andes, cultivado de forma sostenible y recién tostado."
+    />
+    <meta property="og:image" content="https://www.peruvianflavorscoffee.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://www.peruvianflavorscoffee.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Peruvian Flavors Coffee | Café Peruano de Especialidad 100% Arábica" />
+    <meta
+      name="twitter:description"
+      content="Café peruano premium, cultivado en los Andes y tostado artesanalmente. Sabor auténtico, aroma intenso."
+    />
+    <meta name="twitter:image" content="https://www.peruvianflavorscoffee.com/images/twitter-card.jpg" />
+
+    <!-- SEO Local -->
+    <meta name="geo.region" content="PE-LIM" />
+    <meta name="geo.placename" content="Lima, Perú" />
+    <meta name="geo.position" content="-12.0464;-77.0428" />
+    <meta name="ICBM" content="-12.0464, -77.0428" />
+
+    <!-- Schema.org JSON-LD (SEO Avanzado) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Peruvian Flavors Coffee",
+      "url": "https://www.peruvianflavorscoffee.com",
+      "logo": "https://www.peruvianflavorscoffee.com/PeruvianFlavorsCoffee/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/peruvianflavorscoffee",
+        "https://www.facebook.com/peruvianflavorscoffee",
+        "https://www.linkedin.com/company/peruvianflavorscoffee"
+      ],
+      "description": "Peruvian Flavors Coffee es una marca peruana de café de especialidad. Ofrecemos café 100% arábica cultivado en los Andes del Perú, ético, sostenible y recién tostado.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PE",
+        "addressLocality": "Lima",
+        "addressRegion": "Lima",
+        "postalCode": "15001"
+      },
+      "founder": "Peruvian Flavors Coffee",
+      "foundingDate": "2020",
+      "slogan": "El auténtico sabor del café peruano"
+    }
+    </script>
+
+  <!-- Colores para dispositivos -->
+  <meta name="theme-color" content="#3b2f2f" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
   </head>
 
   <body>

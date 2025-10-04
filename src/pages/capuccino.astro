@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <section class="recipe">
+    <!-- Back button added -->
+    <div class="back-nav">
+      <a href="/PeruvianFlavorsCoffee/" class="back-button">← Volver al inicio</a>
+    </div>
+    <h1>Capuccino</h1>
+    <video class="recipe-video" controls playsinline preload="metadata" poster="/PeruvianFlavorsCoffee/capuccino.png">
+      <source src="/PeruvianFlavorsCoffee/capuccino.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </section>
+</Layout>
+
+<style>
+  .recipe { padding:120px 1rem 3rem; max-width:900px; margin:0 auto; }
+  .recipe h1 {
+    font-size:clamp(2rem,5vw,3rem);
+    margin:0 0 1rem;
+    background:var(--grad-accent);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    font-weight:600;
+    text-align:center;
+  }
+  .recipe-video {
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+    border:1px solid var(--color-border);
+    border-radius:16px;
+    display:block;
+  }
+  @media (max-width:600px){
+    .recipe { padding:100px .75rem 2.5rem; }
+    .recipe-video { border-radius:12px; }
+  }
+</style>
+
+
+
+<style>
+  .recipe-detail { padding: 120px 1.5rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .back-button { text-decoration:none; color: var(--color-text-soft); font-size:.9rem; padding:.6rem .9rem; border:1px solid var(--color-border); border-radius:8px; }
+  .back-button:hover { color:var(--color-accent); border-color:var(--color-accent-fade); background:rgba(197,138,75,0.1); }
+  .recipe-title { font-size:clamp(2rem,5vw,3rem); margin:1rem 0 .75rem; background:var(--grad-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .recipe-intro { color:var(--color-text-soft); line-height:1.6; margin:0 0 1.5rem; max-width:800px; }
+  .video-wrapper { position:relative; border:1px solid var(--color-border); background:#1a120d; border-radius:20px; padding:1rem; box-shadow:0 20px 50px -18px rgba(0,0,0,.55); }
+  .recipe-video { width:100%; aspect-ratio:16/9; border-radius:14px; background:#000; display:block; }
+  .video-actions { display:flex; justify-content:flex-end; margin-top:.75rem; }
+  .btn-full { background:linear-gradient(120deg,#8f5930,#c58a4b); color:#261509; font-weight:600; border:none; padding:.65rem 1.2rem; border-radius:999px; cursor:pointer; font-size:.8rem; letter-spacing:.5px; text-transform:uppercase; }
+  .btn-full:hover { filter:brightness(1.05); transform:translateY(-2px); }
+  @media (max-width:600px){ .recipe-detail{padding:100px 1rem 2.5rem;} .video-wrapper{padding:.6rem;} .btn-full{font-size:.7rem;} }
+</style>

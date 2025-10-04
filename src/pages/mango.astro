@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <section class="recipe">
+    <!-- Back button added -->
+    <div class="back-nav">
+      <a href="/PeruvianFlavorsCoffee/" class="back-button">← Volver al inicio</a>
+    </div>
+    <h1>Café con Mango</h1>
+    <video class="recipe-video" controls playsinline preload="metadata" poster="/PeruvianFlavorsCoffee/mango.png">
+      <source src="/PeruvianFlavorsCoffee/receta1.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </section>
+</Layout>
+
+<style>
+  .recipe { padding:120px 1rem 3rem; max-width:900px; margin:0 auto; }
+  .recipe h1 {
+    font-size:clamp(2rem,5vw,3rem);
+    margin:0 0 1rem;
+    background:var(--grad-accent);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    font-weight:600;
+    text-align:center;
+  }
+  .recipe-video {
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+    border:1px solid var(--color-border);
+    border-radius:16px;
+    display:block;
+  }
+  .back-button {
+    display:inline-flex;
+    gap:.4rem;
+    padding:.55rem .9rem;
+    font-size:.8rem;
+    text-decoration:none;
+    border:1px solid var(--color-border);
+    border-radius:8px;
+    color:var(--color-text-soft);
+    background:rgba(255,255,255,0.06);
+    transition:.25s ease;
+    margin:0 0 .75rem;
+  }
+  .back-button:hover { color:var(--color-accent); border-color:var(--color-accent-fade); background:rgba(197,138,75,0.12); }
+  @media (max-width:600px){
+    .recipe { padding:100px .75rem 2.5rem; }
+    .recipe-video { border-radius:12px; }
+  }
+</style>
+

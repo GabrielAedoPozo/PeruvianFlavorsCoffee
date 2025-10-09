@@ -107,6 +107,10 @@ import '@fontsource/quicksand/600.css';
     <a href="https://wa.me/51987800910?text=Hola!%20estoy%20interesado%20en:" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
       <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- Nuevo botón flotante de Instagram -->
+    <a href="https://www.instagram.com/peruvianflavorscoffee" class="instagram-button" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
 
     <script>
       import '../scripts/app.js';
@@ -255,16 +259,29 @@ import '@fontsource/quicksand/600.css';
       background: #25d365da;
     }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
+    /* Botón flotante de Instagram */
+    .instagram-button {
+      position: fixed;
+      bottom: 100px;   /* encima del WhatsApp */
+      right: 30px;     /* mismo alineado que WhatsApp */
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.75rem;
+      text-decoration: none;
+      background: linear-gradient(45deg,#F58529,#FEDA77,#DD2A7B,#8134AF,#515BD4);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all .3s ease;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+    .instagram-button:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.05);
     }
 
     @media (max-width: 768px) {
@@ -275,6 +292,14 @@ import '@fontsource/quicksand/600.css';
         bottom: 20px;
         right: 20px;
       }
+
+      .instagram-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 80px;  /* encima del WhatsApp en tablets/móvil */
+        right: 20px;   /* mismo alineado que WhatsApp */
+      }
     }
 
     @media (max-width: 360px) {
@@ -284,6 +309,14 @@ import '@fontsource/quicksand/600.css';
         font-size: 1.5rem;
         bottom: 15px;
         right: 15px;
+      }
+
+      .instagram-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 60px;  /* encima del WhatsApp en pantallas muy pequeñas */
+        right: 15px;   /* mismo alineado que WhatsApp */
       }
     }
 

@@ -14,37 +14,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSlider = document.querySelector('.hero-slider');
   if (heroSlider) {
     const slides = heroSlider.querySelectorAll('.slide');
+    const dotsContainer = heroSlider.querySelector('.hero-dots');
     let currentSlide = 0;
-    const HERO_INTERVAL = 3000; // Changed from 4000 to 3000 (3 seconds)
+    const HERO_INTERVAL = 2500; // Changed from 4000 to 3000 (3 seconds)
     let heroTimer;
+
+    // Crear dots si hay contenedor y slides
+    if (dotsContainer && slides.length) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-dot';
+        dot.setAttribute('aria-label', `Ir al slide ${i + 1}`);
+        dot.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          stopHeroSlider();
+          startHeroSlider();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    const syncDots = () => {
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.hero-dot');
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+        d.setAttribute('aria-pressed', i === currentSlide ? 'true' : 'false');
+      });
+    };
 
     const goToSlide = (index) => {
       if (!slides.length) return;
-      // Ensure infinite loop with modulo operation
       currentSlide = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+      syncDots();
     };
 
-    const nextSlide = () => {
-      // Move to next slide, will loop back to 0 after last slide
-      goToSlide(currentSlide + 1);
-    };
-    
-    const startHeroSlider = () => { 
-      heroTimer = setInterval(nextSlide, HERO_INTERVAL); 
-    };
-    
-    const stopHeroSlider = () => { 
-      if (heroTimer) clearInterval(heroTimer); 
-    };
+    const nextSlide = () => { goToSlide(currentSlide + 1); };
+    const startHeroSlider = () => { heroTimer = setInterval(nextSlide, HERO_INTERVAL); };
+    const stopHeroSlider = () => { if (heroTimer) clearInterval(heroTimer); };
 
-    // Initialize - start with first slide
+    // Inicializar
     goToSlide(0);
-    
-    // Only start auto-play if there are multiple slides
     if (slides.length > 1) {
       startHeroSlider();
-      // Pause on hover, resume on leave
       heroSlider.addEventListener('mouseenter', stopHeroSlider);
       heroSlider.addEventListener('mouseleave', startHeroSlider);
     }

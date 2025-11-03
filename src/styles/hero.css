@@ -1457,7 +1457,7 @@
     display: flex;
     gap: 2rem;
     width: 100%;
-    animation: scrollHorizontal 25s linear infinite;
+    animation: scrollHorizontal 18s linear infinite; /* antes 25s */
     will-change: transform;
 }
 
@@ -1706,7 +1706,7 @@
 /* Responsive para accesorios */
 @media (max-width: 768px) {
     .accesorios {
-        animation-duration: 30s;
+        animation-duration: 22s; /* antes 30s */
     }
     
     .accesorio-card {
@@ -1916,4 +1916,46 @@
   .recipe-overlay { justify-content: flex-end; padding: 1.2rem 1rem 1.4rem; }
   .recipe-overlay h3 { font-size: 1.4rem; }
   .btn-recipe { padding:.75rem 1.3rem; font-size:.8rem; }
+}
+
+/* Dots del Hero Slider */
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.hero-dots .hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.hero-dots .hero-dot:hover {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.15);
+}
+
+.hero-dots .hero-dot.active {
+  background: var(--color-accent, #f0c040);
+  box-shadow: 0 0 0 4px rgba(240,192,64,0.25);
+}
+
+@media (max-width: 560px) {
+  .hero-dots { bottom: 8px; padding: 4px 8px; gap: 6px; }
+  .hero-dots .hero-dot { width: 9px; height: 9px; }
 }

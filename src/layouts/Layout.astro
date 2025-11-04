@@ -111,6 +111,10 @@ import '@fontsource/quicksand/600.css';
     <a href="https://www.instagram.com/peruvian_flavors_coffee/" class="instagram-button" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
       <i class="fab fa-instagram"></i>
     </a>
+    <!-- Nuevo botón flotante de Facebook -->
+    <a href="https://www.facebook.com/peruvianflavorscoffee" class="facebook-button" target="_blank" rel="noopener noreferrer" aria-label="Abrir Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
 
     <script>
       import '../scripts/app.js';
@@ -284,6 +288,31 @@ import '@fontsource/quicksand/600.css';
       filter: brightness(1.05);
     }
 
+    /* Botón flotante de Facebook */
+    .facebook-button {
+      position: fixed;
+      bottom: 170px;  /* encima de Instagram */
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.75rem;
+      text-decoration: none;
+      background: #1877F2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all .3s ease;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+    .facebook-button:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.05);
+    }
+
     @media (max-width: 768px) {
       .whatsapp-button {
         width: 50px;
@@ -300,6 +329,14 @@ import '@fontsource/quicksand/600.css';
         bottom: 80px;  /* encima del WhatsApp en tablets/móvil */
         right: 20px;   /* mismo alineado que WhatsApp */
       }
+
+      .facebook-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 140px; /* encima de Instagram en tablets/móvil */
+        right: 20px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -315,8 +352,16 @@ import '@fontsource/quicksand/600.css';
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
-        bottom: 60px;  /* encima del WhatsApp en pantallas muy pequeñas */
+        bottom: 70px;  /* encima del WhatsApp en pantallas muy pequeñas */
         right: 15px;   /* mismo alineado que WhatsApp */
+      }
+
+      .facebook-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 125px; /* encima de Instagram en pantallas muy pequeñas */
+        right: 15px;
       }
     }
 

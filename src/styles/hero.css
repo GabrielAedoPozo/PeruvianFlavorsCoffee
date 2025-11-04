@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 #hero {
     position: relative;
     width: 100%;
@@ -621,6 +625,10 @@
         margin-bottom: -0.5rem;
     }
     
+    .slide img {
+        object-fit: cover; /* En móvil, la imagen cubre para evitar bandas */
+    }
+
     .hero-text {
         margin-top: 120px; /* added for better mobile spacing */
     }
@@ -1706,7 +1714,7 @@
 /* Responsive para accesorios */
 @media (max-width: 768px) {
     .accesorios {
-        animation-duration: 22s; /* antes 30s */
+        animation-duration: 5s; /* más rápido, antes 22s */
     }
     
     .accesorio-card {

@@ -6,13 +6,22 @@ import '../styles/hero.css';
     <div class="hero-slider">
         <div class="slides-container">
             <div class="slide active">
-                <img src="/PeruvianFlavorsCoffee/img-hero.jpg" alt="Peruvian Coffee Hero" />
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/PeruvianFlavorsCoffee/mobil1.jpg">
+                    <img src="/PeruvianFlavorsCoffee/img-hero.jpg" alt="Peruvian Coffee Hero" />
+                </picture>
             </div>
             <div class="slide">
-                <img src="/PeruvianFlavorsCoffee/imgp2.jpg" alt="Coffee Image 1" />
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/PeruvianFlavorsCoffee/mobil2.jpeg">
+                    <img src="/PeruvianFlavorsCoffee/imgp2.jpg" alt="Coffee Image 1" />
+                </picture>
             </div>
             <div class="slide">
-                <img src="/PeruvianFlavorsCoffee/AMAZONAS.jpeg" alt="Coffee Image 2" />
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/PeruvianFlavorsCoffee/mobil3.jpg">
+                    <img src="/PeruvianFlavorsCoffee/AMAZONAS.jpeg" alt="Coffee Image 2" />
+                </picture>
             </div>
         </div>
         <!-- Dots para navegar el hero -->

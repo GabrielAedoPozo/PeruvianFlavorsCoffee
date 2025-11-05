@@ -166,6 +166,29 @@ body {
     text-shadow: var(--text-glow);
 }
 
+/* Mobile / tablet overrides: títulos más grandes y más blancos */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(2.6rem, 9vw, 3.6rem); /* notablemente más grande en móviles/tablets */
+    background: none !important;           /* quitar gradiente para dispositivos pequeños */
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: rgba(255,255,255,0.94) !important; /* más blanco */
+    text-shadow: 0 6px 18px rgba(0,0,0,0.35), 0 0 18px rgba(255,255,255,0.06); /* brillo sutil */
+    line-height: 1.05;
+  }
+}
+
+/* Ajuste extra para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(2.4rem, 10vw, 3.2rem); /* asegurar legibilidad en pantallas muy pequeñas */
+    color: rgba(255,255,255,0.96) !important;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.38), 0 0 22px rgba(255,255,255,0.07);
+  }
+}
+
 .producto-card {
     background: linear-gradient(155deg,rgba(58,36,26,0.85),rgba(42,26,19,0.9));
     border:1px solid var(--color-border);
@@ -1076,7 +1099,7 @@ body {
 /* === Fade Slider Blog === */
 .blog-slider.fader {
   position: relative;
-  height: var(--blog-slider-height, 260px);
+  height: var(--blog-slider-height, 500px); /* Aumentado de 260px a 500px */
   transition: height .5s ease;
 }
 
@@ -1118,7 +1141,17 @@ body {
   background: #211510;
 }
 
+@media (max-width: 768px) {
+  .blog-slider.fader {
+    height: var(--blog-slider-height, 400px); /* Ajuste para tablets */
+  }
+}
+
+
 @media (max-width: 560px) {
+  .blog-slider.fader {
+    height: var(--blog-slider-height, 300px); /* Ajuste para móviles */
+  }
   .blog-slider.fader .slide img { border-radius: 12px; }
 }
 

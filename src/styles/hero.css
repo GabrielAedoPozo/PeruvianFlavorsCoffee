@@ -8,6 +8,7 @@ body {
     height: calc(85vh - 90px);
     margin-top: 90px;         
     overflow: hidden;
+    margin-bottom: 15vh; /* Espacio para empujar productos hacia abajo */
 }
 
 .hero-slider {
@@ -131,7 +132,7 @@ body {
     align-items: center;
     background: linear-gradient(to bottom,var(--color-bg) 0%,var(--color-bg-alt) 100%);
     padding: 6rem 4rem 4rem; /* increased top padding from 4rem */
-    margin-top: -1rem; /* changed from -2rem */
+    margin-top: 0; /* Eliminado el margen negativo */
     gap: 4rem;
 }
 
@@ -651,13 +652,12 @@ body {
 
 /* Ajustes responsivos restaurados para testimonios/blog */
 @media (max-width: 1024px) {
-  .testimonials-container { grid-template-columns: repeat(2,1fr); }
+  .testimonials-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
-    #hero { 
+    #hero {
         height: calc(100vh - 90px);
-        padding-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 0; /* Quitar espacio extra en móvil */
     }
     
     .slide img {
@@ -1787,8 +1787,16 @@ body {
     .accesorio-info {
         padding: 1.6rem;
     }
-}
 
+    /* Mostrar solo el botón de WhatsApp en móvil.
+       No se eliminan ni modifican los href, solo se ocultan visualmente los otros botones.
+       Soporta enlaces tipo wa.me, whatsapp y api.whatsapp.com */
+    .contact-social a:not([href*="wa.me"]):not([href*="whatsapp"]):not([href*="api.whatsapp.com"]) {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+}
 @media (max-width: 480px) {
     .accesorio-card {
         min-width: 250px;

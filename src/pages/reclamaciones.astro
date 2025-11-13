@@ -3,7 +3,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+
+
   <section id="complaints" class="complaints-section">
+    <div class="back-navigation">
+        <a href="/PeruvianFlavorsCoffee/" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Volver al inicio</span>
+        </a>
+    </div>
     <div class="complaints-container">
       <div class="complaints-header">
         <h1 class="section-title">Libro de Reclamaciones</h1>
@@ -84,6 +92,38 @@ import Layout from '../layouts/Layout.astro';
     margin: 0 auto;
     position: relative;
     z-index: 1;
+  }
+
+  .back-navigation {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-text-soft);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+  }
+
+  .back-button:hover {
+      color: var(--color-accent);
+      background: rgba(197,138,75,0.1);
+      border-color: var(--color-accent-fade);
+      transform: translateX(-3px);
+  }
+
+  .back-button i {
+      font-size: 1rem;
   }
 
   .complaints-header {

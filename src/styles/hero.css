@@ -1180,7 +1180,11 @@ body {
   .hero-text h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
   .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
   
-  .productos { grid-template-columns: repeat(2, 1fr); }
+  .productos { 
+    grid-template-columns: 1fr; /* Cambiar a una columna desde tablets */
+    max-width: 460px;
+    margin: 0 auto;
+  }
   
   .about-content {
     grid-template-columns: 1fr;
@@ -1241,14 +1245,22 @@ body {
     max-width: 280px;
     margin: 2rem auto 0;
   }
+  
+  .productos {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
 }
 
-/* Ajuste adicional para móviles pequeños */
 @media (max-width: 360px) {
   .hero-text { margin-top: 90px; }
   .cta-buttons { gap: .6rem; }
   .btn-primary, .btn-secondary { padding: .75rem 1.1rem; font-size: .9rem; }
-  .productos { gap: 1.5rem; }
+  .productos { 
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Remove redundant media queries and consolidate */
@@ -1257,7 +1269,11 @@ body {
   .hero-text h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
   .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
   
-  .productos { grid-template-columns: repeat(2, 1fr); }
+  .productos { 
+    grid-template-columns: 1fr; /* Cambiar a una columna desde tablets */
+    max-width: 460px;
+    margin: 0 auto;
+  }
   
   .about-content {
     grid-template-columns: 1fr;

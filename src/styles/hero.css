@@ -183,6 +183,10 @@ body {
 
 /* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 480px) {
+  /* Ocultar título 'Nuestros Productos' en móvil */
+  #products .section-title {
+    display: none;
+  }
   .section-title {
     font-size: clamp(2.4rem, 10vw, 3.2rem); /* asegurar legibilidad en pantallas muy pequeñas */
     color: rgba(255,255,255,0.96) !important;
@@ -1180,11 +1184,7 @@ body {
   .hero-text h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
   .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
   
-  .productos { 
-    grid-template-columns: 1fr; /* Cambiar a una columna desde tablets */
-    max-width: 460px;
-    margin: 0 auto;
-  }
+  .productos { grid-template-columns: repeat(2, 1fr); }
   
   .about-content {
     grid-template-columns: 1fr;
@@ -1208,7 +1208,7 @@ body {
 
 @media (max-width: 680px) {
   .productos { 
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Cambiado a una sola columna en móvil */
     max-width: 460px;
     margin: 0 auto;
   }
@@ -1246,6 +1246,7 @@ body {
     margin: 2rem auto 0;
   }
   
+  /* Asegurar que productos estén en una columna */
   .productos {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -1253,13 +1254,14 @@ body {
   }
 }
 
+/* Ajuste adicional para móviles pequeños */
 @media (max-width: 360px) {
   .hero-text { margin-top: 90px; }
   .cta-buttons { gap: .6rem; }
   .btn-primary, .btn-secondary { padding: .75rem 1.1rem; font-size: .9rem; }
   .productos { 
     gap: 1.5rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Asegurar una columna en pantallas muy pequeñas */
   }
 }
 
@@ -1269,11 +1271,8 @@ body {
   .hero-text h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
   .subtitle { font-size: clamp(1.1rem, 3vw, 1.5rem); }
   
-  .productos { 
-    grid-template-columns: 1fr; /* Cambiar a una columna desde tablets */
-    max-width: 460px;
-    margin: 0 auto;
-  }
+  /* Stack product cards vertically on tablet/mobile */
+  .productos { grid-template-columns: 1fr; }
   
   .about-content {
     grid-template-columns: 1fr;

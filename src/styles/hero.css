@@ -130,10 +130,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom,var(--color-bg) 0%,var(--color-bg-alt) 100%);
+    /* Unificar fondo con Accesorios para que se vean “unidos” */
+
     padding: 6rem 4rem 4rem; /* increased top padding from 4rem */
     margin-top: 0; /* Eliminado el margen negativo */
     gap: 4rem;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Asegurar que el contenido de Productos quede encima del fondo animado */
+#products > * {
+  position: relative;
+  z-index: 1;
 }
 
 .productos {
@@ -195,7 +205,6 @@ body {
 }
 
 .producto-card {
-    background: linear-gradient(155deg,rgba(58,36,26,0.85),rgba(42,26,19,0.9));
     border:1px solid var(--color-border);
     box-shadow: var(--shadow-soft);
     border-radius: 15px;
@@ -217,7 +226,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: linear-gradient(145deg, rgba(58,36,26,0.5), rgba(42,26,19,0.6));
 }
 
 .producto-image img {
@@ -1522,285 +1530,150 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-layer) 100%);
+    /* Igual que Productos para continuidad visual */
     padding: 4rem 2rem 3rem;
     margin-top: 0;
     gap: 2rem;
     overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Fondo: granitos de café cayendo (iconos SVG en data-uri) */
+#products::before,
+#products::after,
+#accessories::before,
+#accessories::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -100%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+  background-repeat: repeat;
+  background-position: 0 0;
+  transform: translateY(0);
+}
+
+/* Capa 1: granos pequeños */
+#products::before,
+#accessories::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none'%3E%3Cellipse cx='16' cy='16' rx='6.8' ry='9.2' fill='%233c2314' fill-opacity='0.55'/%3E%3Cpath d='M16 7.2c-1.9 2.8-2.9 5.7-2.9 8.8s1 6 2.9 8.8' stroke='%23f0c040' stroke-opacity='0.35' stroke-width='1.6' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 34px 34px;
+  animation: coffeeBeansFall 14s linear infinite;
+}
+
+/* Capa 2: granos más grandes + diferente velocidad */
+#products::after,
+#accessories::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none'%3E%3Cellipse cx='24' cy='24' rx='10.2' ry='13.8' fill='%233c2314' fill-opacity='0.38'/%3E%3Cpath d='M24 10.8c-2.8 4.2-4.4 8.6-4.4 13.2s1.6 9 4.4 13.2' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='2' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 56px;
+  animation: coffeeBeansFall 22s linear infinite;
+  opacity: 0.12;
+}
+
+@keyframes coffeeBeansFall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50%); }
+}
+
+/* Asegurar que el contenido quede encima del fondo animado */
+#accessories > * {
+  position: relative;
+  z-index: 1;
 }
 
 .accesorios {
-    display: flex;
-    gap: 2rem;
-    width: 100%;
-    animation: scrollHorizontal 18s linear infinite; /* antes 25s */
-    will-change: transform;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 accesorios en una fila */
+  gap: 1.5rem; /* un poco menos para que entren mejor */
+  width: 100%;
+  max-width: 1440px; /* más ancho para 5 columnas */
+  animation: none;
+  will-change: auto;
 }
 
-@keyframes scrollHorizontal {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+/* En pantallas medianas, baja columnas para evitar que se aplasten */
+@media (max-width: 1200px) {
+  .accesorios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-.accesorios:hover {
-    animation-play-state: paused;
-}
+/* (antes había scroll horizontal; ahora es grilla estática) */
 
 .accesorio-card {
-    background: linear-gradient(155deg, rgba(58,36,26,0.85), rgba(42,26,19,0.9));
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    flex-shrink: 0;
-    min-width: 300px;
-    max-width: 340px;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(155deg,rgba(58,36,26,0.88), rgba(42,26,19,0.92));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.accesorio-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-accent), rgba(197,138,75,0.6), var(--color-accent));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.accesorio-card:hover::before {
-    opacity: 1;
-}
-
-.accesorio-card:hover {
-    box-shadow: 
-        var(--shadow-hover),
-        0 0 0 1px rgba(197,138,75,0.2),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(197,138,75,0.3);
-}
+/* === Accesorios (simetría: imagen igual + precio alineado) === */
 
 .accesorio-image {
-    position: relative;
-    overflow: hidden;
-    height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: linear-gradient(145deg, rgba(58,36,26,0.6), rgba(42,26,19,0.8));
+  /* cuadrado y consistente */
+  aspect-ratio: 1 / 1;
+  padding: 1rem;
 }
 
-
-.accesorio-card:hover .accesorio-image::after {
-    opacity: 1;
-}
-
+/* Misma “escala visual” entre imágenes (sin recortar) */
 .accesorio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    filter: brightness(0.95) saturate(0.9);
-}
-
-.accesorio-card:hover .accesorio-image img {
-    transform: scale(1.08) rotate(1deg);
-    filter: brightness(1.05) saturate(1.1);
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 86%;
+  max-height: 86%;
+  margin: auto;
 }
 
 .accesorio-info {
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    flex: 1;
-    justify-content: space-between;
-    text-align: center;
-    position: relative;
+  display: grid;
+  grid-template-rows: minmax(2.4em, 2.4em) auto auto; /* nombre (2 líneas) + precio + botón */
+  align-items: start;
+  justify-items: center;
+  gap: .55rem;
+  padding: 1rem 1rem 1.1rem;
 }
 
-.accesorio-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 1.8rem;
-    right: 1.8rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+/* Nombre: clamp 2 líneas y mismo alto siempre */
+.accesorio-nombre {
+  line-height: 1.2;
+  max-width: 92%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.accesorio-info h3 {
-    font-size: 1.2rem;
-    color: var(--color-text);
-    margin: 0 0 0.5rem 0;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: 0.3px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    transition: color 0.3s ease;
-}
-
-
+/* Precio: misma altura/line-height para que quede alineado */
 .accesorio-precio {
-    color: var(--color-accent);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 0.3rem 0 0.8rem 0;
-    text-shadow: 0 2px 6px rgba(197,138,75,0.4);
-    position: relative;
+  line-height: 1.1;
+  min-height: 1.1em;
 }
 
-.accesorio-precio::before {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.accesorio-card:hover .accesorio-precio::before {
-    opacity: 1;
-}
-
-.accesorio-descripcion {
-    font-size: 0.88rem;
-    color: var(--color-text-soft);
-    line-height: 1.5;
-    margin-bottom: 1.2rem;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-    min-height: 2.6rem;
-}
-
-.accesorio-card:hover .accesorio-descripcion {
-    opacity: 1;
-}
-
-/* Use same button style as coffee products */
+/* Botón: mismo ancho en todas */
 .accesorio-buy {
-    display: flex;
-    justify-content: center;
-    margin-top: auto;
+  width: 100%;
+  margin-top: .15rem;
 }
 
 .accesorio-buy a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    border-radius: 30px;
-    padding: 0.9rem 1.5rem;
-    background: transparent;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    width: 100%;
-    justify-content: center;
-    font-size: 0.9rem;
-}
-
-.accesorio-buy a::after {
-    content: '›';
-    font-size: 1.2rem;
-    line-height: 1;
-    transform: translateY(-1px);
-}
-
-.accesorio-buy a:hover {
-    filter: brightness(1.05);
-    transform: translateY(-2px);
-}
-
-.accesorio-buy a:active {
-    transform: translateY(0);
-    box-shadow: 0 6px 14px rgba(255, 126, 95, 0.22);
-}
-
-.accesorio-buy a:focus-visible {
-    outline: 2px solid rgba(255, 180, 123, 0.8);
-    outline-offset: 3px;
-    box-shadow: 0 0 0 4px rgba(255, 180, 123, 0.15), 0 10px 22px rgba(255, 126, 95, 0.28);
-}
-
-/* Badge decorativo para destacar productos */
-.accesorio-card[data-featured="true"]::after {
-    content: '✨ Popular';
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: linear-gradient(135deg, var(--color-accent), rgba(197,138,75,0.8));
-    color: #27160c;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(197,138,75,0.4);
-    z-index: 2;
-}
-
-/* Enhanced visual polish */
-.accesorio-card {
-    background: 
-        linear-gradient(155deg, rgba(58,36,26,0.85), rgba(42,26,19,0.9)),
-        radial-gradient(circle at 30% 20%, rgba(197,138,75,0.08), transparent 60%);
-    border: 1px solid var(--color-border);
-    box-shadow: 
-        var(--shadow-soft),
-        inset 0 1px 0 rgba(255,255,255,0.02);
-}
-
-.accesorio-card:hover {
-    background: 
-        linear-gradient(155deg, rgba(58,36,26,0.92), rgba(42,26,19,0.95)),
-        radial-gradient(circle at 30% 20%, rgba(197,138,75,0.12), transparent 60%);
+  width: 100%;
+  max-width: 260px; /* evita que unas cards “se vean” más anchas por el botón */
 }
 
 /* Responsive para accesorios */
 @media (max-width: 768px) {
-    .accesorios {
-        animation-duration: 5s; /* más rápido, antes 22s */
-    }
-    
-    .accesorio-card {
-        min-width: 280px;
-        max-width: 320px;
-    }
-    
+  .accesorios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #accessories {
         padding: 3rem 1.5rem;
-    }
-    
-    .accesorio-image {
-        height: 220px;
-        padding: 1.8rem;
-    }
-    
-    .accesorio-info {
-        padding: 1.6rem;
     }
 
     /* Mostrar solo el botón de WhatsApp en móvil.
@@ -1813,63 +1686,8 @@ body {
     }
 }
 @media (max-width: 480px) {
-    .accesorio-card {
-        min-width: 250px;
-        max-width: 280px;
-    }
-    
-    .accesorio-image {
-        height: 200px;
-        padding: 1.5rem;
-    }
-    
-    .accesorio-info {
-        padding: 1.4rem;
-        gap: 0.8rem;
-    }
-    
-    .accesorio-info h3 {
-        font-size: 1.1rem;
-    }
-    
-    .accesorio-precio {
-        font-size: 1.2rem;
-    }
-    
-    .accesorio-descripcion {
-        font-size: 0.85rem;
-        min-height: 2.4rem;
-    }
-    
-    .accesorio-buy a {
-        padding: 0.8rem 1.3rem;
-        font-size: 0.85rem;
-    }
-    
-    #accessories {
-        padding: 2rem 1rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .accesorio-card {
-        min-width: 230px;
-        max-width: 260px;
-    }
-    
-    .accesorio-image {
-        height: 180px;
-        padding: 1.2rem;
-    }
-    
-    .accesorio-info {
-        padding: 1.2rem;
-    }
-    
-    .accesorio-descripcion {
-        min-height: 2.2rem;
-        font-size: 0.82rem;
-    }
+  .accesorios { grid-template-columns: 1fr; }
+  #accessories { padding: 2rem 1rem; }
 }
 
 /* Modificaciones específicas para la imagen del caficultor */
@@ -2042,4 +1860,103 @@ body {
 @media (max-width: 560px) {
   .hero-dots { bottom: 8px; padding: 4px 8px; gap: 6px; }
   .hero-dots .hero-dot { width: 9px; height: 9px; }
+}
+
+/* === Accesorios: igual que cards de Productos (solo nombre + comprar) === */
+
+/* Card = producto-card */
+.accesorio-card{
+  background: transparent !important; /* antes: linear-gradient(...) */
+  border:1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+}
+.accesorio-card:hover{
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+}
+
+/* Imagen = producto-image */
+.accesorio-image{
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 1rem;
+  background: transparent !important; /* antes: linear-gradient(...) */
+}
+.accesorio-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 360px;
+  transition: transform 0.3s ease;
+  filter: saturate(.92);
+}
+
+/* Nombre simple (misma “altura” para que el botón quede alineado) */
+.accesorio-info{
+  padding: .9rem 1rem 0;
+  text-align:center;
+}
+.accesorio-nombre{
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.2;
+
+  /* clamp a 2 líneas para simetría */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.2em * 2);
+}
+
+/* Botón = a-buy + mismo padding inferior que productos */
+.accesorio-card > .a-buy{
+  padding: 0 1rem 1.2rem;
+}
+
+/* Ocultar precio/estilos antiguos si quedaran en el HTML */
+.accesorio-precio{ display:none !important; }
+.accesorio-buy{ display:none !important; }
+
+/* === Unificación visual: cards y contenedores de imagen (Productos + Accesorios) === */
+/* (Dejar esto al final para que haga override a definiciones anteriores) */
+
+/* Cards: mismo “glass” oscuro */
+.producto-card,
+.accesorio-card{
+  background: linear-gradient(155deg, rgba(63,40,27,0.60), rgba(39,25,17,0.72));
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Bloque imagen: mismo fondo sutil para que no se vea “vacío” */
+.producto-image,
+.accesorio-image{
+  background: linear-gradient(145deg, rgba(58,36,26,0.28), rgba(42,26,19,0.50));
+}
+
+/* Hover: mantener coherencia (sin cambiar tu elevación) */
+.producto-card:hover,
+.accesorio-card:hover{
+  border-color: rgba(197,138,75,0.22);
+}
+
+/* === Override final: Productos con fondo blur (glass) === */
+.producto-card{
+  background: linear-gradient(155deg, rgba(63,40,27,0.60), rgba(39,25,17,0.72)) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08) !important;
 }

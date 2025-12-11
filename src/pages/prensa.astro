@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
   <section class="recipe">
-    <!-- Back button added -->
     <div class="back-nav">
       <a href="/PeruvianFlavorsCoffee/" class="back-button">← Volver al inicio</a>
     </div>
@@ -16,8 +15,14 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  .recipe { padding:120px 1rem 3rem; max-width:900px; margin:0 auto; }
-  .recipe h1 {
+  .recipe{
+    padding:120px 1rem 3rem;
+    max-width:900px;
+    margin:0 auto;
+    background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%);
+  }
+
+  .recipe h1{
     font-size:clamp(2rem,5vw,3rem);
     margin:0 0 1rem;
     background:var(--grad-accent);
@@ -26,32 +31,42 @@ import Layout from '../layouts/Layout.astro';
     color:transparent;
     font-weight:600;
     text-align:center;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.22);
   }
-  .recipe-video {
+
+  .recipe-video{
     width:100%;
     aspect-ratio:16/9;
-    background:#000;
-    border:1px solid var(--color-border);
+    background:#0f0a07;
+    border:1px solid rgba(255,255,255,0.10);
     border-radius:16px;
     display:block;
+    box-shadow: 0 18px 44px -18px rgba(0,0,0,0.60);
   }
-  .back-button {
+
+  .back-nav{ margin-bottom:1rem; }
+
+  .back-button{
     display:inline-flex;
     gap:.4rem;
     padding:.55rem .9rem;
     font-size:.8rem;
     text-decoration:none;
-    border:1px solid var(--color-border);
+    border:1px solid rgba(255,255,255,0.10);
     border-radius:8px;
     color:var(--color-text-soft);
-    background:rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.04);
     transition:.25s ease;
-    margin:0 0 .75rem;
   }
-  .back-button:hover { color:var(--color-accent); border-color:var(--color-accent-fade); background:rgba(197,138,75,0.12); }
+  .back-button:hover{
+    color:var(--color-accent);
+    border-color:rgba(197,138,75,0.28);
+    background:rgba(197,138,75,0.10);
+  }
+
   @media (max-width:600px){
-    .recipe { padding:100px .75rem 2.5rem; }
-    .recipe-video { border-radius:12px; }
+    .recipe{ padding:100px .75rem 2.5rem; }
+    .recipe-video{ border-radius:12px; }
   }
 </style>
 

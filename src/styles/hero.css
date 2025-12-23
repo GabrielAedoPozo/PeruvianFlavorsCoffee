@@ -1583,6 +1583,7 @@ body {
 
 /* Capa 1: granos pequeños */
 .products-accessories-wrap::before {
+  display: none;
   /* Añade contorno blanco al grano + línea central más visible */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='none'%3E%3Cellipse cx='16' cy='16' rx='6.8' ry='9.2' fill='%233c2314' fill-opacity='0.62' stroke='%23ffffff' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cpath d='M16 7.2c-1.9 2.8-2.9 5.7-2.9 8.8s1 6 2.9 8.8' stroke='%23ffffff' stroke-opacity='0.28' stroke-width='1.6' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 34px 34px;

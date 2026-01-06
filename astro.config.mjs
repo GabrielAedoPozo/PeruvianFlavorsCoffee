@@ -1,7 +1,9 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: "https://GabrielAedoPozo.github.io/PeruvianFlavorsCoffee/",
-  base: "/PeruvianFlavorsCoffee/",
+  output: 'static',
+  adapter: cloudflare(),
+  site: 'https://peruvianflavorscoffee.pages.dev',
 });

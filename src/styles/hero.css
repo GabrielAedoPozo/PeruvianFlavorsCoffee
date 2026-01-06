@@ -148,7 +148,7 @@ body {
     align-items: center;
     background: transparent;
 
-    padding: 6rem 4rem 4rem; /* increased top padding from 4rem */
+    padding: 6rem 4rem 2.5rem; /* menos espacio inferior para acercar Accesorios */
     margin-top: 0; /* Eliminado el margen negativo */
     gap: 4rem;
     position: relative;
@@ -1551,8 +1551,8 @@ body {
     flex-direction: column;
     align-items: center;
     background: transparent;
-    padding: 4rem 2rem 3rem;
-    margin-top: 0;
+    padding: 2rem 2rem 3rem;
+    margin-top: -0.5rem;
     gap: 2rem;
     overflow: hidden;
   position: relative;
@@ -1571,14 +1571,12 @@ body {
   pointer-events: none;
   z-index: 0;
   /* Más visible sobre fondos oscuros */
-  opacity: 0.30;
+  opacity: 0.36;
   background-repeat: repeat;
   background-position: 0 0;
   transform: translateY(0);
-  /* “Contorno”/realce para que se noten más */
-  filter:
-    drop-shadow(0 0 2px rgba(255,255,255,0.22))
-    drop-shadow(0 2px 0 rgba(0,0,0,0.12));
+  /* Sin brillo/halo: solo más blancos por trazo del SVG */
+  filter: none;
 }
 
 /* Capa 1: granos pequeños */
@@ -1593,10 +1591,10 @@ body {
 /* Capa 2: granos más grandes + diferente velocidad */
 .products-accessories-wrap::after {
   /* Contorno blanco suave para el grano grande */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none'%3E%3Cellipse cx='24' cy='24' rx='10.2' ry='13.8' fill='%233c2314' fill-opacity='0.42' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1.6'/%3E%3Cpath d='M24 10.8c-2.8 4.2-4.4 8.6-4.4 13.2s1.6 9 4.4 13.2' stroke='%23ffffff' stroke-opacity='0.18' stroke-width='2.2' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none'%3E%3Cellipse cx='24' cy='24' rx='10.2' ry='13.8' fill='%233c2314' fill-opacity='0.28' stroke='%23ffffff' stroke-opacity='0.50' stroke-width='2.4'/%3E%3Cpath d='M24 10.8c-2.8 4.2-4.4 8.6-4.4 13.2s1.6 9 4.4 13.2' stroke='%23ffffff' stroke-opacity='0.50' stroke-width='2.8' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 56px 56px;
   animation: coffeeBeansFall 22s linear infinite;
-  opacity: 0.22;
+  opacity: 0.28;
 }
 
 @keyframes coffeeBeansFall {

@@ -8,45 +8,55 @@ import '@fontsource/quicksand/600.css';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-PE">
   <head>
-    <!-- Configuración general -->
+    <!-- Básico -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/PeruvianFlavorsCoffee/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/PeruvianFlavorsCoffee/logo.png" />
 
-    <!-- SEO Básico -->
-    <title>Peruvian Flavors Coffee</title>
+    <!-- Title optimizado (clave + marca) -->
+    <title>
+      Peruvian Flavors Coffee | El mejor café peruano
+    </title>
+
+    <!-- Meta Description (CTR optimizado) -->
     <meta
       name="description"
-      content="Peruvian Flavors Coffee ofrece café peruano de especialidad, 100% arábica y cultivado en los Andes del Perú. Café de exportación, ético, sostenible y recién tostado."
+      content="Compra café peruano de especialidad 100% arábica, cultivado en los Andes del Perú. Café premium, sostenible y recién tostado. Envíos internacionales."
     />
+
+    <!-- Keywords (ya no tan importantes, pero ayuda semántica) -->
     <meta
       name="keywords"
-      content="café peruano, café de especialidad del Perú, café arábica peruano, café andino, café peruano de exportación, mejor café del Perú, café sostenible, café ético, café de los Andes, café peruano tostado, café premium peruano"
+      content="café peruano, café de especialidad, café arábica peruano, peruvian specialty coffee, café andino, café premium del Perú, café sostenible, café orgánico peruano"
     />
+
     <meta name="author" content="Peruvian Flavors Coffee" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Canonical -->
     <link rel="canonical" href="https://www.peruvianflavorscoffee.com/" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Peruvian Flavors Coffee | Café Peruano De Especialidad" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Peruvian Flavors Coffee" />
+    <meta property="og:title" content="Café Peruano de Especialidad | Peruvian Flavors Coffee" />
     <meta
       property="og:description"
-      content="Descubre el auténtico sabor del Perú. Café arábica de los Andes, cultivado de forma sostenible y recién tostado."
+      content="Descubre el auténtico café peruano de especialidad. 100% arábica, sostenible y de exportación."
     />
-    <meta property="og:image" content="https://www.peruvianflavorscoffee.com/images/og-image.jpg" />
     <meta property="og:url" content="https://www.peruvianflavorscoffee.com/" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.peruvianflavorscoffee.com/images/og-image.jpg" />
     <meta property="og:locale" content="es_PE" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Peruvian Flavors Coffee | Café Peruano de Especialidad 100% Arábica" />
+    <meta name="twitter:title" content="Café Peruano de Especialidad | Peruvian Flavors Coffee" />
     <meta
       name="twitter:description"
-      content="Café peruano premium, cultivado en los Andes y tostado artesanalmente. Sabor auténtico, aroma intenso."
+      content="Café peruano premium cultivado en los Andes. Aroma intenso y sabor auténtico."
     />
     <meta name="twitter:image" content="https://www.peruvianflavorscoffee.com/images/twitter-card.jpg" />
 
@@ -56,42 +66,34 @@ import '@fontsource/quicksand/600.css';
     <meta name="geo.position" content="-12.0464;-77.0428" />
     <meta name="ICBM" content="-12.0464, -77.0428" />
 
-    <!-- Schema.org JSON-LD (SEO Avanzado) -->
+    <!-- Schema.org Organización + Brand -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "Brand",
       "name": "Peruvian Flavors Coffee",
       "url": "https://www.peruvianflavorscoffee.com",
       "logo": "https://www.peruvianflavorscoffee.com/PeruvianFlavorsCoffee/logo.png",
+      "slogan": "El auténtico sabor del café peruano",
+      "description": "Marca peruana de café de especialidad 100% arábica cultivado en los Andes del Perú.",
       "sameAs": [
         "https://www.instagram.com/peruvianflavorscoffee",
         "https://www.facebook.com/peruvianflavorscoffee",
         "https://www.linkedin.com/company/peruvianflavorscoffee"
-      ],
-      "description": "Peruvian Flavors Coffee es una marca peruana de café de especialidad. Ofrecemos café 100% arábica cultivado en los Andes del Perú, ético, sostenible y recién tostado.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PE",
-        "addressLocality": "Lima",
-        "addressRegion": "Lima",
-        "postalCode": "15001"
-      },
-      "founder": "Peruvian Flavors Coffee",
-      "foundingDate": "2020",
-      "slogan": "El auténtico sabor del café peruano"
+      ]
     }
     </script>
 
-  <!-- Colores para dispositivos -->
-  <meta name="theme-color" content="#3b2f2f" />
+    <!-- Tema -->
+    <meta name="theme-color" content="#3b2f2f" />
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
+
 
   <body>
     <div class="wrapper">

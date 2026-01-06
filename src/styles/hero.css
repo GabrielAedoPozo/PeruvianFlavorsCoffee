@@ -659,11 +659,11 @@ body {
 }
 
 .banner-1::before {
-    background-image: url('/public/banner1.jpg');
+  background-image: url('/banner1.jpg');
 }
 
 .banner-2::before {
-    background-image: url('/public/banner2.jpg');
+  background-image: url('/banner2.jpg');
 }
 
 .banner-second:first-of-type { 
@@ -702,11 +702,11 @@ body {
     }
 
     .banner-1::before {
-        background-image: url('/public/mobil4.jpg');
+      background-image: url('/mobil4.jpg');
     }
 
     .banner-2::before {
-        background-image: url('/public/mobil5.jpg');
+      background-image: url('/mobil5.jpg');
     }
 }
 

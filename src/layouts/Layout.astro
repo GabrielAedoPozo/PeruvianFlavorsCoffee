@@ -5,6 +5,25 @@ import '@fontsource/quicksand/300.css';
 import '@fontsource/quicksand/400.css';
 import '@fontsource/quicksand/500.css';
 import '@fontsource/quicksand/600.css';
+
+const {
+  title = 'Peruvian Flavors Coffee | Café peruano de especialidad',
+  description =
+    'Compra café peruano de especialidad 100% arábica, cultivado en los Andes del Perú. Café premium, sostenible y recién tostado. Compra por WhatsApp.',
+  ogImage = '/img-hero.jpg',
+  noIndex = false,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://peruvianflavorscoffee.com');
+const canonicalURL = new URL(Astro.url.pathname, site);
+const ogImageURL = new URL(ogImage, site);
+
+const robots = noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+
+const sameAs = [
+  'https://www.instagram.com/peruvian_flavors_coffee/',
+  'https://www.facebook.com/peruvianflavorscoffee',
+];
 ---
 
 <!doctype html>
@@ -15,17 +34,13 @@ import '@fontsource/quicksand/600.css';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
-    <!-- Title optimizado (clave + marca) -->
-    <title>
-      Peruvian Flavors Coffee | El mejor café peruano
-    </title>
+    <!-- Title -->
+    <title>{title}</title>
 
-    <!-- Meta Description (CTR optimizado) -->
-    <meta
-      name="description"
-      content="Compra café peruano de especialidad 100% arábica, cultivado en los Andes del Perú. Café premium, sostenible y recién tostado. Envíos internacionales."
-    />
+    <!-- Meta Description -->
+    <meta name="description" content={description} />
 
     <!-- Keywords (ya no tan importantes, pero ayuda semántica) -->
     <meta
@@ -34,31 +49,30 @@ import '@fontsource/quicksand/600.css';
     />
 
     <meta name="author" content="Peruvian Flavors Coffee" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={robots} />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://www.peruvianflavorscoffee.com/" />
+    <link rel="canonical" href={canonicalURL.toString()} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" href={canonicalURL.toString()} hreflang="es-PE" />
+    <link rel="alternate" href={canonicalURL.toString()} hreflang="x-default" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Peruvian Flavors Coffee" />
-    <meta property="og:title" content="Café Peruano de Especialidad | Peruvian Flavors Coffee" />
-    <meta
-      property="og:description"
-      content="Descubre el auténtico café peruano de especialidad. 100% arábica, sostenible y de exportación."
-    />
-    <meta property="og:url" content="https://www.peruvianflavorscoffee.com/" />
-    <meta property="og:image" content="https://www.peruvianflavorscoffee.com/images/og-image.jpg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:image" content={ogImageURL.toString()} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content="es_PE" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Café Peruano de Especialidad | Peruvian Flavors Coffee" />
-    <meta
-      name="twitter:description"
-      content="Café peruano premium cultivado en los Andes. Aroma intenso y sabor auténtico."
-    />
-    <meta name="twitter:image" content="https://www.peruvianflavorscoffee.com/images/twitter-card.jpg" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL.toString()} />
 
     <!-- SEO Local -->
     <meta name="geo.region" content="PE-LIM" />
@@ -66,20 +80,41 @@ import '@fontsource/quicksand/600.css';
     <meta name="geo.position" content="-12.0464;-77.0428" />
     <meta name="ICBM" content="-12.0464, -77.0428" />
 
-    <!-- Schema.org Organización + Brand -->
+    <!-- Schema.org (Organization + WebSite + WebPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Brand",
-      "name": "Peruvian Flavors Coffee",
-      "url": "https://www.peruvianflavorscoffee.com",
-      "logo": "https://www.peruvianflavorscoffee.com/logo.png",
-      "slogan": "El auténtico sabor del café peruano",
-      "description": "Marca peruana de café de especialidad 100% arábica cultivado en los Andes del Perú.",
-      "sameAs": [
-        "https://www.instagram.com/peruvianflavorscoffee",
-        "https://www.facebook.com/peruvianflavorscoffee",
-        "https://www.linkedin.com/company/peruvianflavorscoffee"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "${site.toString()}#organization",
+          "name": "Peruvian Flavors Coffee",
+          "url": "${site.toString()}",
+          "logo": "${new URL('/logo.png', site).toString()}",
+          "sameAs": ${JSON.stringify(sameAs)}
+        },
+        {
+          "@type": "WebSite",
+          "@id": "${site.toString()}#website",
+          "url": "${site.toString()}",
+          "name": "Peruvian Flavors Coffee",
+          "inLanguage": "es-PE",
+          "publisher": { "@id": "${site.toString()}#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "${canonicalURL.toString()}#webpage",
+          "url": "${canonicalURL.toString()}",
+          "name": ${JSON.stringify(title)},
+          "description": ${JSON.stringify(description)},
+          "inLanguage": "es-PE",
+          "isPartOf": { "@id": "${site.toString()}#website" },
+          "about": { "@id": "${site.toString()}#organization" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "${ogImageURL.toString()}"
+          }
+        }
       ]
     }
     </script>
@@ -203,6 +238,18 @@ import '@fontsource/quicksand/600.css';
       color: var(--color-text);
       overflow-x: hidden;
       line-height: 1.45;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     @media (max-width: 560px) {
@@ -365,23 +412,6 @@ import '@fontsource/quicksand/600.css';
       }
     }
 
-            font-size: 1.8rem;
-        bottom: 50px; /* adjusted for mobile */
-        right: 20px;
-      }
-
-      .price-disclaimer {
-        bottom: 5px; /* close to bottom on mobile */
-        right: 20px;
-        max-width: 180px;
-        padding: 0.4rem 0.6rem;
-      }
-
-      .price-disclaimer p {
-        font-size: 0.65rem;
-      }
-    }
-
     @media (max-width: 480px) {
       .price-disclaimer {
         bottom: 3px; /* very close to bottom on small mobile */
@@ -413,15 +443,6 @@ import '@fontsource/quicksand/600.css';
 
       .price-disclaimer p {
         font-size: 0.55rem;
-      }
-    }
-
-    /* Preferencia reduce motion */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition: none !important;
       }
     }
   </style>

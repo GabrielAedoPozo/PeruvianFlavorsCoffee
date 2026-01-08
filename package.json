@@ -1,7 +1,7 @@
 {
   "name": "peruvian-flavors",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/cloudflare": "latest",
     "@fontsource/quicksand": "^5.2.8",
     "astro": "^5.14.1"
   },

@@ -3,24 +3,25 @@ import '../styles/hero.css';
 ---
 
 <section id="hero">
+    <h1 class="sr-only">Peruvian Flavors Coffee - Café peruano de especialidad</h1>
     <div class="hero-slider">
         <div class="slides-container">
             <div class="slide active">
                 <picture>
                     <source media="(max-width: 768px)" srcset="/mobil1.jpg">
-                    <img src="/img-hero.jpg" alt="Taza de café peruano - Peruvian Flavors Coffee" />
+                    <img src="/img-hero.jpg" alt="Taza de café peruano - Peruvian Flavors Coffee" loading="eager" fetchpriority="high" decoding="async" />
                 </picture>
             </div>
             <div class="slide">
                 <picture>
                     <source media="(max-width: 768px)" srcset="/mobil2.jpeg">
-                    <img src="/imgp2.jpg" alt="Granos de café peruano tostado" />
+                    <img src="/imgp2.jpg" alt="Granos de café peruano tostado" loading="lazy" decoding="async" />
                 </picture>
             </div>
             <div class="slide">
                 <picture>
                     <source media="(max-width: 768px)" srcset="/mobil3.jpg">
-                    <img src="/AMAZONAS.jpeg" alt="Región cafetalera de Amazonas, Perú" />
+                    <img src="/AMAZONAS.jpeg" alt="Región cafetalera de Amazonas, Perú" loading="lazy" decoding="async" />
                 </picture>
             </div>
         </div>
@@ -35,7 +36,7 @@ import '../styles/hero.css';
 <div class="products-accessories-wrap">
 
 <section id="products" class="products-section">
-    <h1 class="section-title">Nuestros Productos</h1>
+    <h2 class="section-title">Nuestros Productos</h2>
     <div class="productos">
         <div class="producto-card">
             <div class="producto-image">
@@ -179,7 +180,7 @@ import '../styles/hero.css';
 </section>
 
 <section id="blog" class="blog-section">
-  <h1 class="section-title">Eventos</h1>
+    <h2 class="section-title">Eventos</h2>
   <div class="blog-slider fader" aria-live="polite">
     <div class="slides-track" data-fade-track>
       <div class="slide">
@@ -206,7 +207,7 @@ import '../styles/hero.css';
 </section>
 
 <section id="testimonials" class="testimonials-section">
-  <h1 class="section-title">Testimonios</h1>
+    <h2 class="section-title">Testimonios</h2>
   <div class="testimonials-container">
         <div class="testimonial-card">
             <div class="testimonial-content">

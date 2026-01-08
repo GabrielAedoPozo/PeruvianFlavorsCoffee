@@ -34,10 +34,14 @@ body {
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
     background: #00000070;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 .slide.active {
     opacity: 1;
+  z-index: 1;
 }
 
 .slide::after {

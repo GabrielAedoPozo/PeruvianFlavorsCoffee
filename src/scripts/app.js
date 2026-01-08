@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = heroSlider.querySelectorAll('.slide');
     const dotsContainer = heroSlider.querySelector('.hero-dots');
     let currentSlide = 0;
-    const HERO_INTERVAL = 2500; // Changed from 4000 to 3000 (3 seconds)
-    let heroTimer;
+    const HERO_INTERVAL = 4000; // 4 seconds
+    let heroTimer = null;
 
     // Crear dots si hay contenedor y slides
     if (dotsContainer && slides.length) {
@@ -80,8 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const nextSlide = () => { goToSlide(currentSlide + 1); };
-    const startHeroSlider = () => { heroTimer = setInterval(nextSlide, HERO_INTERVAL); };
-    const stopHeroSlider = () => { if (heroTimer) clearInterval(heroTimer); };
+    const stopHeroSlider = () => {
+      if (heroTimer) {
+        clearInterval(heroTimer);
+        heroTimer = null;
+      }
+    };
+    const startHeroSlider = () => {
+      // Evitar múltiples intervals acumulándose (causa saltos/"retrocesos")
+      stopHeroSlider();
+      heroTimer = setInterval(nextSlide, HERO_INTERVAL);
+    };
 
     // Inicializar
     goToSlide(0);

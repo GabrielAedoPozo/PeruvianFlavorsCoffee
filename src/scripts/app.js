@@ -2,11 +2,37 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1) Header: menú móvil
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const menuClose = navLinks?.querySelector('.menu-close');
+  const navAnchors = navLinks ? Array.from(navLinks.querySelectorAll('a')) : [];
+
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isActive = menuToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', String(isActive));
+    const setMenuState = (open) => {
+      menuToggle.classList.toggle('active', open);
+      navLinks.classList.toggle('active', open);
+      document.body.classList.toggle('menu-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      if (open) {
+        (menuClose || navAnchors[0] || navLinks).focus?.();
+      } else {
+        menuToggle.focus?.();
+      }
+    };
+
+    const isOpen = () => navLinks.classList.contains('active');
+    const openMenu = () => setMenuState(true);
+    const closeMenu = () => setMenuState(false);
+    const toggleMenu = () => setMenuState(!isOpen());
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose?.addEventListener('click', closeMenu);
+
+    // Cerrar al hacer click en un enlace del menú (móvil)
+    navAnchors.forEach((a) => a.addEventListener('click', closeMenu));
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closeMenu();
     });
   }
 

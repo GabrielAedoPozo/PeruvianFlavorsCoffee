@@ -1,5 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "KIT V60",
+  "description": "Kit V60 (dripper + decantador) para preparar un café delicioso con un sabor excepcionalmente limpio, brillante, ligero y definido. Resalta las cualidades más delicadas y complejas del grano.",
+  "image": "https://peruvianflavorscoffee.com/cafetera.jpg",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "135.00",
+      "url": "https://peruvianflavorscoffee.com/accesorio5"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Contenido",
+      "value": "Dripper V60 resina 2-4 tz"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Contenido",
+      "value": "Decantador de hasta 4 tz"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +35,7 @@ import Layout from '../layouts/Layout.astro';
     description="Kit V60 (dripper + decantador) para un café limpio, brillante y definido. Ideal para resaltar notas delicadas. Compra por WhatsApp."
     ogImage="/cafetera.jpg"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

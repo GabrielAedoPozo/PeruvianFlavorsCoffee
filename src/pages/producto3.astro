@@ -1,5 +1,72 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Café Oxapampa",
+  "description": "Café delicado con notas frutadas suaves, aromático que representa a la selva central peruana. Perfecto para después del almuerzo. Café 100% orgánico de especialidad.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Peruvian Flavors Coffee"
+  },
+  "image": "https://peruvianflavorscoffee.com/oxapampa.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "32.00",
+      "url": "https://peruvianflavorscoffee.com/producto3"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "60.00",
+      "url": "https://peruvianflavorscoffee.com/producto3"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "90.00",
+      "url": "https://peruvianflavorscoffee.com/producto3"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "84"
+  },
+  "producer": {
+    "@type": "Organization",
+    "name": "Productores de Villa Rica, Oxapampa"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Origen",
+      "value": "Villa Rica, Oxapampa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Variedad",
+      "value": "Bourbon y Típica"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Altitud",
+      "value": "1500 m.s.n.m."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Proceso",
+      "value": "Lavado"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Perfil en taza",
+      "value": "Avellana, caramelo y un toque de manzana verde, aromático y de buen cuerpo"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +74,7 @@ import Layout from '../layouts/Layout.astro';
     description="Café Oxapampa de especialidad, suave y balanceado. 100% arábica con tueste fresco. Compra por WhatsApp."
     ogImage="/oxapampa.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

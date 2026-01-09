@@ -1,5 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Vaso estilo japonés",
+  "description": "Elegante vaso de estilo japonés perfecto para disfrutar tu café con un toque de sofisticación. Diseño minimalista y funcional.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Alternativa"
+  },
+  "image": "https://peruvianflavorscoffee.com/articulo1.jpeg",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "45.00",
+      "url": "https://peruvianflavorscoffee.com/accesorio1"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Marca",
+      "value": "Alternativa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Capacidad",
+      "value": "250 ml"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Material",
+      "value": "Vidrio borosilicato con anillo tipo madera"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +44,7 @@ import Layout from '../layouts/Layout.astro';
     description="Vaso estilo japonés de vidrio borosilicato para disfrutar tu café con estilo. Compra por WhatsApp."
     ogImage="/articulo1.jpeg"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

@@ -1,5 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Café Cajamarca",
+  "description": "Café de edición limitada con notas intensas de higo, floral y un toque de clavo de olor. Café peruano de especialidad 100% orgánico de la región de Cajamarca-Jaén.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Peruvian Flavors Coffee"
+  },
+  "image": "https://peruvianflavorscoffee.com/cajamarca.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "32.00",
+      "url": "https://peruvianflavorscoffee.com/producto2"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "60.00",
+      "url": "https://peruvianflavorscoffee.com/producto2"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "90.00",
+      "url": "https://peruvianflavorscoffee.com/producto2"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "86"
+  },
+  "producer": {
+    "@type": "Organization",
+    "name": "Productores de Cajamarca - Jaén"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Origen",
+      "value": "Cajamarca - Jaén"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Altitud",
+      "value": "1900 m.s.n.m."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Proceso",
+      "value": "Lavado"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Perfil en taza",
+      "value": "Notas suaves de higo, floral, un toque de clavo de olor, dulce y cremoso"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +69,7 @@ import Layout from '../layouts/Layout.astro';
     description="Café Cajamarca de edición limitada con notas de higo, floral y un toque de clavo de olor. Origen Jaén. Compra por WhatsApp."
     ogImage="/cajamarca.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

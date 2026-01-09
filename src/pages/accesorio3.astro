@@ -1,5 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Mug térmico (tumbler)",
+  "description": "Mug térmico tipo tumbler que mantiene tu café caliente por horas. Perfecto para llevar tu café favorito a cualquier lugar sin perder temperatura ni sabor.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Alternativa"
+  },
+  "image": "https://peruvianflavorscoffee.com/articulo3.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "75.00",
+      "url": "https://peruvianflavorscoffee.com/accesorio3"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Marca",
+      "value": "Alternativa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Capacidad",
+      "value": "30 oz y 40 oz"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Material",
+      "value": "Acero inoxidable doble pared"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Duración térmica",
+      "value": "Hasta 12 horas para bebidas frías y hasta 6 horas para bebidas calientes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Características",
+      "value": "A prueba de derrames, fácil transporte"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +54,7 @@ import Layout from '../layouts/Layout.astro';
     description="Mug térmico tipo tumbler para llevar tu café a donde vayas y mantener la temperatura. Compra por WhatsApp."
     ogImage="/articulo3.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

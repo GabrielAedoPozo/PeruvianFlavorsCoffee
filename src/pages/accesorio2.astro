@@ -1,5 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Prensa francesa",
+  "description": "Prensa francesa de alta calidad que permite extraer todos los aceites naturales y sabores del café. Perfecta para preparar café con cuerpo y sabor intenso.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Tramontina"
+  },
+  "image": "https://peruvianflavorscoffee.com/articulo2.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "100.00",
+      "url": "https://peruvianflavorscoffee.com/accesorio2"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Marca",
+      "value": "Tramontina"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Capacidad",
+      "value": "1 litro"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Material",
+      "value": "Vidrio borosilicato y polipropileno negro"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +44,7 @@ import Layout from '../layouts/Layout.astro';
     description="Prensa francesa para preparar café con cuerpo y sabor intenso. Accesorio ideal para tu rutina cafetera. Compra por WhatsApp."
     ogImage="/articulo2.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

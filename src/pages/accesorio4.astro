@@ -1,5 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Moka italiana de acero",
+  "description": "Cafetera moka italiana de acero inoxidable que te permite preparar un espresso intenso y aromático. Diseño clásico italiano con la durabilidad del acero inoxidable.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Tramontina"
+  },
+  "image": "https://peruvianflavorscoffee.com/articulo4.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "200.00",
+      "url": "https://peruvianflavorscoffee.com/accesorio4"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Marca",
+      "value": "Tramontina"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Capacidad",
+      "value": "350 ml"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Material",
+      "value": "Acero inoxidable"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +44,7 @@ import Layout from '../layouts/Layout.astro';
     description="Moka italiana de acero para preparar café con carácter al estilo tradicional. Compra por WhatsApp."
     ogImage="/articulo4.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

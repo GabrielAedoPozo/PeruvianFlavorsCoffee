@@ -1,5 +1,72 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Café Amazonas",
+  "description": "Cafesazo con notas achocolatadas y un toque de algarrobina suave. Café peruano de especialidad 100% orgánico de la región amazónica.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Peruvian Flavors Coffee"
+  },
+  "image": "https://peruvianflavorscoffee.com/amazonas.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "32.00",
+      "url": "https://peruvianflavorscoffee.com/producto4"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "60.00",
+      "url": "https://peruvianflavorscoffee.com/producto4"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "90.00",
+      "url": "https://peruvianflavorscoffee.com/producto4"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "85"
+  },
+  "producer": {
+    "@type": "Organization",
+    "name": "Productores de Amazonas - Rodríguez de Mendoza"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Origen",
+      "value": "Amazonas - Rodríguez de Mendoza"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Variedad",
+      "value": "Típica, Catimor y Caturra"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Altitud",
+      "value": "1552 m.s.n.m."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Proceso",
+      "value": "Secado"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Perfil en taza",
+      "value": "Algarrobina, chocolate, almendra y panela"
+    }
+  ]
+};
 ---
 
 <Layout
@@ -7,6 +74,7 @@ import Layout from '../layouts/Layout.astro';
     description="Café Amazonas de especialidad con origen amazónico del Perú. Perfil aromático y tueste fresco. Compra por WhatsApp."
     ogImage="/amazonas.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

@@ -1,11 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Café Cusco Premium",
+  "description": "Un señor café intenso y de notas a chocolate, guindones y con un toque final de vainilla. Café peruano de especialidad 100% orgánico de la región de Cusco-Quillabamba.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Peruvian Flavors Coffee"
+  },
+  "image": "https://peruvianflavorscoffee.com/cusco.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "32.00",
+      "url": "https://peruvianflavorscoffee.com/producto1"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "60.00",
+      "url": "https://peruvianflavorscoffee.com/producto1"
+    },
+    {
+      "@type": "Offer",
+      "priceCurrency": "PEN",
+      "price": "90.00",
+      "url": "https://peruvianflavorscoffee.com/producto1"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "86"
+  },
+  "producer": {
+    "@type": "Organization",
+    "name": "Productores de Cusco - Quillabamba"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Origen",
+      "value": "Cusco - Quillabamba"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Variedad",
+      "value": "Bourbon y Caturra"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Altitud",
+      "value": "2100 m.s.n.m."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Proceso",
+      "value": "Lavado y fermentación 24hrs"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Perfil en taza",
+      "value": "Chocolate bitter, uvas negras, guindones y un toque de vainilla"
+    }
+  ]
+};
 ---
 <Layout
     title="Café Cusco Premium | Peruvian Flavors Coffee"
     description="Café Cusco de especialidad con notas a chocolate, guindones y vainilla. Origen Quillabamba. Tueste fresco y compra por WhatsApp."
     ogImage="/cusco.png"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
         <div class="back-navigation">
             <a href="/" class="back-button">

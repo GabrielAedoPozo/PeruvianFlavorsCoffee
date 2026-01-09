@@ -79,45 +79,45 @@ const sameAs = [
     <meta name="geo.placename" content="Lima, Perú" />
     <meta name="geo.position" content="-12.0464;-77.0428" />
     <meta name="ICBM" content="-12.0464, -77.0428" />
-
-    <!-- Schema.org (Organization + WebSite + WebPage) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "${site.toString()}#organization",
-          "name": "Peruvian Flavors Coffee",
-          "url": "${site.toString()}",
-          "logo": "${new URL('/logo.png', site).toString()}",
-          "sameAs": ${JSON.stringify(sameAs)}
-        },
-        {
-          "@type": "WebSite",
-          "@id": "${site.toString()}#website",
-          "url": "${site.toString()}",
-          "name": "Peruvian Flavors Coffee",
-          "inLanguage": "es-PE",
-          "publisher": { "@id": "${site.toString()}#organization" }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "${canonicalURL.toString()}#webpage",
-          "url": "${canonicalURL.toString()}",
-          "name": ${JSON.stringify(title)},
-          "description": ${JSON.stringify(description)},
-          "inLanguage": "es-PE",
-          "isPartOf": { "@id": "${site.toString()}#website" },
-          "about": { "@id": "${site.toString()}#organization" },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "${ogImageURL.toString()}"
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": `${site}#organization`,
+            "name": "Peruvian Flavors Coffee",
+            "url": site.toString(),
+            "logo": new URL('/logo.png', site).toString(),
+            "sameAs": sameAs
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${site}#website`,
+            "url": site.toString(),
+            "name": "Peruvian Flavors Coffee",
+            "inLanguage": "es-PE",
+            "publisher": { "@id": `${site}#organization` }
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${canonicalURL}#webpage`,
+            "url": canonicalURL.toString(),
+            "name": title,
+            "description": description,
+            "inLanguage": "es-PE",
+            "isPartOf": { "@id": `${site}#website` },
+            "about": { "@id": `${site}#organization` },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": ogImageURL.toString()
+            }
           }
-        }
-      ]
-    }
-    </script>
+        ]
+      })}
+    ></script>
+
 
     <!-- Tema -->
     <meta name="theme-color" content="#3b2f2f" />

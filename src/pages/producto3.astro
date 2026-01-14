@@ -5,35 +5,26 @@ const schema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Café Oxapampa",
+  "sku": "OXAPAMPA-DELICADO-001",
   "description": "Café delicado con notas frutadas suaves, aromático que representa a la selva central peruana. Perfecto para después del almuerzo. Café 100% orgánico de especialidad.",
   "brand": {
     "@type": "Brand",
     "name": "Peruvian Flavors Coffee"
   },
   "image": "https://peruvianflavorscoffee.com/oxapampa.png",
-  "offers": [
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "32.00",
-      "url": "https://peruvianflavorscoffee.com/producto3"
-    },
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "60.00",
-      "url": "https://peruvianflavorscoffee.com/producto3"
-    },
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "90.00",
-      "url": "https://peruvianflavorscoffee.com/producto3"
-    }
-  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "PEN",
+    "lowPrice": "32.00",
+    "highPrice": "90.00",
+    "offerCount": "3",
+    "availability": "https://schema.org/InStock",
+    "url": "https://peruvianflavorscoffee.com/producto3"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "84"
+    "ratingValue": "4.2",
+    "ratingCount": "87"
   },
   "producer": {
     "@type": "Organization",

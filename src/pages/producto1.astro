@@ -5,35 +5,26 @@ const schema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Café Cusco Premium",
+  "sku": "CUSCO-PREMIUM-001",
   "description": "Un señor café intenso y de notas a chocolate, guindones y con un toque final de vainilla. Café peruano de especialidad 100% orgánico de la región de Cusco-Quillabamba.",
   "brand": {
     "@type": "Brand",
     "name": "Peruvian Flavors Coffee"
   },
   "image": "https://peruvianflavorscoffee.com/cusco.png",
-  "offers": [
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "32.00",
-      "url": "https://peruvianflavorscoffee.com/producto1"
-    },
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "60.00",
-      "url": "https://peruvianflavorscoffee.com/producto1"
-    },
-    {
-      "@type": "Offer",
-      "priceCurrency": "PEN",
-      "price": "90.00",
-      "url": "https://peruvianflavorscoffee.com/producto1"
-    }
-  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "PEN",
+    "lowPrice": "32.00",
+    "highPrice": "90.00",
+    "offerCount": "3",
+    "availability": "https://schema.org/InStock",
+    "url": "https://peruvianflavorscoffee.com/producto1"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "86"
+    "ratingValue": "4.3",
+    "ratingCount": "128"
   },
   "producer": {
     "@type": "Organization",

@@ -1364,21 +1364,17 @@ body {
   /* mantiene colores, solo mejora padding y stacking */
   position: relative;
   isolation: isolate;
-  padding: clamp(2.5rem, 6vw, 4rem) var(--padding-x);
+  padding: clamp(2.5rem, 6vw, 4.5rem) max(1.5rem, var(--padding-x));
 }
 
 .testimonials-container {
-  /* grilla fluida que mantiene 3, baja a 2/1 automáticamente */
+  /* una sola fila visible completa */
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.5rem, 2.5vw, 2rem);
-}
-
-@media (max-width: 1024px) {
-  .testimonials-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 640px) {
-  .testimonials-container { grid-template-columns: 1fr; }
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-inline: clamp(.5rem, 1.2vw, 1rem);
 }
 
 .testimonial-card {
@@ -1403,6 +1399,51 @@ body {
   box-shadow:
     0 18px 40px -12px rgba(0,0,0,0.55),
     0 0 0 1px rgba(197,138,75,0.10) inset;
+}
+
+/* Tarjetas de video */
+.testimonial-video-card {
+  padding: 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.testimonial-video-card::before {
+  content: none;
+}
+
+.testimonial-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: linear-gradient(180deg, rgba(17,10,7,0.95), rgba(28,18,13,0.95));
+  overflow: hidden;
+}
+
+.testimonial-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.testimonial-meta {
+  padding: 1rem 1.2rem 1.35rem;
+  background:
+    linear-gradient(180deg, rgba(17,10,7,0.0) 0%, rgba(17,10,7,0.6) 40%, rgba(17,10,7,0.9) 100%);
+}
+
+.testimonial-meta h3 {
+  margin: 0 0 .35rem;
+  color: var(--color-accent);
+  font-size: 1.05rem;
+  letter-spacing: .2px;
+}
+
+.testimonial-meta p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: .95rem;
 }
 
 /* Acento lateral sutil */

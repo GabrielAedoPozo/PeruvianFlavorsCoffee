@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://peruvianflavorscoffee.com/sitemap-index.xml
+# Permite que Google cache las imágenes
+User-agent: Googlebot-Image
+Allow: /
+

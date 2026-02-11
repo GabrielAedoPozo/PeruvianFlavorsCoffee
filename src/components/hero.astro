@@ -83,66 +83,81 @@ import '../styles/hero.css';
 </section>
 
 <section id="accessories">
-    <div class="accesorios">
-        <div class="accesorio-card">
-            <div class="accesorio-image">
-                <img src="/articulo1.jpeg" alt="Vaso estilo japonés" loading="lazy" decoding="async" />
+    <h2 class="section-title">Accesorios</h2>
+    <div class="accesorios-wrapper">
+        <button class="carousel-btn carousel-btn-prev" aria-label="Accesorio anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        
+        <div class="accesorios-carousel">
+            <div class="accesorio-card">
+                <div class="accesorio-image">
+                    <img src="/articulo1.jpeg" alt="Vaso estilo japonés" loading="lazy" decoding="async" />
+                </div>
+                <div class="accesorio-info">
+                    <h3 class="accesorio-nombre">Vaso estilo japonés</h3>
+                </div>
+                <div class="a-buy">
+                    <a href="/accesorio1">Comprar</a>
+                </div>
             </div>
-            <div class="accesorio-info">
-                <h3 class="accesorio-nombre">Vaso estilo japonés</h3>
+
+            <div class="accesorio-card">
+                <div class="accesorio-image">
+                    <img src="/articulo2.png" alt="Prensa francesa" loading="lazy" decoding="async" />
+                </div>
+                <div class="accesorio-info">
+                    <h3 class="accesorio-nombre">Prensa francesa</h3>
+                </div>
+                <div class="a-buy">
+                    <a href="/accesorio2">Comprar</a>
+                </div>
             </div>
-            <div class="a-buy">
-                <a href="/accesorio1">Comprar</a>
+
+            <div class="accesorio-card">
+                <div class="accesorio-image">
+                    <img src="/articulo3.png" alt="Mug térmico (tumbler)" loading="lazy" decoding="async" />
+                </div>
+                <div class="accesorio-info">
+                    <h3 class="accesorio-nombre">Mug térmico (tumbler)</h3>
+                </div>
+                <div class="a-buy">
+                    <a href="/accesorio3">Comprar</a>
+                </div>
+            </div>
+
+            <div class="accesorio-card">
+                <div class="accesorio-image">
+                    <img src="/articulo4.png" alt="Moka italiana" loading="lazy" decoding="async" />
+                </div>
+                <div class="accesorio-info">
+                    <h3 class="accesorio-nombre">Moka italiana</h3>
+                </div>
+                <div class="a-buy">
+                    <a href="/accesorio4">Comprar</a>
+                </div>
+            </div>
+
+            <div class="accesorio-card">
+                <div class="accesorio-image">
+                    <img src="/cafetera.jpg" alt="Cafetera con colador" loading="lazy" decoding="async" />
+                </div>
+                <div class="accesorio-info">
+                    <h3 class="accesorio-nombre">KIT V60</h3>
+                </div>
+                <div class="a-buy">
+                    <a href="/accesorio5">Comprar</a>
+                </div>
             </div>
         </div>
 
-        <div class="accesorio-card">
-            <div class="accesorio-image">
-                <img src="/articulo2.png" alt="Prensa francesa" loading="lazy" decoding="async" />
-            </div>
-            <div class="accesorio-info">
-                <h3 class="accesorio-nombre">Prensa francesa</h3>
-            </div>
-            <div class="a-buy">
-                <a href="/accesorio2">Comprar</a>
-            </div>
-        </div>
-
-        <div class="accesorio-card">
-            <div class="accesorio-image">
-                <img src="/articulo3.png" alt="Mug térmico (tumbler)" loading="lazy" decoding="async" />
-            </div>
-            <div class="accesorio-info">
-                <h3 class="accesorio-nombre">Mug térmico (tumbler)</h3>
-            </div>
-            <div class="a-buy">
-                <a href="/accesorio3">Comprar</a>
-            </div>
-        </div>
-
-        <div class="accesorio-card">
-            <div class="accesorio-image">
-                <img src="/articulo4.png" alt="Moka italiana" loading="lazy" decoding="async" />
-            </div>
-            <div class="accesorio-info">
-                <h3 class="accesorio-nombre">Moka italiana</h3>
-            </div>
-            <div class="a-buy">
-                <a href="/accesorio4">Comprar</a>
-            </div>
-        </div>
-
-        <div class="accesorio-card">
-            <div class="accesorio-image">
-                <img src="/cafetera.jpg" alt="Cafetera con colador" loading="lazy" decoding="async" />
-            </div>
-            <div class="accesorio-info">
-                <h3 class="accesorio-nombre">KIT V60</h3>
-            </div>
-            <div class="a-buy">
-                <a href="/accesorio5">Comprar</a>
-            </div>
-        </div>
+        <button class="carousel-btn carousel-btn-next" aria-label="Siguiente accesorio">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
     </div>
 </section>
 

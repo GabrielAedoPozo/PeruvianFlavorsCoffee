@@ -1267,9 +1267,14 @@ body {
   }
 
   .about-stats {
-    grid-template-columns: 1fr;
-    max-width: 280px;
-    margin: 2rem auto 0;
+    display: none;
+  }
+
+  /* Ocultar banners en móvil */
+  .banner-second,
+  .banner-1,
+  .banner-2 {
+    display: none;
   }
   
   /* Asegurar que productos estén en una columna */
@@ -1699,25 +1704,73 @@ body {
   display: none;
 }
 
-.accesorios {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 accesorios en una fila */
-  gap: 1.5rem; /* un poco menos para que entren mejor */
+/* Desktop: mostrar carrusel con flechas */
+.accesorios-wrapper {
   width: 100%;
-  max-width: 1440px; /* más ancho para 5 columnas */
-  animation: none;
-  will-change: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-/* En pantallas medianas, baja columnas para evitar que se aplasten */
-@media (max-width: 1200px) {
-  .accesorios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.accesorios-carousel {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* (antes había scroll horizontal; ahora es grilla estática) */
+.accesorios-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* Mostrar botones de navegación en desktop */
+.carousel-btn {
+  display: flex;
+  background: linear-gradient(155deg, rgba(58,36,26,0.95), rgba(42,26,19,0.98));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: linear-gradient(155deg, rgba(78,56,46,0.98), rgba(62,46,39,1));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.carousel-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.carousel-btn svg {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
 
 .accesorio-card {
-    background: linear-gradient(155deg,rgba(58,36,26,0.88), rgba(42,26,19,0.92));
+  background: linear-gradient(155deg,rgba(58,36,26,0.88), rgba(42,26,19,0.92));
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
   border-radius: 14px;
@@ -1726,6 +1779,24 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 280px;
+  flex: 0 0 calc(25% - 1.125rem);
+  position: relative;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.accesorio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 1200px) {
+  .accesorio-card {
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 250px;
+  }
 }
 
 /* === Accesorios (simetría: imagen igual + precio alineado) === */
@@ -1783,25 +1854,66 @@ body {
   max-width: 260px; /* evita que unas cards “se vean” más anchas por el botón */
 }
 
-/* Responsive para accesorios */
+/* Responsive para accesorios en móvil */
 @media (max-width: 768px) {
-  .accesorios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    #accessories {
-        padding: 3rem 1.5rem;
-    }
+  .accesorios-wrapper {
+    max-width: 600px;
+    padding: 1rem;
+  }
+  
+  .accesorios-carousel {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .accesorio-card {
+    flex: 0 0 100%;
+    min-width: 280px;
+    max-width: 350px;
+  }
+  
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  #accessories {
+    padding: 3rem 1.5rem;
+  }
 
-    /* Mostrar solo el botón de WhatsApp en móvil.
-       No se eliminan ni modifican los href, solo se ocultan visualmente los otros botones.
-       Soporta enlaces tipo wa.me, whatsapp y api.whatsapp.com */
-    .contact-social a:not([href*="wa.me"]):not([href*="whatsapp"]):not([href*="api.whatsapp.com"]) {
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-    }
+  /* Mostrar solo el botón de WhatsApp en móvil.
+     No se eliminan ni modifican los href, solo se ocultan visualmente los otros botones.
+     Soporta enlaces tipo wa.me, whatsapp y api.whatsapp.com */
+  .contact-social a:not([href*="wa.me"]):not([href*="whatsapp"]):not([href*="api.whatsapp.com"]) {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
+
 @media (max-width: 480px) {
-  .accesorios { grid-template-columns: 1fr; }
-  #accessories { padding: 2rem 1rem; }
+  .accesorios-wrapper {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .accesorios-carousel {
+    max-width: 280px;
+  }
+  
+  .accesorio-card {
+    min-width: 250px;
+    max-width: 280px;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #accessories { 
+    padding: 2rem 1rem; 
+  }
 }
 
 /* Modificaciones específicas para la imagen del caficultor */

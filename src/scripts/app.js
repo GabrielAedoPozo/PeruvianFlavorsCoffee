@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2) Hero Slider
+  // 2) Hero Slider con efecto Parallax
   const heroSlider = document.querySelector('.hero-slider');
   if (heroSlider) {
     const slides = heroSlider.querySelectorAll('.slide');
@@ -44,6 +44,53 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     const HERO_INTERVAL = 4000; // 4 seconds
     let heroTimer = null;
+
+    // Efecto parallax con movimiento del mouse
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const parallaxEffect = () => {
+      const activeSlide = heroSlider.querySelector('.slide.active');
+      if (!activeSlide) return;
+
+      const parallaxBg = activeSlide.querySelector('.parallax-bg');
+      if (!parallaxBg) return;
+
+      // Suavizar el movimiento
+      targetX += (mouseX - targetX) * 0.05;
+      targetY += (mouseY - targetY) * 0.05;
+
+      const moveX = targetX * 0.015;
+      const moveY = targetY * 0.015;
+
+      parallaxBg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.1)`;
+      requestAnimationFrame(parallaxEffect);
+    };
+
+    heroSlider.addEventListener('mousemove', (e) => {
+      const rect = heroSlider.getBoundingClientRect();
+      mouseX = e.clientX - rect.left - rect.width / 2;
+      mouseY = e.clientY - rect.top - rect.height / 2;
+    });
+
+    heroSlider.addEventListener('mouseenter', () => {
+      requestAnimationFrame(parallaxEffect);
+    });
+
+    heroSlider.addEventListener('mouseleave', () => {
+      // Resetear posición suavemente
+      targetX = 0;
+      targetY = 0;
+      const activeSlide = heroSlider.querySelector('.slide.active');
+      if (activeSlide) {
+        const parallaxBg = activeSlide.querySelector('.parallax-bg');
+        if (parallaxBg) {
+          parallaxBg.style.transform = 'translate(0, 0) scale(1.1)';
+        }
+      }
+    });
 
     // Crear dots si hay contenedor y slides
     if (dotsContainer && slides.length) {
@@ -143,6 +190,116 @@ document.addEventListener('DOMContentLoaded', () => {
     start();
     slider.addEventListener('mouseenter', stop);
     slider.addEventListener('mouseleave', start);
+  }
+
+  // 3.5) Carrusel de Accesorios
+  const accesoriosCarousel = document.querySelector('.accesorios-carousel');
+  if (accesoriosCarousel) {
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    let currentScroll = 0;
+    
+    const getCardsPerView = () => {
+      const width = window.innerWidth;
+      if (width <= 480) return 1;
+      if (width <= 768) return 1;
+      if (width <= 1200) return 3;
+      return 4;
+    };
+
+    const getScrollAmount = () => {
+      const cardWidth = accesoriosCarousel.querySelector('.accesorio-card')?.offsetWidth || 300;
+      const gap = 24; // 1.5rem = 24px
+      return cardWidth + gap;
+    };
+
+    const updateButtonStates = () => {
+      if (!prevBtn || !nextBtn) return;
+      
+      const maxScroll = accesoriosCarousel.scrollWidth - accesoriosCarousel.clientWidth;
+      
+      prevBtn.disabled = currentScroll <= 0;
+      nextBtn.disabled = currentScroll >= maxScroll;
+      
+      prevBtn.style.opacity = currentScroll <= 0 ? '0.4' : '1';
+      nextBtn.style.opacity = currentScroll >= maxScroll ? '0.4' : '1';
+      
+      prevBtn.style.cursor = currentScroll <= 0 ? 'not-allowed' : 'pointer';
+      nextBtn.style.cursor = currentScroll >= maxScroll ? 'not-allowed' : 'pointer';
+    };
+
+    const scrollToPosition = (position) => {
+      accesoriosCarousel.scrollTo({
+        left: position,
+        behavior: 'smooth'
+      });
+    };
+
+    const nextCard = () => {
+      const maxScroll = accesoriosCarousel.scrollWidth - accesoriosCarousel.clientWidth;
+      const scrollAmount = getScrollAmount();
+      currentScroll = Math.min(currentScroll + scrollAmount, maxScroll);
+      scrollToPosition(currentScroll);
+      setTimeout(updateButtonStates, 350);
+    };
+
+    const prevCard = () => {
+      const scrollAmount = getScrollAmount();
+      currentScroll = Math.max(currentScroll - scrollAmount, 0);
+      scrollToPosition(currentScroll);
+      setTimeout(updateButtonStates, 350);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevCard();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextCard();
+      });
+    }
+
+    // Actualizar al hacer scroll manual
+    accesoriosCarousel.addEventListener('scroll', () => {
+      currentScroll = accesoriosCarousel.scrollLeft;
+      updateButtonStates();
+    });
+
+    // Inicializar y actualizar al cambiar tamaño
+    const initCarousel = () => {
+      currentScroll = 0;
+      accesoriosCarousel.scrollLeft = 0;
+      updateButtonStates();
+    };
+
+    initCarousel();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        initCarousel();
+      }, 150);
+    });
+
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+      if (accesoriosCarousel.matches(':hover') || document.activeElement?.closest('.accesorios-wrapper')) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevCard();
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextCard();
+        }
+      }
+    });
   }
 
   // 4) Productos: enlazar a todos los .producto-detalle de cualquier página

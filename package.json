@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/cloudflare": "latest",
     "@fontsource/quicksand": "^5.2.8",
     "astro": "^5.14.1"
   },

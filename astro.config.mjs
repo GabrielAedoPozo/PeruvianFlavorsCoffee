@@ -1,9 +1,9 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://peruvianflavorscoffee.com',
-  integrations: [],
-  adapter: cloudflare(),
+  integrations: [sitemap()],
+  output: "static"
 });

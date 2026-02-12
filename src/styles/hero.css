@@ -1881,6 +1881,18 @@ body {
     padding: 3rem 1.5rem;
   }
 
+  /* Ajuste del nombre en tablets y móviles */
+  .accesorio-nombre {
+    font-size: 1rem;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    min-height: calc(1.2em * 3);
+  }
+
+  .accesorio-info {
+    padding: 0.8rem 0.8rem 0;
+  }
+
   /* Mostrar solo el botón de WhatsApp en móvil.
      No se eliminan ni modifican los href, solo se ocultan visualmente los otros botones.
      Soporta enlaces tipo wa.me, whatsapp y api.whatsapp.com */
@@ -1913,6 +1925,18 @@ body {
   
   #accessories { 
     padding: 2rem 1rem; 
+  }
+
+  /* Ajuste del nombre en móviles pequeños */
+  .accesorio-nombre {
+    font-size: 0.95rem;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    min-height: calc(1.2em * 3);
+  }
+
+  .accesorio-info {
+    padding: 0.7rem 0.6rem 0;
   }
 }
 

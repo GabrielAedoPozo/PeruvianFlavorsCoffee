@@ -34,9 +34,11 @@ body {
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
     background: #00000070;
-  z-index: 0;
-  pointer-events: none;
-  will-change: opacity;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .slide.active {
@@ -58,6 +60,11 @@ body {
     object-position: center;    
     display: block;
     opacity: 0.85;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 
@@ -251,6 +258,9 @@ body {
     max-height: 360px; /* antes: 320px */
     transition: transform 0.3s ease;
     filter: saturate(.92);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 
@@ -2149,6 +2159,9 @@ body {
   max-height: 360px;
   transition: transform 0.3s ease;
   filter: saturate(.92);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Nombre simple (misma “altura” para que el botón quede alineado) */

@@ -1,72 +1,683 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "HowTo",
+  "name": "Cómo preparar café con Prensa Francesa",
+  "description": "Método clásico de inmersión completa que extrae todo el sabor y los aceites del café. Café robusto y con cuerpo en minutos.",
+  "image": "https://peruvianflavorscoffee.com/prensafrancesa.png",
+  "totalTime": "PT6M",
+  "recipeYield": "2-3 tazas"
+};
 ---
-<Layout>
+<Layout
+  title="Receta Prensa Francesa - French Press | Peruvian Flavors Coffee"
+  description="Prepara café de cuerpo completo con prensa francesa. Técnica sencilla para extraer todo el sabor y aceites naturales del café."
+  ogImage="/prensafrancesa.png"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  
   <section class="recipe">
     <div class="back-nav">
-      <a href="/" class="back-button">← Volver al inicio</a>
+      <a href="/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>Volver al inicio</span>
+      </a>
     </div>
-    <h1>Prensa Francesa</h1>
-    <video class="recipe-video" controls playsinline preload="metadata" poster="/prensafrancesa.png">
-      <source src="/p.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
+
+    <div class="recipe-header">
+      <h1>Prensa Francesa</h1>
+      <p class="recipe-intro">
+        La prensa francesa (French Press) es uno de los métodos más venerados y sencillos para preparar café. 
+        Extrae todos los aceites y sabores del café mediante inmersión completa, resultando en una taza con cuerpo completo y sabor intenso.
+      </p>
+      
+      <div class="recipe-meta">
+        <div class="meta-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Tiempo</strong>
+            <span>6 minutos</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-signal"></i>
+          <div>
+            <strong>Dificultad</strong>
+            <span>Fácil</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-mug-hot"></i>
+          <div>
+            <strong>Porciones</strong>
+            <span>2-3 tazas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-video-section">
+      <h2><i class="fas fa-play-circle"></i> Video Tutorial</h2>
+      <video class="recipe-video" controls playsinline preload="metadata" poster="/prensafrancesa.png">
+        <source src="/p.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+      <div class="video-tip">
+        <i class="fas fa-lightbulb"></i>
+        <span>Sigue los tiempos de extracción cuidadosamente para evitar amargor</span>
+      </div>
+    </div>
+
+    <div class="recipe-content">
+      <div class="recipe-section ingredients-section">
+        <h2><i class="fas fa-list-ul"></i> Ingredientes y Materiales</h2>
+        <ul class="ingredients-list">
+          <li><i class="fas fa-check-circle"></i> Prensa francesa (350-500ml)</li>
+          <li><i class="fas fa-check-circle"></i> 25-30g de café molido grueso</li>
+          <li><i class="fas fa-check-circle"></i> 400ml de agua a 93-96°C</li>
+          <li><i class="fas fa-check-circle"></i> Cuchara para remover</li>
+          <li><i class="fas fa-check-circle"></i> Cronómetro</li>
+          <li><i class="fas fa-check-circle"></i> Opcional: balanza digital</li>
+        </ul>
+      </div>
+
+      <div class="recipe-section steps-section">
+        <h2><i class="fas fa-tasks"></i> Pasos de Preparación</h2>
+        <ol class="steps-list">
+          <li>
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <strong>Precalienta la prensa</strong>
+              <p>Vierte agua caliente en la prensa francesa para precalentarla. Espera 30 segundos y descarta el agua.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <strong>Agrega el café</strong>
+              <p>Coloca 25-30g de café molido grueso en la prensa. La textura debe ser como pan rallado grueso.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div class="step-content">
+              <strong>Primera vertida</strong>
+              <p>Vierte 400ml de agua a 93-96°C sobre el café. Inicia el cronómetro inmediatamente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <div class="step-content">
+              <strong>Remueve y espera</strong>
+              <p>A los 30 segundos, remueve suavemente con una cuchara. Coloca la tapa sin presionar el émbolo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">5</span>
+            <div class="step-content">
+              <strong>Presiona el émbolo</strong>
+              <p>A los 4 minutos, presiona el émbolo lentamente y de forma uniforme hasta el fondo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">6</span>
+            <div class="step-content">
+              <strong>Sirve inmediatamente</strong>
+              <p>Vierte el café de inmediato en tazas. No lo dejes en la prensa o seguirá extrayendo y se pondrá amargo.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="recipe-section tips-section">
+        <h2><i class="fas fa-star"></i> Tips de Experto</h2>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <i class="fas fa-coffee"></i>
+            <h3>Molienda gruesa</h3>
+            <p>Usa molienda gruesa como pan rallado. Muy fina produce sobre-extracción y amargor.</p>
+          </div>
+          <div class="tip-card">
+            <i class="fas fa-clock"></i>
+            <h3>Tiempo exacto</h3>
+            <p>4 minutos es el estándar. Menos da café débil, más genera amargor.</p>
+          </div>
+          <div class="tip-card">
+            <i class="fas fa-fire"></i>
+            <h3>Temperatura ideal</h3>
+            <p>93-96°C. Si no tienes termómetro, espera 30 segundos después de hervir.</p>
+          </div>
+          <div class="tip-card">
+            <i class="fas fa-heart"></i>
+            <h3>Sirve al instante</h3>
+            <p>Transfiere todo el café a otra jarra o tazas. En la prensa sigue extrayendo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-share">
+      <h3>Comparte esta receta</h3>
+      <div class="share-buttons">
+        <a href="https://wa.me/?text=Mira esta receta de Prensa Francesa: https://peruvianflavorscoffee.com/prensa" 
+           target="_blank" rel="noopener" class="share-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://peruvianflavorscoffee.com/prensa" 
+           target="_blank" rel="noopener" class="share-btn facebook">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Prensa Francesa&url=https://peruvianflavorscoffee.com/prensa" 
+           target="_blank" rel="noopener" class="share-btn twitter">
+          <i class="fab fa-twitter"></i> Twitter
+        </a>
+      </div>
+    </div>
+
+    <div class="more-recipes">
+      <h3>Más Recetas de Café</h3>
+      <div class="recipes-grid">
+        <a href="/capuccino" class="recipe-card-link">
+          <div class="recipe-card">
+            <img src="/capuccino.png" alt="Capuccino" loading="lazy">
+            <h4>Capuccino</h4>
+            <p>Clásico italiano cremoso</p>
+          </div>
+        </a>
+        <a href="/chemex" class="recipe-card-link">
+          <div class="recipe-card">
+            <img src="/chemex.png" alt="Chemex" loading="lazy">
+            <h4>Chemex</h4>
+            <p>Método pour-over elegante</p>
+          </div>
+        </a>
+        <a href="/mango" class="recipe-card-link">
+          <div class="recipe-card">
+            <img src="/mango.png" alt="Café con Mango" loading="lazy">
+            <h4>Café con Mango</h4>
+            <p>Refrescante y tropical</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>
 
 <style>
-  .recipe{
-    padding:120px 1rem 3rem;
-    max-width:900px;
-    margin:0 auto;
-    background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%);
+  .recipe {
+    padding: 120px 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: radial-gradient(900px 500px at 10% 0%, rgba(197,138,75,0.10), transparent 60%) var(--color-bg);
+    min-height: 100vh;
   }
 
-  .recipe h1{
-    font-size:clamp(2rem,5vw,3rem);
-    margin:0 0 1rem;
-    background:var(--grad-accent);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    color:transparent;
-    font-weight:600;
-    text-align:center;
-    text-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  .back-nav {
+    margin-bottom: 2rem;
   }
 
-  .recipe-video{
-    width:100%;
-    aspect-ratio:16/9;
-    background:#0f0a07;
-    border:1px solid rgba(255,255,255,0.10);
-    border-radius:16px;
-    display:block;
-    box-shadow: 0 18px 44px -18px rgba(0,0,0,0.60);
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    color: var(--color-text-soft);
+    background: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
   }
 
-  .back-nav{ margin-bottom:1rem; }
-
-  .back-button{
-    display:inline-flex;
-    gap:.4rem;
-    padding:.55rem .9rem;
-    font-size:.8rem;
-    text-decoration:none;
-    border:1px solid rgba(255,255,255,0.10);
-    border-radius:8px;
-    color:var(--color-text-soft);
-    background: rgba(255,255,255,0.04);
-    transition:.25s ease;
-  }
-  .back-button:hover{
-    color:var(--color-accent);
-    border-color:rgba(197,138,75,0.28);
-    background:rgba(197,138,75,0.10);
+  .back-button:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent-fade);
+    background: rgba(197,138,75,0.12);
+    transform: translateX(-3px);
   }
 
-  @media (max-width:600px){
-    .recipe{ padding:100px .75rem 2.5rem; }
-    .recipe-video{ border-radius:12px; }
+  .recipe-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .recipe h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin: 0 0 1rem;
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 600;
+    text-shadow: var(--text-glow);
+  }
+
+  .recipe-intro {
+    color: var(--color-text-soft);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .recipe-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, rgba(197,138,75,0.08), rgba(197,138,75,0.03));
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  .meta-item i {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  .meta-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .meta-item strong {
+    color: var(--color-text);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .meta-item span {
+    color: var(--color-text-soft);
+    font-size: 1rem;
+  }
+
+  .recipe-video-section {
+    margin: 3rem 0;
+  }
+
+  .recipe-video-section h2 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .recipe-video-section h2 i {
+    color: var(--color-accent);
+  }
+
+  .recipe-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #0f0a07;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
+  }
+
+  .video-tip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(197,138,75,0.08);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 8px;
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+  }
+
+  .video-tip i {
+    color: var(--color-highlight);
+    font-size: 1.2rem;
+  }
+
+  .recipe-content {
+    display: grid;
+    gap: 3rem;
+    margin: 4rem 0;
+  }
+
+  .recipe-section h2 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .recipe-section h2 i {
+    color: var(--color-accent);
+  }
+
+  .ingredients-section {
+    background: linear-gradient(160deg, rgba(197,138,75,0.06), rgba(197,138,75,0.02));
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .ingredients-list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .ingredients-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .ingredients-list li i {
+    color: var(--color-accent);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .steps-section {
+    background: linear-gradient(160deg, #20130d, #180e0a);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .steps-list {
+    list-style: none;
+    counter-reset: step-counter;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .steps-list li {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #c58a4b, #d4a574);
+    color: #27160c;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-content strong {
+    color: var(--color-text);
+    font-size: 1.15rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: var(--color-text-soft);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .tips-section {
+    padding: 2rem 0;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tip-card {
+    background: linear-gradient(135deg, rgba(197,138,75,0.1), rgba(197,138,75,0.05));
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .tip-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent-fade);
+    box-shadow: 0 10px 30px rgba(197,138,75,0.15);
+  }
+
+  .tip-card i {
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .tip-card h3 {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-card p {
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .recipe-share {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(197,138,75,0.08), rgba(197,138,75,0.03));
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    margin: 3rem 0;
+  }
+
+  .recipe-share h3 {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .share-btn.whatsapp {
+    background: #25d366;
+    color: white;
+  }
+
+  .share-btn.whatsapp:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+  }
+
+  .share-btn.facebook {
+    background: #1877f2;
+    color: white;
+  }
+
+  .share-btn.facebook:hover {
+    background: #166fe5;
+    transform: translateY(-2px);
+  }
+
+  .share-btn.twitter {
+    background: #1da1f2;
+    color: white;
+  }
+
+  .share-btn.twitter:hover {
+    background: #1a8cd8;
+    transform: translateY(-2px);
+  }
+
+  .more-recipes {
+    margin-top: 4rem;
+  }
+
+  .more-recipes h3 {
+    color: var(--color-text);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .recipe-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .recipe-card {
+    background: linear-gradient(160deg, #271a14, #1f120e);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent-fade);
+    box-shadow: 0 15px 40px rgba(197,138,75,0.2);
+  }
+
+  .recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .recipe-card h4 {
+    color: var(--color-text);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .recipe-card p {
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .recipe {
+      padding: 100px 1.5rem 3rem;
+    }
+
+    .recipe-meta {
+      gap: 1rem;
+    }
+
+    .meta-item {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .recipe-video-section h2,
+    .recipe-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .tips-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .share-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .share-btn {
+      justify-content: center;
+    }
+
+    .recipes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .recipe {
+      padding: 90px 1rem 2.5rem;
+    }
+
+    .recipe h1 {
+      font-size: 2rem;
+    }
+
+    .recipe-intro {
+      font-size: 1rem;
+    }
+
+    .meta-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .recipe-video {
+      border-radius: 12px;
+    }
+
+    .ingredients-section,
+    .steps-section {
+      padding: 1.5rem;
+    }
   }
 </style>
 

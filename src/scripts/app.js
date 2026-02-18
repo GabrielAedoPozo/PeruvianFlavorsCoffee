@@ -143,8 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     goToSlide(0);
     if (slides.length > 1) {
       startHeroSlider();
-      heroSlider.addEventListener('mouseenter', stopHeroSlider);
-      heroSlider.addEventListener('mouseleave', startHeroSlider);
+      // Slider siempre activo - no se pausa con mouse
     }
   }
 

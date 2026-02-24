@@ -380,7 +380,7 @@ if (window.__appScriptInitialized) {
     });
   }
 
-    // 4) Productos: enlazar a todos los .producto-detalle de cualquier página
+    // 4) Productos: sistema de múltiples tamaños
     // PROTECCIÓN: Solo inicializar productos que no hayan sido inicializados
     document.querySelectorAll('.producto-detalle').forEach((root) => {
       // Verificar si ya fue inicializado (evita duplicación)
@@ -400,9 +400,8 @@ if (window.__appScriptInitialized) {
         img.addEventListener('click', handleImageClick);
       });
 
-      // Elementos del producto (scoped por producto)
-      const pesoButtons = Array.from(root.querySelectorAll('.peso-option'));
-      const quantity = root.querySelector('#quantity');
+      // Elementos del producto
+      const pesoItems = Array.from(root.querySelectorAll('.peso-item'));
       const totalSpan = root.querySelector('#total');
       const whatsappButton = root.querySelector('#whatsappButton');
       const productName =
@@ -410,110 +409,106 @@ if (window.__appScriptInitialized) {
         document.querySelector('h1')?.textContent?.trim() ||
         'Producto';
 
-      // Estado inicial del producto
-      const activeBtn = root.querySelector('.peso-option.active') || pesoButtons[0];
-      let currentPrice = parseFloat(activeBtn?.getAttribute('data-price') || '32');
-      let currentWeight = activeBtn?.getAttribute('data-weight') || '1 unidad';
-
-      // Límite máximo de unidades
+      // Límite máximo de unidades por tamaño
       const MAX_QTY = 10;
 
-      // Función para validar y normalizar cantidad
+      // Función para validar cantidad
       const validateQuantity = (value) => {
         let qty = parseInt(value, 10);
-        if (isNaN(qty) || qty < 1) qty = 1;
+        if (isNaN(qty) || qty < 0) qty = 0;
         if (qty > MAX_QTY) qty = MAX_QTY;
         return qty;
       };
 
-      // Función para actualizar total y enlace WhatsApp
+      // Función para calcular total y actualizar WhatsApp
       const updateTotal = () => {
-        if (!quantity) return;
-        const qty = validateQuantity(quantity.value);
-        quantity.value = String(qty);
-        const total = (currentPrice * qty).toFixed(2);
-        if (totalSpan) totalSpan.textContent = total;
+        let total = 0;
+        const selectedItems = [];
+
+        pesoItems.forEach((item) => {
+          const qtyInput = item.querySelector('.qty-input');
+          const qty = validateQuantity(qtyInput.value);
+          
+          // Actualizar valor del input
+          qtyInput.value = String(qty);
+          
+          // Destacar items con cantidad
+          if (qty > 0) {
+            item.classList.add('has-quantity');
+            const price = parseFloat(item.getAttribute('data-price') || '0');
+            const weight = item.getAttribute('data-weight') || '';
+            total += price * qty;
+            selectedItems.push({ weight, qty, price, unitPrice: price });
+          } else {
+            item.classList.remove('has-quantity');
+          }
+        });
+
+        // Actualizar total en la UI
+        if (totalSpan) {
+          totalSpan.textContent = total.toFixed(2);
+        }
+
+        // Actualizar enlace de WhatsApp
         if (whatsappButton) {
-          const message = encodeURIComponent(`estoy interesado en comprar: ${productName}`);
-          whatsappButton.href = `https://wa.me/51987800910?text=${message}`;
+          if (selectedItems.length > 0) {
+            let message = `Hola! Estoy interesado en comprar:\n\n*${productName}*\n`;
+            selectedItems.forEach((item) => {
+              message += `• ${item.qty}x ${item.weight} - S/. ${(item.unitPrice * item.qty).toFixed(2)}\n`;
+            });
+            message += `\n*Total: S/. ${total.toFixed(2)}*`;
+            
+            whatsappButton.href = `https://wa.me/51987800910?text=${encodeURIComponent(message)}`;
+            whatsappButton.style.opacity = '1';
+            whatsappButton.style.pointerEvents = 'auto';
+          } else {
+            // Si no hay productos seleccionados, mensaje genérico
+            const message = `Hola! Estoy interesado en: ${productName}`;
+            whatsappButton.href = `https://wa.me/51987800910?text=${encodeURIComponent(message)}`;
+            whatsappButton.style.opacity = '0.6';
+            whatsappButton.style.pointerEvents = 'auto';
+          }
         }
       };
 
-      // Cambio de peso/tamaño
-      pesoButtons.forEach((button) => {
-        const handleWeightClick = () => {
-          // Remover active de todos
-          pesoButtons.forEach((btn) => btn.classList.remove('active'));
-          // Activar el seleccionado
-          button.classList.add('active');
-          
-          // Actualizar precio y peso actuales
-          const priceAttr = button.getAttribute('data-price');
-          const weightAttr = button.getAttribute('data-weight');
-          if (priceAttr) currentPrice = parseFloat(priceAttr);
-          if (weightAttr) currentWeight = weightAttr;
-          
-          updateTotal();
-        };
-        
-        button.addEventListener('click', handleWeightClick);
+      // Configurar controles de cantidad para cada tamaño
+      pesoItems.forEach((item) => {
+        const qtyInput = item.querySelector('.qty-input');
+        const decreaseBtn = item.querySelector('.decrease-size');
+        const increaseBtn = item.querySelector('.increase-size');
+
+        if (qtyInput && decreaseBtn && increaseBtn) {
+          // Configurar input
+          qtyInput.setAttribute('min', '0');
+          qtyInput.setAttribute('max', String(MAX_QTY));
+          qtyInput.setAttribute('step', '1');
+          qtyInput.readOnly = true;
+
+          // Botón disminuir
+          decreaseBtn.addEventListener('click', () => {
+            const currentQty = validateQuantity(qtyInput.value);
+            const newQty = Math.max(0, currentQty - 1);
+            qtyInput.value = String(newQty);
+            updateTotal();
+          });
+
+          // Botón aumentar
+          increaseBtn.addEventListener('click', () => {
+            const currentQty = validateQuantity(qtyInput.value);
+            const newQty = Math.min(MAX_QTY, currentQty + 1);
+            qtyInput.value = String(newQty);
+            updateTotal();
+          });
+
+          // Prevenir edición manual
+          qtyInput.addEventListener('keydown', (e) => {
+            e.preventDefault();
+            return false;
+          });
+        }
       });
 
-      // Botones de cantidad
-      const decreaseBtn = root.querySelector('#decrease');
-      const increaseBtn = root.querySelector('#increase');
-
-      if (decreaseBtn) {
-        const handleDecrease = () => {
-          if (!quantity) return;
-          const currentQty = validateQuantity(quantity.value);
-          const newQty = Math.max(1, currentQty - 1);
-          quantity.value = String(newQty);
-          updateTotal();
-        };
-        decreaseBtn.addEventListener('click', handleDecrease);
-      }
-
-      if (increaseBtn) {
-        const handleIncrease = () => {
-          if (!quantity) return;
-          const currentQty = validateQuantity(quantity.value);
-          const newQty = Math.min(MAX_QTY, currentQty + 1);
-          quantity.value = String(newQty);
-          updateTotal();
-        };
-        increaseBtn.addEventListener('click', handleIncrease);
-      }
-
-      // Bloquear tipeo y configurar atributos del input
-      if (quantity) {
-        quantity.setAttribute('min', '1');
-        quantity.setAttribute('max', String(MAX_QTY));
-        quantity.setAttribute('step', '1');
-        quantity.setAttribute('inputmode', 'none'); // móvil: no teclado
-        quantity.readOnly = true; // solo con botones +/-
-        
-        // Fix para Safari: prevenir edición manual
-        const handleKeydown = (e) => {
-          e.preventDefault();
-          return false;
-        };
-        
-        const handleInput = (e) => {
-          e.target.value = validateQuantity(e.target.value);
-          updateTotal();
-        };
-        
-        const handleBlur = () => {
-          updateTotal();
-        };
-        
-        quantity.addEventListener('keydown', handleKeydown);
-        quantity.addEventListener('input', handleInput);
-        quantity.addEventListener('blur', handleBlur);
-      }
-
-      // Inicializar cálculos
+      // Inicializar
       updateTotal();
     });
 

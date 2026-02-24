@@ -92,32 +92,52 @@ const schema = {
                 </p>
                 
                 <div class="opciones-peso">
-                    <h3>Selecciona el peso:</h3>
-                    <div class="peso-buttons">
-                        <button class="peso-option active" data-price="32.00" data-weight="250g">
-                            <span class="weight">250gr</span>
-                            <span class="price">S/. 32.00</span>
-                        </button>
-                        <button class="peso-option" data-price="60.00" data-weight="500g">
-                            <span class="weight">500gr</span>
-                            <span class="price">S/. 60.00</span>
-                        </button>
-                        <button class="peso-option" data-price="90.00" data-weight="1kg">
-                            <span class="weight">1 Kilo</span>
-                            <span class="price">S/. 90.00</span>
-                        </button>
+                    <h3>Selecciona los tamaños y cantidades:</h3>
+                    <div class="peso-options-grid">
+                        <div class="peso-item" data-price="32.00" data-weight="250g">
+                            <div class="peso-info">
+                                <span class="weight">250gr</span>
+                                <span class="price">S/. 32.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="peso-item" data-price="60.00" data-weight="500g">
+                            <div class="peso-info">
+                                <span class="weight">500gr</span>
+                                <span class="price">S/. 60.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="peso-item" data-price="90.00" data-weight="1kg">
+                            <div class="peso-info">
+                                <span class="weight">1 Kilo</span>
+                                <span class="price">S/. 90.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="acciones">
-                    <div class="cantidad">
-                        <button class="btn-qty" id="decrease">-</button>
-                        <input type="number" value="1" min="1" max="10" id="quantity" readonly inputmode="none">
-                        <button class="btn-qty" id="increase">+</button>
-                    </div>
                     <div class="total-price">
-                        <span>Total: S/. <span id="total">32.00</span></span>
+                        <span>Total: S/. <span id="total">0.00</span></span>
                     </div>
                     <a href="#" class="btn-whatsapp" id="whatsappButton">
+                        <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                    </a>
+                    <p class="price-disclaimer">*Precios referenciales, pueden variar de acuerdo a temporada y/o stock.</p>
+                </div>
                         <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
                     </a>
                 </div>

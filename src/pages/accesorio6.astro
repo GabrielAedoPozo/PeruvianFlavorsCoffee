@@ -4,61 +4,46 @@ import Layout from '../layouts/Layout.astro';
 const schema = {
   "@context": "https://schema.org/",
   "@type": "Product",
-  "name": "Café Cajamarca",
-  "sku": "CAJAMARCA-LIMITADA-001",
-  "description": "Café de edición limitada con notas intensas de higo, floral y un toque de clavo de olor. Café peruano de especialidad 100% orgánico de la región de Cajamarca-Jaén.",
+  "name": "Vasos y Tazas para Café",
+  "description": "Vasos doble fondo con asa y sin asa, resistente al calor. Ideal para acompañar tu café favorito. Capacidad 250ml y 450ml.",
   "brand": {
     "@type": "Brand",
     "name": "Peruvian Flavors Coffee"
   },
-  "image": "https://peruvianflavorscoffee.com/cajamarca.png",
+  "image": "https://peruvianflavorscoffee.com/taza.jpg",
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "PEN",
-    "lowPrice": "32.00",
-    "highPrice": "90.00",
-    "offerCount": "3",
+    "lowPrice": "35.00",
+    "highPrice": "45.00",
+    "offerCount": "2",
     "availability": "https://schema.org/InStock",
-    "url": "https://peruvianflavorscoffee.com/producto2"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.3",
-    "ratingCount": "95"
-  },
-  "producer": {
-    "@type": "Organization",
-    "name": "Productores de Cajamarca - Jaén"
+    "url": "https://peruvianflavorscoffee.com/accesorio6"
   },
   "additionalProperty": [
     {
       "@type": "PropertyValue",
-      "name": "Origen",
-      "value": "Cajamarca - Jaén"
+      "name": "Capacidad",
+      "value": "250ml y 450ml"
     },
     {
       "@type": "PropertyValue",
-      "name": "Altitud",
-      "value": "1900 m.s.n.m."
+      "name": "Material",
+      "value": "Vidrio borosilicato"
     },
     {
       "@type": "PropertyValue",
-      "name": "Proceso",
-      "value": "Lavado"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Perfil en taza",
-      "value": "Notas suaves de higo, floral, un toque de clavo de olor, dulce y cremoso"
+      "name": "Características",
+      "value": "Doble fondo, resistente al calor, con asa y sin asa"
     }
   ]
 };
 ---
 
 <Layout
-    title="Café Cajamarca | Peruvian Flavors Coffee"
-    description="Café Cajamarca de edición limitada con notas de higo, floral y un toque de clavo de olor. Origen Jaén. Compra por WhatsApp."
-    ogImage="/cajamarca.png"
+    title="Vasos y Tazas para Café | Accesorios - Peruvian Flavors Coffee"
+    description="Vasos y tazas de vidrio borosilicato doble fondo, resistente al calor. Ideal para tu café. 250ml y 450ml. Compra por WhatsApp."
+    ogImage="/taza.jpg"
 >
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <div class="producto-detalle">
@@ -70,30 +55,33 @@ const schema = {
         </div>
         <div class="producto-contenido">
             <div class="producto-imagenes">
-                <img src={`/cajamarca.png`} alt="Café Cajamarca" class="imagen-principal">
+                <img src="/taza.jpg" alt="Vaso para café 450ml" class="imagen-principal">
+                <div class="producto-galeria">
+                    <img src="/taza.jpg" alt="Vaso grande 450ml">
+                    <img src="/taza2.jpg" alt="Taza pequeña 250ml">
+                </div>
             </div>
             <div class="producto-info">
-                <h1>Café Cajamarca</h1>
+                <h1>Vasos y Tazas para Café</h1>
                 <p class="descripcion">
-                    Un café de edición limitada, con notas intensas que deleitan tu paladar.
+                    Vasos doble fondo con asa y sin asa, resistente al calor.
+                    Ideal para acompañar tu café favorito.
 
                     <div class="detalles">
-                        Origen: Cajamarca - Jaén <br>
-                        Altitud: 1900m.s.n.m.  <br>
-                        Proceso: lavado <br>
-                        Perfil en taza: notas suaves de higo, floral, un toque de clavo de olor, dulce
-                        y cremoso. <br>
-                        Puntaje: 86 pts. <br>
+                        Capacidad: 250ml y 450ml<br>
+                        Material: Vidrio borosilicato<br>
+                        Características: Doble fondo, resistente al calor<br>
+                        Disponibles con asa y sin asa
                     </div>
                 </p>
-            
+                
                 <div class="opciones-peso">
                     <h3>Selecciona los tamaños y cantidades:</h3>
                     <div class="peso-options-grid">
-                        <div class="peso-item" data-price="32.00" data-weight="250g">
+                        <div class="peso-item" data-price="35.00" data-weight="250ml">
                             <div class="peso-info">
-                                <span class="weight">250gr</span>
-                                <span class="price">S/. 32.00</span>
+                                <span class="weight">250ml</span>
+                                <span class="price">S/. 35.00</span>
                             </div>
                             <div class="cantidad-controls">
                                 <button class="btn-qty-small decrease-size" type="button">-</button>
@@ -101,21 +89,10 @@ const schema = {
                                 <button class="btn-qty-small increase-size" type="button">+</button>
                             </div>
                         </div>
-                        <div class="peso-item" data-price="60.00" data-weight="500g">
+                        <div class="peso-item" data-price="45.00" data-weight="450ml">
                             <div class="peso-info">
-                                <span class="weight">500gr</span>
-                                <span class="price">S/. 60.00</span>
-                            </div>
-                            <div class="cantidad-controls">
-                                <button class="btn-qty-small decrease-size" type="button">-</button>
-                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
-                                <button class="btn-qty-small increase-size" type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="peso-item" data-price="90.00" data-weight="1kg">
-                            <div class="peso-info">
-                                <span class="weight">1 Kilo</span>
-                                <span class="price">S/. 90.00</span>
+                                <span class="weight">450ml</span>
+                                <span class="price">S/. 45.00</span>
                             </div>
                             <div class="cantidad-controls">
                                 <button class="btn-qty-small decrease-size" type="button">-</button>
@@ -194,15 +171,15 @@ const schema = {
     .imagen-principal {
         width: 100%;
         border-radius: 20px;
-        border: 1px solid var(--color-border);
-        box-shadow: 0 10px 30px rgba(0,0,0,.25);
         background: linear-gradient(150deg,#3b241a,#2b1a13);
+        border: 1px solid var(--color-border);
         padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
     .producto-galeria {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
 
@@ -212,19 +189,12 @@ const schema = {
         border: 1px solid rgba(255,255,255,0.08);
         cursor: pointer;
         transition: transform 0.3s ease;
+        background: #281810;
+        padding: 1rem;
     }
 
     .producto-galeria img:hover {
         transform: translateY(-2px) scale(1.02);
-    }
-
-    .badge {
-        background: linear-gradient(95deg,#6f4524,#b77a41 70%);
-        color:#261409;
-        font-weight:600;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
     }
 
     h1 {
@@ -241,37 +211,22 @@ const schema = {
         color: var(--color-text-soft);
         line-height: 1.6;
         margin: 1.5rem 0;
+        font-size: .92rem;
     }
 
     .detalles {
-         background: linear-gradient(160deg,#20130d,#180e0a);
+        background: linear-gradient(160deg,#20130d,#180e0a);
+        border: 1px solid var(--color-border);
         padding: 1.5rem;
         border-radius: 15px;
-        border: 1px solid var(--color-border);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
         margin: 2rem 0;
-    }
-
-    .dots {
-        display: flex;
-        gap: 4px;
-    }
-
-    .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(197,138,75,0.22);
-    }
-
-    .dot.active {
-        background: var(--color-accent);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
     .opciones-peso {
         margin: 2rem 0;
     }
-
+    
     .opciones-peso h3 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
@@ -364,87 +319,10 @@ const schema = {
         font-weight: 600;
     }
 
-    .peso-buttons {
-        display: flex;
-        gap: .8rem;
-        flex-wrap: wrap;
-    }
-
-    .peso-option {
-        background: rgba(197,138,75,0.06);
-        border: 1px solid var(--color-border);
-        border-radius: 12px;
-        padding: .9rem .9rem;
-        color: var(--color-text-muted);
-        cursor: pointer;
-        transition: all .25s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .peso-option:hover {
-        background: rgba(197,138,75,0.15);
-        transform: translateY(-2px);
-    }
-
-    .peso-option.active {
-        background: rgba(197,138,75,0.16);
-        border-color: var(--color-accent);
-        box-shadow: 0 6px 18px rgba(240,192,64,0.15);
-        color: var(--color-text);
-    }
-
-    .peso-option .weight {
-        font-weight: 700;
-        font-size: 1.2rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .peso-option .price {
-        color: var(--color-accent);
-        font-size: 1.1rem;
-        font-weight: 600;
-    }
-
     .acciones {
         display: grid;
         gap: 1rem;
         margin-top: 1.5rem;
-    }
-
-    .cantidad {
-        display: inline-flex;
-        align-items: center;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--color-border);
-        border-radius: 999px;
-        padding: .35rem;
-        gap: .25rem;
-        width: fit-content;
-    }
-
-    .btn-qty {
-        background: none;
-        border: none;
-        color: var(--color-accent);
-        font-size: 1.2rem;
-        cursor: pointer;
-        padding: .3rem .8rem;
-        border-radius: 999px;
-    }
-
-    .btn-qty:hover {
-        background: rgba(197,138,75,0.15);
-    }
-
-    input[type="number"] {
-        width: 58px;
-        text-align: center;
-        background: transparent;
-        border: none;
-        color: #fff;
-        font-size: 1.05rem;
     }
 
     .total-price {
@@ -499,23 +377,25 @@ const schema = {
             grid-template-columns: 1fr;
             gap: 2rem;
         }
+
+        .producto-galeria {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media (max-width: 620px) {
-      .producto-galeria {
-        display:flex;
-        overflow-x:auto;
-        gap:.75rem;
-        scroll-snap-type:x mandatory;
-        padding-bottom:.4rem;
-      }
-      .producto-galeria img {
-        flex:0 0 110px;
-        scroll-snap-align:start;
-      }
-      .descripcion { font-size:.92rem; }
-      .peso-buttons { gap:.5rem; }
-      .peso-option { padding:.75rem .7rem; min-width:95px; }
+        .descripcion { font-size: .92rem; }
+        .peso-options-grid { gap: .75rem; }
+        .peso-item { 
+            padding: .85rem 1rem; 
+            flex-direction: column; 
+            gap: .75rem; 
+            align-items: flex-start; 
+        }
+        .cantidad-controls { 
+            width: 100%; 
+            justify-content: center; 
+        }
     }
 
     @media (max-width: 480px) {
@@ -527,22 +407,48 @@ const schema = {
             flex-direction: column;
         }
 
-        .cantidad {
-            width: 100%;
-            justify-content: center;
+        .btn-whatsapp {
+            max-width: 100%;
         }
 
-        .btn-comprar {
-            width: 100%;
+        .peso-item { 
+            padding: .75rem .85rem; 
+        }
+        
+        .peso-info .weight { 
+            font-size: 1.1rem; 
+        }
+        
+        .peso-info .price { 
+            font-size: .95rem; 
         }
     }
 
     @media (max-width: 360px) {
-      .producto-detalle { padding: 90px .75rem 1.5rem; }
-      .imagen-principal { padding: 1rem; }
-      .peso-option { min-width: 90px; padding: .65rem .6rem; }
-      .cantidad input[type="number"] { width: 52px; }
-      .total-price { font-size: 1rem; padding: .5rem .7rem; }
-      .btn-whatsapp { font-size: .95rem; padding: .85rem 1rem; }
+        .producto-detalle { 
+            padding: 90px .75rem 1.5rem; 
+        }
+        
+        .imagen-principal { 
+            padding: 1rem; 
+        }
+        
+        .peso-item { 
+            padding: .65rem .75rem; 
+        }
+        
+        .peso-info .weight { 
+            font-size: 1rem; 
+        }
+        
+        .qty-input { 
+            width: 40px; 
+            font-size: .95rem; 
+        }
+        
+        .total-price { 
+            font-size: 1rem; 
+            padding: .5rem .7rem; 
+        }
     }
 </style>

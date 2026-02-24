@@ -92,30 +92,46 @@ const schema = {
                 </p>
             
                 <div class="opciones-peso">
-                    <h3>Selecciona el peso:</h3>
-                    <div class="peso-buttons">
-                        <button class="peso-option active" data-price="32.00" data-weight="250g">
-                            <span class="weight">250gr</span>
-                            <span class="price">S/. 32.00</span>
-                        </button>
-                        <button class="peso-option" data-price="60.00" data-weight="500g">
-                            <span class="weight">500gr</span>
-                            <span class="price">S/. 60.00</span>
-                        </button>
-                        <button class="peso-option" data-price="90.00" data-weight="1kg">
-                            <span class="weight">1 Kilo</span>
-                            <span class="price">S/. 90.00</span>
-                        </button>
+                    <h3>Selecciona los tamaños y cantidades:</h3>
+                    <div class="peso-options-grid">
+                        <div class="peso-item" data-price="32.00" data-weight="250g">
+                            <div class="peso-info">
+                                <span class="weight">250gr</span>
+                                <span class="price">S/. 32.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="peso-item" data-price="60.00" data-weight="500g">
+                            <div class="peso-info">
+                                <span class="weight">500gr</span>
+                                <span class="price">S/. 60.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="peso-item" data-price="90.00" data-weight="1kg">
+                            <div class="peso-info">
+                                <span class="weight">1 Kilo</span>
+                                <span class="price">S/. 90.00</span>
+                            </div>
+                            <div class="cantidad-controls">
+                                <button class="btn-qty-small decrease-size" type="button">-</button>
+                                <input type="number" value="0" min="0" max="10" class="qty-input" readonly inputmode="none">
+                                <button class="btn-qty-small increase-size" type="button">+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="acciones">
-                    <div class="cantidad">
-                        <button class="btn-qty" id="decrease">-</button>
-                        <input type="number" value="1" min="1" max="10" id="quantity" readonly inputmode="none">
-                        <button class="btn-qty" id="increase">+</button>
-                    </div>
                     <div class="total-price">
-                        <span>Total: S/. <span id="total">32.00</span></span>
+                        <span>Total: S/. <span id="total">0.00</span></span>
                     </div>
                     <a href="#" class="btn-whatsapp" id="whatsappButton">
                         <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
@@ -266,6 +282,93 @@ const schema = {
         margin-bottom: 1rem;
     }
 
+    .peso-options-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .peso-item {
+        background: rgba(197,138,75,0.08);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all .25s ease;
+    }
+
+    .peso-item:hover {
+        background: rgba(197,138,75,0.12);
+        border-color: rgba(197,138,75,0.4);
+    }
+
+    .peso-item.has-quantity {
+        background: rgba(197,138,75,0.16);
+        border-color: var(--color-accent);
+        box-shadow: 0 4px 12px rgba(240,192,64,0.12);
+    }
+
+    .peso-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .peso-info .weight {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--color-text);
+    }
+
+    .peso-info .price {
+        color: var(--color-accent);
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+
+    .cantidad-controls {
+        display: flex;
+        align-items: center;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        padding: .25rem;
+        gap: .15rem;
+    }
+
+    .btn-qty-small {
+        background: none;
+        border: none;
+        color: var(--color-accent);
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: .25rem .65rem;
+        border-radius: 999px;
+        transition: background .2s ease;
+        font-weight: 600;
+    }
+
+    .btn-qty-small:hover:not(:disabled) {
+        background: rgba(197,138,75,0.15);
+    }
+
+    .btn-qty-small:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .qty-input {
+        width: 45px;
+        text-align: center;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
     .peso-buttons {
         display: flex;
         gap: .8rem;
@@ -409,14 +512,15 @@ const schema = {
         scroll-snap-align: start;
       }
       .descripcion { font-size: .92rem; }
-      .peso-buttons { gap: .5rem; }
-      .peso-option { padding: .75rem .7rem; min-width: 95px; }
+      .peso-options-grid { gap: .75rem; }
+      .peso-item { padding: .85rem 1rem; flex-direction: column; gap: .75rem; align-items: flex-start; }
+      .cantidad-controls { width: 100%; justify-content: center; }
     }
 
     @media (max-width: 420px) {
-      .peso-buttons { flex-direction: row; flex-wrap: wrap; }
-      .peso-option { flex: 1 1 calc(50% - .5rem); }
-      .cantidad { width: 100%; justify-content: center; }
+      .peso-item { padding: .75rem .85rem; }
+      .peso-info .weight { font-size: 1.1rem; }
+      .peso-info .price { font-size: .95rem; }
       .btn-whatsapp { max-width: 100%; }
     }
 
@@ -449,8 +553,9 @@ const schema = {
     @media (max-width: 360px) {
       .producto-detalle { padding: 90px .75rem 1.5rem; }
       .imagen-principal { padding: 1rem; }
-      .peso-option { min-width: 90px; padding: .65rem .6rem; }
-      .cantidad input[type="number"] { width: 52px; }
+      .peso-item { padding: .65rem .75rem; }
+      .peso-info .weight { font-size: 1rem; }
+      .qty-input { width: 40px; font-size: .95rem; }
       .total-price { font-size: 1rem; padding: .5rem .7rem; }
     }
 </style>

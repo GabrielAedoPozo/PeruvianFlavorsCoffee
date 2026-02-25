@@ -283,8 +283,96 @@ const schema = {
         margin: 2rem 0;
     }
     
-    .opciones-peso{
+    .opciones-peso h3 {
         font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .peso-options-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .peso-item {
+        background: rgba(197,138,75,0.08);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all .25s ease;
+    }
+
+    .peso-item:hover {
+        background: rgba(197,138,75,0.12);
+        border-color: rgba(197,138,75,0.4);
+    }
+
+    .peso-item.has-quantity {
+        background: rgba(197,138,75,0.16);
+        border-color: var(--color-accent);
+        box-shadow: 0 4px 12px rgba(240,192,64,0.12);
+    }
+
+    .peso-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .peso-info .weight {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--color-text);
+    }
+
+    .peso-info .price {
+        color: var(--color-accent);
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+
+    .cantidad-controls {
+        display: flex;
+        align-items: center;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        padding: .25rem;
+        gap: .15rem;
+    }
+
+    .btn-qty-small {
+        background: none;
+        border: none;
+        color: var(--color-accent);
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: .25rem .65rem;
+        border-radius: 999px;
+        transition: background .2s ease;
+        font-weight: 600;
+    }
+
+    .btn-qty-small:hover:not(:disabled) {
+        background: rgba(197,138,75,0.15);
+    }
+
+    .btn-qty-small:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .qty-input {
+        width: 45px;
+        text-align: center;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
     }
 
     .peso-buttons {
@@ -437,8 +525,16 @@ const schema = {
         scroll-snap-align:start;
       }
       .descripcion { font-size:.92rem; }
-      .peso-buttons { gap:.5rem; }
-      .peso-option { padding:.75rem .7rem; min-width:95px; }
+      .peso-options-grid { gap: .75rem; }
+      .peso-item { padding: .85rem 1rem; flex-direction: column; gap: .75rem; align-items: flex-start; }
+      .cantidad-controls { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 420px) {
+      .peso-item { padding: .75rem .85rem; }
+      .peso-info .weight { font-size: 1.1rem; }
+      .peso-info .price { font-size: .95rem; }
+      .btn-whatsapp { max-width: 100%; }
     }
 
     @media (max-width: 480px) {
@@ -463,9 +559,9 @@ const schema = {
     @media (max-width: 360px) {
       .producto-detalle { padding: 90px .75rem 1.5rem; }
       .imagen-principal { padding: 1rem; }
-      .peso-option { min-width: 90px; padding: .65rem .6rem; }
-      .cantidad input[type="number"] { width: 52px; }
+      .peso-item { padding: .65rem .75rem; }
+      .peso-info .weight { font-size: 1rem; }
+      .qty-input { width: 40px; font-size: .95rem; }
       .total-price { font-size: 1rem; padding: .5rem .7rem; }
-      .btn-whatsapp { font-size: .95rem; padding: .85rem 1rem; }
     }
 </style>

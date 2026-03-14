@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(180deg, var(--color-layer) 0%, var(--color-bg) 100%);
+  background: var(--color-bg-alt);
   padding: clamp(3rem, 8vw, 5rem) var(--padding-x);
   border-top: 1px solid var(--color-border);
   color: var(--color-text-soft);

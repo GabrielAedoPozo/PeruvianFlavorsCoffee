@@ -7,7 +7,7 @@ const schema = {
   "name": "Cómo preparar un Capuccino perfecto",
   "description": "Aprende a preparar un delicioso capuccino casero con espuma cremosa y el balance perfecto entre café, leche y espuma.",
   "image": "https://peruvianflavorscoffee.com/capuccino.png",
-  "totalTime": "PT5M",
+  "totalTime": "PT6M",
   "recipeYield": "1 taza",
   "recipeCategory": "Bebida",
   "recipeCuisine": "Italiana",
@@ -42,7 +42,7 @@ const schema = {
   
   <section class="recipe">
     <div class="back-nav">
-      <a href="/" class="back-button">
+      <a href="/#recipes" class="back-button">
         <i class="fas fa-arrow-left"></i>
         <span>Volver al inicio</span>
       </a>
@@ -60,14 +60,14 @@ const schema = {
           <i class="fas fa-clock"></i>
           <div>
             <strong>Tiempo</strong>
-            <span>5 minutos</span>
+            <span>6 minutos</span>
           </div>
         </div>
         <div class="meta-item">
           <i class="fas fa-signal"></i>
           <div>
-            <strong>Dificultad</strong>
-            <span>Media</span>
+            <strong>Nivel</strong>
+            <span>Fácil</span>
           </div>
         </div>
         <div class="meta-item">
@@ -86,21 +86,17 @@ const schema = {
         <source src="/capuccino.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
-      <div class="video-tip">
-        <i class="fas fa-lightbulb"></i>
-        <span>Mira el video completo para aprender la técnica de espumado perfecta</span>
-      </div>
     </div>
 
     <div class="recipe-content">
       <div class="recipe-section ingredients-section">
         <h2><i class="fas fa-list-ul"></i> Ingredientes y Materiales</h2>
         <ul class="ingredients-list">
-          <li><i class="fas fa-check-circle"></i> 1 shot de espresso (30ml) o café fuerte preparado</li>
-          <li><i class="fas fa-check-circle"></i> 90ml de leche entera o descremada</li>
-          <li><i class="fas fa-check-circle"></i> Espumador de leche, batidor manual o frasco</li>
-          <li><i class="fas fa-check-circle"></i> Taza de 180-240ml</li>
-          <li><i class="fas fa-check-circle"></i> Opcional: cacao en polvo o canela para decorar</li>
+          <li><i class="fas fa-check-circle"></i> Un shot de espresso (25ml)</li>
+          <li><i class="fas fa-check-circle"></i> 150ml de leche descremada o sin lactosa</li>
+          <li><i class="fas fa-check-circle"></i> Batidor de leche (manual o eléctrico)</li>
+          <li><i class="fas fa-check-circle"></i> Taza de vidrio borosilicato de 250ml</li>
+          <li><i class="fas fa-check-circle"></i> Jarra barista de acero inoxidable de 350ml</li>
         </ul>
       </div>
 
@@ -110,36 +106,43 @@ const schema = {
           <li>
             <span class="step-number">1</span>
             <div class="step-content">
-              <strong>Prepara tu café base</strong>
-              <p>Extrae un shot de espresso o prepara café fuerte. Viértelo en tu taza precalentada.</p>
+              <strong>Moler tu café en granos</strong>
+              <p>Moler tu café en granos en una moledora manual o eléctrica aprox. 15 gramos y el tipo de molienda es fina.</p>
             </div>
           </li>
           <li>
             <span class="step-number">2</span>
             <div class="step-content">
-              <strong>Calienta la leche</strong>
-              <p>Calienta la leche sin que llegue a hervir (ideal 60-65°C). Debe estar caliente al tacto pero no quemando.</p>
+              <strong>Te recomendamos el método Moka italiana</strong>
+              <p>Te recomendamos el método Moka italiana para pasar tu café recién molido.</p>
             </div>
           </li>
           <li>
             <span class="step-number">3</span>
             <div class="step-content">
-              <strong>Espuma la leche</strong>
-              <p>Usa tu espumador para crear una espuma cremosa y brillante. La textura debe ser de microespuma, no burbujas grandes.</p>
+              <strong>Calienta la leche</strong>
+              <p>Calienta la leche (150ml) en una taza en el microondas en máximo 1 minuto.</p>
             </div>
           </li>
           <li>
             <span class="step-number">4</span>
             <div class="step-content">
-              <strong>Combina café y leche</strong>
-              <p>Vierte primero la leche espumada sobre el espresso, luego agrega la espuma más densa con una cuchara.</p>
+              <strong>Vierte la leche</strong>
+              <p>Vierte la leche en la jarra barista y espuma la leche, usa tu batidor para lograrlo.</p>
             </div>
           </li>
           <li>
             <span class="step-number">5</span>
             <div class="step-content">
-              <strong>Decora y disfruta</strong>
-              <p>Espolvorea cacao en polvo o canela sobre la espuma. ¡Tu capuccino está listo!</p>
+              <strong>Vierte el espresso de la moka</strong>
+              <p>Vierte el espresso de la moka en una taza de vidrio borosilicato y luego agrega la leche y su espuma más densa con una cuchara.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">6</span>
+            <div class="step-content">
+              <strong>Opcional: espolvorea cacao</strong>
+              <p>Opcional: espolvorea cacao en polvo o canela sobre la espuma. ¡Tu capuccino está listo!</p>
             </div>
           </li>
         </ol>
@@ -165,8 +168,8 @@ const schema = {
           </div>
           <div class="tip-card">
             <i class="fas fa-coffee"></i>
-            <h3>Mejor café</h3>
-            <p>Usa café peruano de especialidad para un sabor excepcional. Nuestro Café Cusco es ideal.</p>
+            <h3>Molienda</h3>
+            <p>Te recomendamos molienda fina para espresso.</p>
           </div>
         </div>
       </div>
@@ -183,38 +186,17 @@ const schema = {
            target="_blank" rel="noopener" class="share-btn facebook">
           <i class="fab fa-facebook-f"></i> Facebook
         </a>
-        <a href="https://twitter.com/intent/tweet?text=Receta de Capuccino&url=https://peruvianflavorscoffee.com/capuccino" 
-           target="_blank" rel="noopener" class="share-btn twitter">
-          <i class="fab fa-twitter"></i> Twitter
+        <a href="https://www.instagram.com/" 
+           target="_blank" rel="noopener" class="share-btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
         </a>
       </div>
     </div>
 
-    <div class="more-recipes">
-      <h3>Más Recetas de Café</h3>
-      <div class="recipes-grid">
-        <a href="/chemex" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/chemex.png" alt="Chemex" loading="lazy">
-            <h4>Chemex</h4>
-            <p>Método pour-over elegante</p>
-          </div>
-        </a>
-        <a href="/prensa" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/prensafrancesa.png" alt="Prensa Francesa" loading="lazy">
-            <h4>Prensa Francesa</h4>
-            <p>Café de cuerpo completo</p>
-          </div>
-        </a>
-        <a href="/mango" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/mango.png" alt="Café con Mango" loading="lazy">
-            <h4>Café con Mango</h4>
-            <p>Refrescante y tropical</p>
-          </div>
-        </a>
-      </div>
+    <div class="back-to-home">
+      <a href="/#recipes" class="home-button">
+        VOLVER AL INICIO
+      </a>
     </div>
   </section>
 </Layout>
@@ -338,29 +320,11 @@ const schema = {
   .recipe-video {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #0f0a07;
+    background: #080503;
     border: 1px solid var(--color-border-strong);
     border-radius: 20px;
     display: block;
     box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
-  }
-
-  .video-tip {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    padding: 1rem 1.25rem;
-    background: rgba(197,138,75,0.08);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 8px;
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
-  }
-
-  .video-tip i {
-    color: var(--color-highlight);
-    font-size: 1.2rem;
   }
 
   .recipe-content {
@@ -414,7 +378,7 @@ const schema = {
   }
 
   .steps-section {
-    background: linear-gradient(160deg, #20130d, #180e0a);
+    background: linear-gradient(160deg, #130a06, #0e0704);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -562,70 +526,39 @@ const schema = {
     transform: translateY(-2px);
   }
 
-  .share-btn.twitter {
-    background: #1da1f2;
+  .share-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: white;
   }
 
-  .share-btn.twitter:hover {
-    background: #1a8cd8;
+  .share-btn.instagram:hover {
+    opacity: 0.9;
     transform: translateY(-2px);
   }
 
-  .more-recipes {
-    margin-top: 4rem;
-  }
-
-  .more-recipes h3 {
-    color: var(--color-text);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  .back-to-home {
     text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  .recipes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .recipe-card-link {
+  .home-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, #c58a4b, #d4a574);
+    color: #27160c;
+    font-weight: 700;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: inherit;
-  }
-
-  .recipe-card {
-    background: linear-gradient(160deg, #271a14, #1f120e);
-    padding: 1.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
-    text-align: center;
-  }
-
-  .recipe-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-accent-fade);
-    box-shadow: 0 15px 40px rgba(197,138,75,0.2);
-  }
-
-  .recipe-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
     border-radius: 12px;
-    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
   }
 
-  .recipe-card h4 {
-    color: var(--color-text);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .recipe-card p {
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
+  .home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(197,138,75,0.4);
   }
 
   @media (max-width: 768px) {
@@ -658,10 +591,6 @@ const schema = {
 
     .share-btn {
       justify-content: center;
-    }
-
-    .recipes-grid {
-      grid-template-columns: 1fr;
     }
   }
 

@@ -141,9 +141,7 @@ body {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background:
-      radial-gradient(1100px 700px at 12% 10%, rgba(197,138,75,0.10), transparent 65%),
-      linear-gradient(to bottom, var(--color-bg) 0%, var(--color-layer) 100%);
+  background: var(--section-primary);
 }
 
 /* Asegurar que el contenido quede encima del fondo animado */
@@ -341,9 +339,7 @@ body {
 
 #about {
     min-height: auto;
-  background:
-    radial-gradient(900px 600px at 12% 10%, rgba(197,138,75,0.08), transparent 65%),
-    linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-layer) 100%);
+  background: var(--section-secondary);
     padding: 2rem;
     margin-top: 0;
     position: relative;
@@ -444,9 +440,7 @@ body {
 
 #blog {
   min-height: 60vh;
-  background:
-    radial-gradient(900px 600px at 12% 10%, rgba(197,138,75,0.07), transparent 65%),
-    linear-gradient(to bottom, var(--color-layer) 0%, var(--color-bg) 100%);
+  background: var(--section-primary);
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
@@ -552,9 +546,7 @@ body {
 /* Restaurar estilos originales de Testimonios */
 #testimonials {
     min-height: 60vh;
-  background:
-    radial-gradient(900px 600px at 12% 10%, rgba(197,138,75,0.06), transparent 65%),
-    linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-bg-alt) 100%);
+  background: var(--section-secondary);
     padding: 2rem;
     margin-top: 0;
     position: relative;
@@ -739,9 +731,7 @@ body {
 #contact {
   position: relative;
   padding: clamp(4.5rem,8vw,6rem) clamp(1.5rem,4vw,2.5rem);
-  background:
-    radial-gradient(900px 600px at 12% 10%,rgba(197,138,75,0.10),transparent 65%),
-    linear-gradient(150deg,var(--color-bg-alt) 0%,var(--color-layer) 55%,var(--color-layer-soft) 100%);
+  background: var(--section-primary);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1198,9 +1188,7 @@ body {
   display: block;
   border-radius: 16px;
   box-shadow: 0 18px 40px -10px rgba(0,0,0,.55), 0 4px 14px rgba(0,0,0,.4);
-  background: #211510;
-  position: relative;
-  z-index: 1;
+  background: #130b07;
 }
 
 /* Estilos para las descripciones de eventos */
@@ -1682,9 +1670,7 @@ body {
 
 #recipes {
   padding: 6rem var(--padding-x);
-  background:
-    radial-gradient(900px 600px at 12% 10%, rgba(197,138,75,0.08), transparent 65%),
-    linear-gradient(to bottom, var(--color-bg-alt) 0%, var(--color-layer) 100%);
+  background: var(--section-secondary);
   display: flex;
   flex-direction: column;    /* apila título y video */
   align-items: center;
@@ -1706,8 +1692,7 @@ body {
 .recipes-video {
   border-radius: 16px;
   overflow: hidden;
-  background: #211510;
-  box-shadow: 0 18px 40px -10px rgba(0,0,0,.55), 0 4px 14px rgba(0,0,0,.4);
+  background: #130b07;
 }
 
 .recipe-player {

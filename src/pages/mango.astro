@@ -20,7 +20,7 @@ const schema = {
   
   <section class="recipe">
     <div class="back-nav">
-      <a href="/" class="back-button">
+      <a href="/#recipes" class="back-button">
         <i class="fas fa-arrow-left"></i>
         <span>Volver al inicio</span>
       </a>
@@ -44,8 +44,8 @@ const schema = {
         <div class="meta-item">
           <i class="fas fa-signal"></i>
           <div>
-            <strong>Dificultad</strong>
-            <span>Fácil</span>
+            <strong>Nivel</strong>
+            <span>Intermedio</span>
           </div>
         </div>
         <div class="meta-item">
@@ -64,23 +64,17 @@ const schema = {
         <source src="/receta1.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
-      <div class="video-tip">
-        <i class="fas fa-lightbulb"></i>
-        <span>Usa mango bien maduro para un sabor más dulce y natural</span>
-      </div>
     </div>
 
     <div class="recipe-content">
       <div class="recipe-section ingredients-section">
         <h2><i class="fas fa-list-ul"></i> Ingredientes y Materiales</h2>
         <ul class="ingredients-list">
-          <li><i class="fas fa-check-circle"></i> 1 taza de café preparado fuerte (frío o temperatura ambiente)</li>
-          <li><i class="fas fa-check-circle"></i> 1 mango maduro pelado y cortado</li>
-          <li><i class="fas fa-check-circle"></i> 1/2 taza de leche (puede ser leche de almendras o coco)</li>
-          <li><i class="fas fa-check-circle"></i> 2-3 cucharadas de azúcar o miel al gusto</li>
-          <li><i class="fas fa-check-circle"></i> Hielo al gusto</li>
-          <li><i class="fas fa-check-circle"></i> Licuadora</li>
-          <li><i class="fas fa-check-circle"></i> Opcional: hojas de menta para decorar</li>
+          <li><i class="fas fa-check-circle"></i> 70ml de cold brew obtenidos de (50ml de café + 500ml de agua)</li>
+          <li><i class="fas fa-check-circle"></i> 70ml de concentrado de mango</li>
+          <li><i class="fas fa-check-circle"></i> 70ml de agua de flor de Jamaica</li>
+          <li><i class="fas fa-check-circle"></i> 10 cubos de hielo en base a cold brew</li>
+          <li><i class="fas fa-check-circle"></i> Agua con gas al gusto</li>
         </ul>
       </div>
 
@@ -91,42 +85,21 @@ const schema = {
             <span class="step-number">1</span>
             <div class="step-content">
               <strong>Prepara el café</strong>
-              <p>Prepara 1 taza de café fuerte con tu método favorito. Déjalo enfriar a temperatura ambiente o refrigéralo.</p>
+              <p>Prepara el café con 50ml de café en molienda gruesa para prensa francesa y 500ml de agua, ratio 1:10 y dejárlo en la refrigeradora por 16 horas, sin bajar el émbolo, hasta que finalice el tiempo.</p>
             </div>
           </li>
           <li>
             <span class="step-number">2</span>
             <div class="step-content">
               <strong>Prepara el mango</strong>
-              <p>Pela el mango maduro y córtalo en cubos. Reserva algunos trozos para decorar si lo deseas.</p>
+              <p>Pela el mango maduro y lícua la cantidad sugerida 70ml</p>
             </div>
           </li>
           <li>
             <span class="step-number">3</span>
             <div class="step-content">
-              <strong>Licúa los ingredientes</strong>
-              <p>En la licuadora, agrega el café frío, los cubos de mango, la leche, el endulzante y el hielo.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">4</span>
-            <div class="step-content">
-              <strong>Procesa hasta suavizar</strong>
-              <p>Licúa a velocidad alta durante 30-45 segundos hasta obtener una mezcla suave y cremosa.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">5</span>
-            <div class="step-content">
-              <strong>Verifica la consistencia</strong>
-              <p>Prueba y ajusta el dulzor si es necesario. Si está muy espeso, agrega más leche; si muy líquido, más hielo.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">6</span>
-            <div class="step-content">
-              <strong>Sirve y decora</strong>
-              <p>Vierte en vasos altos. Decora con cubos de mango fresco y hojas de menta. ¡Disfruta inmediatamente!</p>
+              <strong>Verter en un vaso</strong>
+              <p>Verter en un vaso de vidrio borosilicato de 450ml el café (70ml de cold brew), agregar el concentrado de mango, los hielos al gusto y completar con agua con gas.</p>
             </div>
           </li>
         </ol>
@@ -138,12 +111,12 @@ const schema = {
           <div class="tip-card">
             <i class="fas fa-seedling"></i>
             <h3>Mango maduro</h3>
-            <p>Usa mangos bien maduros y dulces. El mango Kent o Ataulfo son ideales por su cremosidad.</p>
+            <p>Te recomendamos un mango dulce como el Kent.</p>
           </div>
           <div class="tip-card">
             <i class="fas fa-snowflake"></i>
-            <h3>Café frío previo</h3>
-            <p>Prepara el café con anticipación y refrigéralo. Esto evita que el hielo diluya la bebida.</p>
+            <h3>Cold brew</h3>
+            <p>No te olvides de dejar tu café preparado en la prensa francesa por 16 horas en el refrigerador, sin bajar el émbolo hasta cumplir el tiempo transcurrido.</p>
           </div>
           <div class="tip-card">
             <i class="fas fa-leaf"></i>
@@ -173,13 +146,13 @@ const schema = {
           </div>
           <div class="benefit-item">
             <i class="fas fa-sun"></i>
-            <h4>Vitamina C</h4>
-            <p>El mango aporta vitamina C y betacaroteno</p>
+            <h4>Vitaminas</h4>
+            <p>Vitaminas A, C, E, K. Potencia el sistema inmune, ayuda la salud visual y contribuye a la coagulación sanguínea y salud ósea.</p>
           </div>
           <div class="benefit-item">
             <i class="fas fa-smile"></i>
-            <h4>Refrescante</h4>
-            <p>Perfecta para días calurosos de verano</p>
+            <h4>Digestión</h4>
+            <p>Adicionalmente por su alto contenido de fibra y agua ayuda a combatir el estreñimiento y mejora la microbiota intestinal.</p>
           </div>
         </div>
       </div>
@@ -196,38 +169,17 @@ const schema = {
            target="_blank" rel="noopener" class="share-btn facebook">
           <i class="fab fa-facebook-f"></i> Facebook
         </a>
-        <a href="https://twitter.com/intent/tweet?text=Café con Mango&url=https://peruvianflavorscoffee.com/mango" 
-           target="_blank" rel="noopener" class="share-btn twitter">
-          <i class="fab fa-twitter"></i> Twitter
+        <a href="https://www.instagram.com/" 
+           target="_blank" rel="noopener" class="share-btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
         </a>
       </div>
     </div>
 
-    <div class="more-recipes">
-      <h3>Más Recetas de Café</h3>
-      <div class="recipes-grid">
-        <a href="/capuccino" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/capuccino.png" alt="Capuccino" loading="lazy">
-            <h4>Capuccino</h4>
-            <p>Clásico italiano cremoso</p>
-          </div>
-        </a>
-        <a href="/chemex" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/chemex.png" alt="Chemex" loading="lazy">
-            <h4>Chemex</h4>
-            <p>Método pour-over elegante</p>
-          </div>
-        </a>
-        <a href="/prensa" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/prensafrancesa.png" alt="Prensa Francesa" loading="lazy">
-            <h4>Prensa Francesa</h4>
-            <p>Café de cuerpo completo</p>
-          </div>
-        </a>
-      </div>
+    <div class="back-to-home">
+      <a href="/#recipes" class="home-button">
+        VOLVER AL INICIO
+      </a>
     </div>
   </section>
 </Layout>
@@ -351,29 +303,11 @@ const schema = {
   .recipe-video {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #0f0a07;
+    background: #080503;
     border: 1px solid var(--color-border-strong);
     border-radius: 20px;
     display: block;
     box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
-  }
-
-  .video-tip {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    padding: 1rem 1.25rem;
-    background: rgba(197,138,75,0.08);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 8px;
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
-  }
-
-  .video-tip i {
-    color: var(--color-highlight);
-    font-size: 1.2rem;
   }
 
   .recipe-content {
@@ -427,7 +361,7 @@ const schema = {
   }
 
   .steps-section {
-    background: linear-gradient(160deg, #20130d, #180e0a);
+    background: linear-gradient(160deg, #130a06, #0e0704);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -614,70 +548,39 @@ const schema = {
     transform: translateY(-2px);
   }
 
-  .share-btn.twitter {
-    background: #1da1f2;
+  .share-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: white;
   }
 
-  .share-btn.twitter:hover {
-    background: #1a8cd8;
+  .share-btn.instagram:hover {
+    opacity: 0.9;
     transform: translateY(-2px);
   }
 
-  .more-recipes {
-    margin-top: 4rem;
-  }
-
-  .more-recipes h3 {
-    color: var(--color-text);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  .back-to-home {
     text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  .recipes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .recipe-card-link {
+  .home-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, #c58a4b, #d4a574);
+    color: #27160c;
+    font-weight: 700;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: inherit;
-  }
-
-  .recipe-card {
-    background: linear-gradient(160deg, #271a14, #1f120e);
-    padding: 1.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
-    text-align: center;
-  }
-
-  .recipe-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-accent-fade);
-    box-shadow: 0 15px 40px rgba(197,138,75,0.2);
-  }
-
-  .recipe-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
     border-radius: 12px;
-    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
   }
 
-  .recipe-card h4 {
-    color: var(--color-text);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .recipe-card p {
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
+  .home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(197,138,75,0.4);
   }
 
   @media (max-width: 768px) {
@@ -711,10 +614,6 @@ const schema = {
 
     .share-btn {
       justify-content: center;
-    }
-
-    .recipes-grid {
-      grid-template-columns: 1fr;
     }
   }
 

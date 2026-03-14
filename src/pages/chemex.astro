@@ -4,39 +4,33 @@ import Layout from '../layouts/Layout.astro';
 const schema = {
   "@context": "https://schema.org/",
   "@type": "HowTo",
-  "name": "Cómo preparar café con Chemex",
-  "description": "Aprende el método pour-over con Chemex para extraer un café limpio, brillante y lleno de matices. Técnica profesional paso a paso.",
-  "image": "https://peruvianflavorscoffee.com/chemex.png",
-  "totalTime": "PT8M",
-  "recipeYield": "2-3 tazas",
-  "video": {
-    "@type": "VideoObject",
-    "name": "Tutorial Chemex",
-    "thumbnailUrl": "https://peruvianflavorscoffee.com/chemex.png",
-    "contentUrl": "https://peruvianflavorscoffee.com/chemex.mp4"
-  }
+  "name": "Cómo preparar Moccacino",
+  "description": "Bebida de café con chocolate, leche fresca batida y café preparado en prensa francesa. Una delicia cremosa y reconfortante.",
+  "image": "https://peruvianflavorscoffee.com/moccacino.png",
+  "totalTime": "PT15M",
+  "recipeYield": "1 vaso"
 };
 ---
 <Layout
-  title="Receta Chemex - Método Pour Over | Peruvian Flavors Coffee"
-  description="Domina la técnica Chemex con nuestra guía completa. Aprende a preparar un café limpio, aromático y lleno de sabor."
-  ogImage="/chemex.png"
+  title="Receta Moccacino | Peruvian Flavors Coffee"
+  description="Prepara un delicioso moccacino con café de prensa francesa, chocolate y leche batida. Cremoso y reconfortante."
+  ogImage="/moccacino.png"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   
   <section class="recipe">
     <div class="back-nav">
-      <a href="/" class="back-button">
+      <a href="/#recipes" class="back-button">
         <i class="fas fa-arrow-left"></i>
         <span>Volver al inicio</span>
       </a>
     </div>
 
     <div class="recipe-header">
-      <h1>Café con Chemex</h1>
+      <h1>Moccacino</h1>
       <p class="recipe-intro">
-        El Chemex es un método de extracción manual que produce un café excepcionalmente limpio y aromático. 
-        Su diseño icónico y filtros especiales permiten destacar los sabores más delicados de nuestro café peruano de especialidad.
+        Una bebida de café indulgente que combina la riqueza del chocolate con café preparado en prensa francesa aprox 14 gramos de café y 200ml.
+        El café debe ser en molienda gruesa.
       </p>
       
       <div class="recipe-meta">
@@ -44,21 +38,21 @@ const schema = {
           <i class="fas fa-clock"></i>
           <div>
             <strong>Tiempo</strong>
-            <span>8 minutos</span>
+            <span>15 minutos</span>
           </div>
         </div>
         <div class="meta-item">
           <i class="fas fa-signal"></i>
           <div>
-            <strong>Dificultad</strong>
-            <span>Media-Alta</span>
+            <strong>Nivel</strong>
+            <span>Intermedio</span>
           </div>
         </div>
         <div class="meta-item">
           <i class="fas fa-mug-hot"></i>
           <div>
             <strong>Porciones</strong>
-            <span>2-3 tazas</span>
+            <span>1 vaso</span>
           </div>
         </div>
       </div>
@@ -66,26 +60,19 @@ const schema = {
 
     <div class="recipe-video-section">
       <h2><i class="fas fa-play-circle"></i> Video Tutorial</h2>
-      <video class="recipe-video" controls playsinline preload="metadata" poster="/chemex.png">
-        <source src="/chemex.mp4" type="video/mp4">
+      <video class="recipe-video" controls playsinline preload="metadata" poster="/moccacino.png">
+        <source src="/moccacino.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
-      <div class="video-tip">
-        <i class="fas fa-lightbulb"></i>
-        <span>Observa cuidadosamente la técnica de vertido para obtener los mejores resultados</span>
-      </div>
     </div>
 
     <div class="recipe-content">
       <div class="recipe-section ingredients-section">
         <h2><i class="fas fa-list-ul"></i> Ingredientes y Materiales</h2>
         <ul class="ingredients-list">
-          <li><i class="fas fa-check-circle"></i> Chemex de 6 u 8 tazas</li>
-          <li><i class="fas fa-check-circle"></i> Filtros Chemex específicos</li>
-          <li><i class="fas fa-check-circle"></i> 30-40g de café molido medio-grueso</li>
-          <li><i class="fas fa-check-circle"></i> 500ml de agua filtrada (93-96°C)</li>
-          <li><i class="fas fa-check-circle"></i> Tetera con pico de cisne</li>
-          <li><i class="fas fa-check-circle"></i> Balanza digital (opcional)</li>
+          <li><i class="fas fa-check-circle"></i> 200ml de café preparado en prensa francesa</li>
+          <li><i class="fas fa-check-circle"></i> 300ml de leche fresca batida</li>
+          <li><i class="fas fa-check-circle"></i> 4 tabletas de chocolate</li>
         </ul>
       </div>
 
@@ -95,43 +82,43 @@ const schema = {
           <li>
             <span class="step-number">1</span>
             <div class="step-content">
-              <strong>Prepara el filtro</strong>
-              <p>Coloca el filtro Chemex con la parte triple hacia el pico. Forma un cono con 3 capas en un lado.</p>
+              <strong>Preparar el café en prensa francesa</strong>
+              <p>Preparar el café en prensa francesa. aprox 14 gramos de café y 200ml. El café debe ser en molienda gruesa.</p>
             </div>
           </li>
           <li>
             <span class="step-number">2</span>
             <div class="step-content">
-              <strong>Enjuaga el filtro</strong>
-              <p>Vierte agua caliente sobre el filtro para eliminar el sabor a papel y precalentar. Descarta el agua.</p>
+              <strong>Echar los chocolates</strong>
+              <p>Echar los chocolates en un vaso de vidrio borosilicato de 450ml.</p>
             </div>
           </li>
           <li>
             <span class="step-number">3</span>
             <div class="step-content">
-              <strong>Agrega el café</strong>
-              <p>Coloca 30-40g de café molido medio-grueso en el filtro. Nivela suavemente la cama de café.</p>
+              <strong>Verter el café al vaso</strong>
+              <p>Verter el café al vaso.</p>
             </div>
           </li>
           <li>
             <span class="step-number">4</span>
             <div class="step-content">
-              <strong>Primera vertida (Bloom)</strong>
-              <p>Vierte 60-80ml de agua en círculos. Espera 30-45 segundos mientras el café "florece".</p>
+              <strong>La leche batirla</strong>
+              <p>La leche batirla en una jarra barista y con batidor manual.</p>
             </div>
           </li>
           <li>
             <span class="step-number">5</span>
             <div class="step-content">
-              <strong>Vertido principal</strong>
-              <p>Vierte el agua restante en movimientos circulares lentos desde el centro hacia afuera.</p>
+              <strong>Finalmente echar la leche</strong>
+              <p>Finalmente echar la leche y mezclar con el café y echar la espuma que queda encima.</p>
             </div>
           </li>
           <li>
             <span class="step-number">6</span>
             <div class="step-content">
-              <strong>Tiempo total</strong>
-              <p>3:30-4:30 minutos de extracción total. Retira el filtro y sirve inmediatamente.</p>
+              <strong>Opcional: agregar chocolate</strong>
+              <p>Opcional: agregar chocolate rallado o canela al gusto.</p>
             </div>
           </li>
         </ol>
@@ -142,32 +129,41 @@ const schema = {
         <div class="tips-grid">
           <div class="tip-card">
             <i class="fas fa-balance-scale"></i>
-            <h3>Ratio perfecto</h3>
-            <p>Usa proporción 1:15 o 1:16. Ejemplo: 30g café con 450-480ml agua.</p>
+            <h3>Ratio ideal</h3>
+            <p>Para la prensa francesa 1:15 aprox 14 grs de café o 2 cucharas soperas con 200ml de agua.</p>
           </div>
           <div class="tip-card">
             <i class="fas fa-tachometer-alt"></i>
             <h3>Molienda correcta</h3>
-            <p>Textura medio-gruesa, similar a sal marina. Ni muy fina ni muy gruesa.</p>
-          </div>
-          <div class="tip-card">
-            <i class="fas fa-water"></i>
-            <h3>Control del vertido</h3>
-            <p>Vierte lentamente en espiral desde el centro. Flujo constante como un fino hilo.</p>
+            <p>Molienda gruesa para un buen filtrado en prensa francesa.</p>
           </div>
           <div class="tip-card">
             <i class="fas fa-leaf"></i>
+            <h3>Chocolate orgánico</h3>
+            <p>Recomendamos un chocolate 70% cacao o más y que sea orgánico.</p>
+          </div>
+          <div class="tip-card">
+            <i class="fas fa-coffee"></i>
             <h3>Café de calidad</h3>
-            <p>El Chemex resalta notas delicadas. Ideal para cafés con perfiles florales.</p>
+            <p>Un café ideal para esta receta es nuestra estrella de Cajamarca, en edición limitada con notas suaves a jugo y pasas, una delicia al paladar.</p>
           </div>
         </div>
+      </div>
+
+      <div class="recipe-section ponche-section">
+        <h2><i class="fas fa-mug-hot"></i> Ponche de Café</h2>
+        <p>También te puede interesar:</p>
+        <a href="https://drive.google.com/file/d/16hxPRf4qoY0OhRvttMOrZP6BrR1yJyF/view?usp=drive_link" 
+           target="_blank" rel="noopener" class="ponche-link">
+          <i class="fas fa-external-link-alt"></i> Ver receta de Ponche de Café
+        </a>
       </div>
     </div>
 
     <div class="recipe-share">
       <h3>Comparte esta receta</h3>
       <div class="share-buttons">
-        <a href="https://wa.me/?text=Mira esta receta de Chemex: https://peruvianflavorscoffee.com/chemex" 
+        <a href="https://wa.me/?text=Mira esta receta de Moccacino: https://peruvianflavorscoffee.com/chemex" 
            target="_blank" rel="noopener" class="share-btn whatsapp">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
@@ -175,38 +171,17 @@ const schema = {
            target="_blank" rel="noopener" class="share-btn facebook">
           <i class="fab fa-facebook-f"></i> Facebook
         </a>
-        <a href="https://twitter.com/intent/tweet?text=Receta Chemex&url=https://peruvianflavorscoffee.com/chemex" 
-           target="_blank" rel="noopener" class="share-btn twitter">
-          <i class="fab fa-twitter"></i> Twitter
+        <a href="https://www.instagram.com/" 
+           target="_blank" rel="noopener" class="share-btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
         </a>
       </div>
     </div>
 
-    <div class="more-recipes">
-      <h3>Más Recetas de Café</h3>
-      <div class="recipes-grid">
-        <a href="/capuccino" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/capuccino.png" alt="Capuccino" loading="lazy">
-            <h4>Capuccino</h4>
-            <p>Clásico italiano cremoso</p>
-          </div>
-        </a>
-        <a href="/prensa" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/prensafrancesa.png" alt="Prensa Francesa" loading="lazy">
-            <h4>Prensa Francesa</h4>
-            <p>Café de cuerpo completo</p>
-          </div>
-        </a>
-        <a href="/mango" class="recipe-card-link">
-          <div class="recipe-card">
-            <img src="/mango.png" alt="Café con Mango" loading="lazy">
-            <h4>Café con Mango</h4>
-            <p>Refrescante y tropical</p>
-          </div>
-        </a>
-      </div>
+    <div class="back-to-home">
+      <a href="/#recipes" class="home-button">
+        VOLVER AL INICIO
+      </a>
     </div>
   </section>
 </Layout>
@@ -330,29 +305,11 @@ const schema = {
   .recipe-video {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #0f0a07;
+    background: #080503;
     border: 1px solid var(--color-border-strong);
     border-radius: 20px;
     display: block;
     box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7);
-  }
-
-  .video-tip {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    padding: 1rem 1.25rem;
-    background: rgba(197,138,75,0.08);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 8px;
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
-  }
-
-  .video-tip i {
-    color: var(--color-highlight);
-    font-size: 1.2rem;
   }
 
   .recipe-content {
@@ -406,7 +363,7 @@ const schema = {
   }
 
   .steps-section {
-    background: linear-gradient(160deg, #20130d, #180e0a);
+    background: linear-gradient(160deg, #130a06, #0e0704);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -554,70 +511,70 @@ const schema = {
     transform: translateY(-2px);
   }
 
-  .share-btn.twitter {
-    background: #1da1f2;
+  .share-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: white;
   }
 
-  .share-btn.twitter:hover {
-    background: #1a8cd8;
+  .share-btn.instagram:hover {
+    opacity: 0.9;
     transform: translateY(-2px);
   }
 
-  .more-recipes {
-    margin-top: 4rem;
-  }
-
-  .more-recipes h3 {
-    color: var(--color-text);
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .recipes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .recipe-card-link {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .recipe-card {
-    background: linear-gradient(160deg, #271a14, #1f120e);
-    padding: 1.5rem;
+  .ponche-section {
+    background: linear-gradient(135deg, rgba(197,138,75,0.08), rgba(197,138,75,0.03));
+    padding: 2rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
     text-align: center;
   }
 
-  .recipe-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-accent-fade);
-    box-shadow: 0 15px 40px rgba(197,138,75,0.2);
-  }
-
-  .recipe-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
+  .ponche-section p {
+    color: var(--color-text-soft);
     margin-bottom: 1rem;
   }
 
-  .recipe-card h4 {
-    color: var(--color-text);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+  .ponche-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, #c58a4b, #d4a574);
+    color: #27160c;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
-  .recipe-card p {
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
+  .ponche-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197,138,75,0.3);
+  }
+
+  .back-to-home {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .home-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, #c58a4b, #d4a574);
+    color: #27160c;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(197,138,75,0.4);
   }
 
   @media (max-width: 768px) {
@@ -650,10 +607,6 @@ const schema = {
 
     .share-btn {
       justify-content: center;
-    }
-
-    .recipes-grid {
-      grid-template-columns: 1fr;
     }
   }
 

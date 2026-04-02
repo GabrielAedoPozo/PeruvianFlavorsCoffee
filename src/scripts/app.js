@@ -638,6 +638,63 @@ if (window.__appScriptInitialized) {
       window.addEventListener('beforeunload', stop);
     }
 
+    // 10) Compartir recetas en Facebook e Instagram
+    const recipeShare = document.querySelector('.recipe-share');
+    if (recipeShare) {
+      const recipeUrl = window.location.href;
+
+      const facebookButtons = recipeShare.querySelectorAll('.share-btn.facebook');
+      facebookButtons.forEach((btn) => {
+        const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(recipeUrl)}`;
+        btn.setAttribute('href', shareUrl);
+
+        btn.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.open(shareUrl, 'facebook-share-dialog', 'width=626,height=436');
+        });
+      });
+
+      const instagramButtons = recipeShare.querySelectorAll('.share-btn.instagram');
+      instagramButtons.forEach((btn) => {
+        btn.setAttribute('href', 'https://www.instagram.com/');
+
+        btn.addEventListener('click', async (event) => {
+          event.preventDefault();
+
+          let copied = false;
+          try {
+            if (navigator.clipboard?.writeText) {
+              await navigator.clipboard.writeText(recipeUrl);
+              copied = true;
+            }
+          } catch (_error) {
+            copied = false;
+          }
+
+          if (!copied) {
+            const tempInput = document.createElement('input');
+            tempInput.value = recipeUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+              copied = document.execCommand('copy');
+            } catch (_error) {
+              copied = false;
+            }
+            document.body.removeChild(tempInput);
+          }
+
+          if (copied) {
+            alert('Enlace copiado. Pegalo en tu historia, chat o biografia de Instagram.');
+          } else {
+            alert('No se pudo copiar el enlace automaticamente. Copialo manualmente desde la barra del navegador.');
+          }
+
+          window.open('https://www.instagram.com/', '_blank', 'noopener');
+        });
+      });
+    }
+
     // Limpieza general al salir
     console.log('✅ app.js inicializado correctamente (una sola vez)');
   });
